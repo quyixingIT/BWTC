@@ -183,12 +183,45 @@
                         </div>
                     </div>
                 </div>
-                <div id="nenghao" class="nenghao"></div>
+            <!--实时能耗-->
+                <div id="nenghao" class="nenghao">
+                    <div class="NH_1">
+                        <div class="NH_1_a" id="NH_1_a"></div>
+                        <div class="NH_1_b" id="NH_1_b"></div>
+                    </div>
+                    <div class="NH_2">
+                        <div class="NH_2_a"></div>
+                        <div class="NH_2_b"></div>
+                    </div>
+                </div>
         </div>
         <div class="content"style="margin-top: 0px">
+            <div id="zhibiao" class="zhibiao">
+                <div class="ZB_1">
+                    <div class="ZB_1_a"></div>
+                    <div class="ZB_1_b"></div>
+                    <div class="ZB_1_c"></div>
+                </div>
+                <div class="ZB_2">
+                    <div class="ZB_2_a"></div>
+                    <div class="ZB_2_b"></div>
+                    <div class="ZB_2_c"></div>
 
-            <div id="zhibiao" class="zhibiao"></div>
-            <div id="touyonglv" class="touyonglv"></div>
+                </div>
+            </div>
+            <div id="touyonglv" class="touyonglv">
+                <div class="TYL_1">
+                    <div class="TYL_1_a"></div>
+                    <div class="TYL_1_b"></div>
+                    <div class="TYL_1_c"></div>
+                </div>
+                <div class="TYL_2">
+                    <div class="TYL_2_a"></div>
+                    <div class="TYL_2_b"></div>
+                    <div class="TYL_2_c"></div>
+
+                </div>
+            </div>
 
 
         </div>
@@ -223,7 +256,8 @@
             // document.getElementById("touyonglv").setAttribute('height',(this.screenWidth-200)/2);
            this. Echarts1();
            this.Echarts11();
-           //this.Echarts6();
+           this.Echarts2();
+           this.Echarts18();
             this.table1Scroll();
             this.circleChange();
         },
@@ -470,12 +504,12 @@ Echarts1:function () {
         myChart.setOption(option, true);
     }
 },
+            //实时能耗
 Echarts2:function () {
-    //实时能耗
-    var dom = document.getElementById("u24");
-    var myChart = echarts.init(dom);
+    var dom = document.getElementById("NH_1_a");
+    var myChart = $echarts.init(dom);
     var app = {};
-    option = null;
+   var option = null;
     var data = [
         [
             ['S40', 22],
@@ -2393,6 +2427,103 @@ Echarts2:function () {
 
 
             },
+            //单耗雷达图
+            Echarts18:function(){
+                //////单耗雷达图
+                var dom = document.getElementById("NH_1_b");
+                var myChart = $echarts.init(dom);
+                var app = {};
+               var option = null;
+                var dataBJ = [
+                    [186, 142, 192, 3.88, 93, 79, 18]
+                ];
+                var lineStyle = {
+                    normal: {
+                        width: 1,
+                        opacity: 0.5
+                    }
+                };
+
+                option = {
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    title: {
+                        text: '',
+                        left: 'center',
+                        textStyle: {
+                            color: '#eee'
+                        }
+                    },
+                    legend: {
+                        bottom: 5,
+                        itemGap: 20,
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 14
+                        },
+                        selectedMode: 'single'
+                    },
+                    radar: {
+                        nameGap: 2,
+                        indicator: [
+                            {name: 'S40', max: 300},
+                            {name: 'S3', max: 250},
+                            {name: 'S16', max: 300},
+                            {name: '氢气', max: 5},
+                            {name: '煤气', max: 200},
+                            {name: '氮气', max: 100}
+                        ],
+                        center: ['50%', '58%'],
+                        radius: 55,
+                        shape: 'circle',
+                        splitNumber: 4,
+                        name: {
+                            textStyle: {
+                                color: 'rgb(238, 197, 102)'
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: [
+                                    'rgba(238, 197, 102, 0.5)', 'rgba(238, 197, 102, 0.5)',
+                                    'rgba(238, 197, 102, 0.5)', 'rgba(238, 197, 102, 0.5)',
+                                    'rgba(238, 197, 102, 0.5)', 'rgba(238, 197, 102, 0.5)'
+                                ].reverse()
+                            }
+                        },
+                        splitArea: {
+                            show: false
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'rgba(238, 197, 102, 0.5)'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '',
+                            type: 'radar',
+                            lineStyle: lineStyle,
+                            data: dataBJ,
+                            symbol: 'none',
+                            itemStyle: {
+                                normal: {
+                                    //F9713C
+                                    color: '#f9933e'
+                                }
+                            },
+                            areaStyle: {
+                                normal: {
+                                    opacity: 0.1
+                                }
+                            }
+                        }
+                    ]
+                };
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+            },
             //第一张表格滚动
             table1Scroll:function () {
                 var parent = document.getElementById('parentCP');
@@ -2410,17 +2541,19 @@ Echarts2:function () {
             //圆形自适应屏幕
             circleChange:function () {
             var width= document.getElementById('fh1_b2_a').offsetWidth;
-            console.log(width);
+            //console.log(width);
                 var height= document.getElementById('fh1_b2_a').offsetHeight;
-                console.log(height);
+                //console.log(height);
                 if(width>height){
                     // debugger;
-                    var a =width-height;
-                    width=width-a;
-                    console.log(width);
-                    document.getElementById('fh1_b2_a').style.width=width;
-                    document.getElementById('fh1_b2_a').style.borderRadius=width/4;
+                    // var a =width-height;
+                    // width=width-a;
+                    // console.log(width);
+                    // document.getElementById('fh1_b2_a').style.width=width;
+                    document.getElementById('fh1_b2_a').style.borderRadius=width/2;
                     console.log( document.getElementById('fh1_b2_a').style.width);
+                   var cc =document.getElementById('fh1_b2_a').style.borderRadius;
+                   console.log(cc);
                 }else {
                       var a=height-width;
                       height=height-a;
@@ -2464,6 +2597,7 @@ Echarts2:function () {
     height: 100%;
     flex: auto;
     display: flex;
+    /*padding: 10px;*/
     /*flex-direction: column;*/
 }
 .fh1{
@@ -2504,11 +2638,11 @@ width: 100%;
 }
 /*圆 样式*/
 .fh1_b2_a{
-    width:100%;
-    height:100%;
+    width:70%;
+    height:70%;
     background-color: red;
     border-radius:50% ;
-    /*margin: 10px auto;*/
+    margin: 0 auto;
 
 }
     .nenghao{
@@ -2520,6 +2654,38 @@ width: 100%;
         flex: auto;
 
     }
+    .NH_1{
+        display: flex;
+        width: 100%;
+        height: 50%;
+        background-color: red;
+    }
+    .NH_2{
+        display: flex;
+        width: 100%;
+        height: 50%;
+        background-color: blue;
+    }
+.NH_1_a{
+    width: 50%;
+    height: 100%;
+    background-color: yellow;
+}
+.NH_1_b{
+    width: 50%;
+    height: 100%;
+    background-color: darkslategray;
+}
+.NH_2_a{
+    width: 50%;
+    height: 100%;
+    background-color: aliceblue;
+}
+.NH_2_b{
+    width: 50%;
+    height: 100%;
+    background-color: fuchsia;
+}
     .zhibiao{
         /*float: left;*/
         background: url("../assets/BK.png") no-repeat;
@@ -2528,6 +2694,48 @@ width: 100%;
         height: 100%;
         flex: auto;
 
+    }
+    .ZB_1{
+        display: flex;
+        width: 100%;
+        height: 50%;
+        background-color: red;
+    }
+    .ZB_1_a{
+        width: 33.33%;
+        height: 100%;
+        background-color: aliceblue;
+    }
+.ZB_1_b{
+    width: 33.33%;
+    height: 100%;
+    background-color:sienna;
+}
+.ZB_1_c{
+    width: 33.33%;
+    height: 100%;
+    background-color:green;
+}
+.ZB_2{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    background-color: blueviolet;
+}
+.ZB_2_a{
+    width: 33.33%;
+    height: 100%;
+    background-color:darkslategray;
+}
+.ZB_2_b{
+    width: 33.33%;
+    height: 100%;
+    background-color:rosybrown;
+}
+    .ZB_2_c{
+        width: 33.33%;
+        height: 100%;
+        background-color:tomato;
     }
     .touyonglv{
         /*float: right;*/
@@ -2539,6 +2747,48 @@ width: 100%;
         flex: auto;
 
     }
+.TYL_1{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    background-color: red;
+}
+.TYL_1_a{
+    width: 33.33%;
+    height: 100%;
+    background-color: aliceblue;
+}
+.TYL_1_b{
+    width: 33.33%;
+    height: 100%;
+    background-color:sienna;
+}
+.TYL_1_c{
+    width: 33.33%;
+    height: 100%;
+    background-color:green;
+}
+.TYL_2{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    background-color: blueviolet;
+}
+.TYL_2_a{
+    width: 33.33%;
+    height: 100%;
+    background-color:darkslategray;
+}
+.TYL_2_b{
+    width: 33.33%;
+    height: 100%;
+    background-color:rosybrown;
+}
+.TYL_2_c{
+    width: 33.33%;
+    height: 100%;
+    background-color:tomato;
+}
 table,tr,td{
     border:1px solid #888;
     border-collapse: collapse;
