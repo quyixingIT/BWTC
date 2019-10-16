@@ -18,9 +18,9 @@
                         </div>
                     </div>
                     <!--表格1-->
-                    <div class="fh2" style="margin-top: 20px;">
-                        <div style="width: 100%;height: 6%;background-color: #105090;">
-                            <table id="CP" style="border:1px solid #888;width: 100%">
+                    <div class="fh2" style="margin-top: 20px;padding-right: 10px;text-align: center">
+                        <div style="width: 100%;height: 9%;background-color: #105090;">
+                            <table id="CP" class="tableTitle" style="border:0px solid #888;width: 100%;text-align: center">
                                 <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
                                 <tr>
                                     <td style="width: 30%;color:#64B9E9;">设备</td>
@@ -31,154 +31,154 @@
                         </div>
                         <div id="parentCP" class="parentCB"
                              style="height: 80%;overflow-y: scroll;overflow: hidden;width: 100%">
-                        <div id="childCP" class="child" style="width: 100%">
-                            <table style="width: 100%">
-                                <tr>
-                                    <td style="width: 30%;color:white">蒸发塔</td>
-                                    <td style="width: 40%;color:white">塔顶出料</td>
-                                    <td style="width: 30%;color:white">100</td>
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">蒸发塔</td>
-                                    <td style="color:white;">塔釜进料</td>
-                                    <td style="color:white;">500</td>
+                            <div id="childCP" class="child" style="width: 100%">
+                                <table style="width: 100%">
+                                    <tr class="jishu">
+                                        <td style="width: 30%;color:white">蒸发塔</td>
+                                        <td style="width: 40%;color:white">塔顶出料</td>
+                                        <td style="width: 30%;color:white">100</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">蒸发塔</td>
+                                        <td style="color:white;">塔釜进料</td>
+                                        <td style="color:white;">500</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">残油塔</td>
-                                    <td style="color:white;">侧线进料</td>
-                                    <td style="color:white;">111</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">残油塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">111</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">残油塔</td>
-                                    <td style="color:white;">塔釜出料</td>
-                                    <td style="color:white;">500</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">残油塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">500</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">预反应器</td>
-                                    <td style="color:white;">塔釜进料</td>
-                                    <td style="color:white;">200</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">预反应器</td>
+                                        <td style="color:white;">塔釜进料</td>
+                                        <td style="color:white;">200</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">预反应器</td>
-                                    <td style="color:white;">塔顶出料</td>
-                                    <td style="color:white;">500</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">预反应器</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">500</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">主反应器</td>
-                                    <td style="color:white;">塔顶进料</td>
-                                    <td style="color:white;">700</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">主反应器</td>
+                                        <td style="color:white;">塔顶进料</td>
+                                        <td style="color:white;">700</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">主反应器</td>
-                                    <td style="color:white;">塔釜出料</td>
-                                    <td style="color:white;">200</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">主反应器</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">200</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">稳定塔</td>
-                                    <td style="color:white;">侧线进料</td>
-                                    <td style="color:white;">300</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">稳定塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">300</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">稳定塔</td>
-                                    <td style="color:white;">塔釜出料</td>
-                                    <td style="color:white;">400</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">稳定塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">400</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">预蒸馏塔</td>
-                                    <td style="color:white;">侧线进料</td>
-                                    <td style="color:white;">100</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">预蒸馏塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">100</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">预蒸馏塔</td>
-                                    <td style="color:white;">塔釜出料</td>
-                                    <td style="color:white;">350</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">预蒸馏塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">350</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">二甲苯塔</td>
-                                    <td style="color:white;">侧线进料</td>
-                                    <td style="color:white;">111</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">二甲苯塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">111</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">二甲苯塔</td>
-                                    <td style="color:white;">侧线出料</td>
-                                    <td style="color:white;">300</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">二甲苯塔</td>
+                                        <td style="color:white;">侧线出料</td>
+                                        <td style="color:white;">300</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">二甲苯塔</td>
-                                    <td style="color:white;">塔釜出料</td>
-                                    <td style="color:white;">100</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">二甲苯塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">100</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">二甲苯塔</td>
-                                    <td style="color:white;">塔顶出料</td>
-                                    <td style="color:white;">50</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">二甲苯塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">50</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">萃取塔</td>
-                                    <td style="color:white;">侧线进料</td>
-                                    <td style="color:white;">300</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">萃取塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">300</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">萃取塔</td>
-                                    <td style="color:white;">塔顶出料</td>
-                                    <td style="color:white;">111</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">萃取塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">111</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">萃取塔</td>
-                                    <td style="color:white;">塔釜出料</td>
-                                    <td style="color:white;">200</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">萃取塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">200</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">解析塔</td>
-                                    <td style="color:white;">侧线进料</td>
-                                    <td style="color:white;">400</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">解析塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">400</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">解析塔</td>
-                                    <td style="color:white;">塔顶出料</td>
-                                    <td style="color:white;">600</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">解析塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">600</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">苯塔</td>
-                                    <td style="color:white;">侧线进料</td>
-                                    <td style="color:white;">111</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">苯塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">111</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">苯塔</td>
-                                    <td style="color:white;">塔顶出料</td>
-                                    <td style="color:white;">6000</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white;">苯塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">6000</td>
 
-                                </tr>
-                                <tr>
-                                    <td style="color:white;">苯塔</td>
-                                    <td style="color:white;">塔釜出料</td>
-                                    <td style="color:white;">3000</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white;">苯塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">3000</td>
 
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="childCP1" class="child"></div>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="childCP1" class="child"></div>
 
                         </div>
                     </div>
@@ -281,14 +281,61 @@
         <div class="content"style="margin-top: 0px">
             <div id="zhibiao" class="zhibiao">
                 <div class="ZB_1">
-                    <div class="ZB_1_a"></div>
-                    <div class="ZB_1_b"></div>
-                    <div class="ZB_1_c"></div>
+                    <div class="ZB_1_a">
+                        <!--表格3-->
+                        <div style="width: 100%;height: 19%;background: rgba(251,251,251,0)">
+                            <table id="JB"
+                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35)">
+                                <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                <tr>
+                                    <td style="width: 29%;color:#64B9E9;">组分</td>
+                                    <td style="width: 18%;color:#64B9E9">单位</td>
+                                    <td style="width: 30%;color:#64B9E9">测量值</td>
+                                    <td style="width: 17%;color:#64B9E9">指标</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="parentJB" class="parentCB"
+                             style="height: 81%;overflow-y: scroll;overflow: hidden;width: 100%">
+                            <div id="childJB" class="child" style="width: 100%">
+                                <table>
+                                    <tr class="jishu">
+                                        <td style="width: 30%;color:white">非芳</td>
+                                        <td style="width: 23%;color:white">WT%</td>
+                                        <td style="width: 30%;color:white">0.52</td>
+                                        <td style="width: 33%;color:white">0.53</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white">苯</td>
+                                        <td style="color:white">PPMW</td>
+                                        <td style="color:white">83</td>
+                                        <td style="color:white">86</td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white">甲苯</td>
+                                        <td style="color:white">WT%</td>
+                                        <td style="color:white">99.4</td>
+                                        <td style="color:white">99.5</td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white">水</td>
+                                        <td style="color:white">PPMW</td>
+                                        <td style="color:white">250</td>
+                                        <td style="color:white">250</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div id="childJB1" class="child"></div>
+                        </div>
+                    </div>
+                    <div class="ZB_1_b" id="ZB_1_b"></div>
+                    <div class="ZB_1_c" id="ZB_1_c"></div>
                 </div>
                 <div class="ZB_2">
-                    <div class="ZB_2_a"></div>
-                    <div class="ZB_2_b"></div>
-                    <div class="ZB_2_c"></div>
+                    <div class="ZB_2_a" id="ZB_2_a"></div>
+                    <div class="ZB_2_b" id="ZB_2_b"></div>
+                    <div class="ZB_2_c" id="ZB_2_c"></div>
 
                 </div>
             </div>
@@ -342,6 +389,11 @@
            this.Echarts2();
            this.Echarts18();
            this.Echarts3();
+           this.Echarts4();
+           this.Echarts5();
+           this.Echarts6();
+            this.Echarts7();
+            this.Echarts8();
             this.table1Scroll();
             this.circleChange();
         },
@@ -788,116 +840,168 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
+            //BT芳香烃散点图
             Echarts4:function () {
-                //循环气体
-                var dom = document.getElementById("u96");
-                var myChart = echarts.init(dom);
+                //BT芳香烃散点图
+                var dom = document.getElementById("ZB_1_b");
+                var myChart = $echarts.init(dom);
                 var app = {};
-                option = null;
-                option = {
+                var data = [
+                    [
+                        ['C4~C7非芳',235],
+                        ['C8 非芳', 355],
+                        ['苯', 86],
+                        ['甲苯', 13],
+                        ['NFM', 0.013]
+                    ],
+                    [
+                        ['C4~C7非芳', 250],
+                        ['C8 非芳', 365],
+                        ['苯', 88],
+                        ['甲苯', 13.5],
+                        ['NFM', 0.025]
+                    ]
+                ];
+              var option = {
                     title: {},
-// legend: {
-//   y: '25px',
-//   data: ['虚拟值', '测量值', '指标'],
-//   textStyle: {
-//     color: '#cccccc'
-//   }
-// },
-                    color: ['#333eaf', '#55F93F'],
-                    radar: [
-                        {
-                            nameGap: 3,
-                            indicator: [
-                                {text: 'H2'},
-                                {text: 'O2'},
-                                {text: 'N2'},
-                                {text: 'CH4'},
-                                {text: 'C2H6'},
-                                {text: 'C3H8'}
-                            ],
-                            center: ['43%', '55%'],
-                            radius: 70,
-                            startAngle: 90,
-                            splitNumber: 4,
-                            shape: 'circle',
-                            name: {
-// formatter: '【{value}】',
-                                textStyle: {
-                                    color: '#72ACD1'
-                                }
-                            },
-                            splitArea: {
-                                areaStyle: {
-                                    color: ['rgba(114, 172, 209, 0.1)',
-                                        'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)',
-                                        'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)'],
-                                    shadowColor: 'rgba(41,59,134,0.64)',
-                                    shadowBlur: 10
-                                }
-                            },
-                            axisLine: {
-                                lineStyle: {
-                                    color: 'rgba(255, 255, 255, 0.5)'
-                                }
-                            },
-                            splitLine: {
-                                lineStyle: {
-                                    color: 'rgba(255, 255, 255, 0.5)'
-                                }
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross'
+                        }
+                    },
+                    grid: {
+                        left: '2%',
+                        right: '2%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        axisLine: {
+                            lineStyle: {
+                                color: '#3db1a6',
+                                width: 1,//这里是为了突出显示加上的
+                            }
+                        },
+                        axisLabel: {
+                            interval: 0,
+                            rotate:25,
+                            textStyle: {
+                                color: '#CCCCCC',
+                                fontSize: 12,
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                type: 'dashed'
                             }
                         }
-                    ],
-                    series: [
+                    },
+                    color: ['#333eaf', '#55F93F'],
+                    grid: {
+                        left: '20%'
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: {
+                            lineStyle: {
+                                color: '#3db1a6',
+                                width: 1,//这里是为了突出显示加上的
+                            }
+                        },
+                        min: 0,
+                        minInterval: 20,
+                        axisLabel: {
+                            textStyle: {
+                                color: '#CCCCCC'
+                            }
+                        },
+                        splitLine: {
+                            show: false,
+                            lineStyle: {
+                                type: 'dashed'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: '指标',
+                        type: 'scatter',
+                        label: {
+                            emphasis: {
+                                show: true,
+                                position: 'left',
+                                textStyle: {
+                                    color: 'blue',
+                                    fontSize: 16
+                                }
+                            }
+                        },
+                        data: data[0]
+                    },
                         {
-                            name: '雷达图',
-                            type: 'radar',
-                            itemStyle: {
+                            name: '测量值',
+                            type: 'scatter',
+                            label: {
                                 emphasis: {
-// color: 各异,
-                                    lineStyle: {
-                                        width: 4
+                                    show: true,
+                                    position: 'left',
+                                    textStyle: {
+                                        color: 'blue',
+                                        fontSize: 16
                                     }
                                 }
                             },
-                            areaStyle: {
-
+                            data: data[1],
+                            itemStyle: {
                                 normal: {
-                                    opacity: 0.1
+                                    label: {
+                                        color:'#64b9e9',
+                                        textStyle:{
+                                            fontSize:16
+                                        },
+                                        position:'top',
+                                        show: true, //自动显示数据 ，无需鼠标滑动才显示数据
+                                    }
                                 }
-                            },
-                            data: [
-                                {
-                                    value: [91.5, 0.5, 2.5, 3.1, 1.1, 0],
-                                    name: '测量值',
-                                    areaStyle: {
-                                        normal: {
-                                            color: 'rgba(255, 255, 255, 0.5)'
-                                        }
+                            }
+                        },
+                        {
+                            name: '指标',
+                            type: 'line',
+                            showSymbol: false,
+                            smooth: true,
+                            data: data[0],
+                            markPoint: {
+                                itemStyle: {
+                                    normal: {
+                                        color: 'transparent'
                                     }
                                 },
-                                {
-                                    value: [92.5, 0.4, 3.2, 3.7, 1.22, 0],
-                                    name: '指标',
-                                    areaStyle: {
-                                        normal: {
-                                            color: 'rgba(255, 255, 255, 0.5)'
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'left',
+                                        textStyle: {
+                                            color: '#333',
+                                            fontSize: 14
                                         }
                                     }
                                 }
-                            ]
-                        }
-                    ]
+                            }
+                        }]
                 };
                 if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
             },
+            //非芳烃散点图
             Echarts5:function () {
-                //非芳烃
-                var dom = document.getElementById("u97");
-                var myChart = echarts.init(dom);
+                //非芳烃散点图
+                var dom = document.getElementById("ZB_1_c");
+                var myChart = $echarts.init(dom);
                 var app = {};
-                option = null;
+               var option = null;
                 var data = [
                     [
                         ['C4~C7非芳', 70.5],
@@ -946,8 +1050,7 @@ Echarts2:function () {
                             lineStyle: {
                                 type: 'dashed'
                             }
-                        },
-//splitNumber: 20
+                        }
                     },
                     color: ['#333eaf', '#55F93F'],
                     grid: {
@@ -1003,7 +1106,19 @@ Echarts2:function () {
                                     }
                                 }
                             },
-                            data: data[1]
+                            data: data[1],
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        color:'#64b9e9',
+                                        textStyle:{
+                                            fontSize:16
+                                        },
+                                        position:'top',
+                                        show: true, //自动显示数据 ，无需鼠标滑动才显示数据
+                                    }
+                                }
+                            }
                         },
                         {
                             name: '指标',
@@ -1035,13 +1150,107 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
-            //纯苯
+            //循环气体雷达图
             Echarts6:function () {
-                //纯苯
-                var dom = document.getElementById("fh1_b2");
+                //循环气体雷达图
+                var dom = document.getElementById("ZB_2_a");
                 var myChart = $echarts.init(dom);
                 var app = {};
-                var option = null;
+               var option = null;
+                option = {
+                    color: ['#333eaf', '#55F93F'],
+                    radar: [
+                        {
+                            nameGap: 3,
+                            indicator: [
+                                {text: 'H2'},
+                                {text: 'O2'},
+                                {text: 'N2'},
+                                {text: 'CH4'},
+                                {text: 'C2H6'},
+                                {text: 'C3H8'}
+                            ],
+                            center: ['43%', '55%'],
+                            radius: 70,
+                            startAngle: 90,
+                            splitNumber: 4,
+                            shape: 'circle',
+                            name: {
+                                textStyle: {
+                                    color: '#72ACD1'
+                                }
+                            },
+                            splitArea: {
+                                areaStyle: {
+                                    color: ['rgba(114, 172, 209, 0.1)',
+                                        'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)',
+                                        'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)'],
+                                    shadowColor: 'rgba(41,59,134,0.64)',
+                                    shadowBlur: 10
+                                }
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: 'rgba(255, 255, 255, 0.5)'
+                                }
+                            },
+                            splitLine: {
+                                lineStyle: {
+                                    color: 'rgba(255, 255, 255, 0.5)'
+                                }
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '雷达图',
+                            type: 'radar',
+                            itemStyle: {
+                                emphasis: {
+                                    lineStyle: {
+                                        width: 4
+                                    }
+                                }
+                            },
+                            areaStyle: {
+                                normal: {
+                                    opacity: 0.1
+                                }
+                            },
+                            data: [
+                                {
+                                    value: [91.5, 0.5, 2.5, 3.1, 1.1, 0],
+                                    name: '测量值',
+                                    areaStyle: {
+                                        normal: {
+                                            color: 'rgba(255, 255, 255, 0.5)'
+                                        }
+                                    }
+                                },
+                                {
+                                    value: [92.5, 0.4, 3.2, 3.7, 1.22, 0],
+                                    name: '指标',
+                                    areaStyle: {
+                                        normal: {
+                                            color: 'rgba(255, 255, 255, 0.5)'
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                };
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+            },
+            //纯苯散点图
+            Echarts7:function () {
+                //纯苯散点图
+                var dom = document.getElementById("ZB_2_b");
+                var myChart = $echarts.init(dom);
+                var app = {};
+               var option = null;
                 var data = [
                     [
                         ['非芳', 300],
@@ -1091,8 +1300,7 @@ Echarts2:function () {
                             lineStyle: {
                                 type: 'dashed'
                             }
-                        },
-//splitNumber: 20
+                        }
                     },
                     color: ['#333eaf', '#55F93F'],
                     grid: {
@@ -1148,7 +1356,19 @@ Echarts2:function () {
                                     }
                                 }
                             },
-                            data: data[1]
+                            data: data[1],
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        color:'#64b9e9',
+                                        textStyle:{
+                                            fontSize:16
+                                        },
+                                        position:'top',
+                                        show: true, //自动显示数据 ，无需鼠标滑动才显示数据
+                                    }
+                                }
+                            }
                         },
                         {
                             name: '指标',
@@ -1180,139 +1400,35 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
-            Echarts7:function () {
-                var dom = document.getElementById("u36");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                var dataBJ = [
-                    [186, 142, 192, 3.88, 93, 79, 18]
-                ];
-                var lineStyle = {
-                    normal: {
-                        width: 1,
-                        opacity: 0.5
-                    }
-                };
 
-                option = {
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    title: {
-                        text: '',
-                        left: 'center',
-                        textStyle: {
-                            color: '#eee'
-                        }
-                    },
-                    legend: {
-                        bottom: 5,
-// data: [''],
-                        itemGap: 20,
-                        textStyle: {
-                            color: '#fff',
-                            fontSize: 14
-                        },
-                        selectedMode: 'single'
-                    },
-// visualMap: {
-//     show: true,
-//     min: 0,
-//     max: 20,
-//     dimension: 6,
-//     inRange: {
-//         colorLightness: [0.5, 0.8]
-//     }
-// },
-                    radar: {
-                        nameGap: 2,
-                        indicator: [
-                            {name: 'S40', max: 300},
-                            {name: 'S3', max: 250},
-                            {name: 'S16', max: 300},
-                            {name: '氢气', max: 5},
-                            {name: '煤气', max: 200},
-                            {name: '氮气', max: 100}
-                        ],
-                        center: ['50%', '58%'],
-                        radius: 55,
-                        shape: 'circle',
-                        splitNumber: 4,
-                        name: {
-                            textStyle: {
-                                color: 'rgb(238, 197, 102)'
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                color: [
-                                    'rgba(238, 197, 102, 0.3)', 'rgba(196,93,209,0.3)',
-                                    'rgba(238, 197, 102, 0.3)', 'rgba(238, 197, 102, 0.7)',
-                                    'rgba(238, 197, 102, 0.3)', 'rgba(238, 197, 102, 0.3)'
-                                ].reverse()
-                            }
-                        },
-                        splitArea: {
-                            show: false
-                        },
-                        axisLine: {
-                            lineStyle: {
-                                color: 'rgba(238, 197, 102, 0.5)'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '',
-                            type: 'radar',
-                            lineStyle: lineStyle,
-                            data: dataBJ,
-                            symbol: 'none',
-                            itemStyle: {
-                                normal: {
-                                    color: '#F9713C'
-                                }
-                            },
-                            areaStyle: {
-                                normal: {
-                                    opacity: 0.1
-                                }
-                            }
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
+            //甲苯散点图
             Echarts8:function () {
-                ///能耗历史趋势
-                var dom = document.getElementById("u81");
-                var myChart = echarts.init(dom);
+                //甲苯散点图
+                var dom = document.getElementById("ZB_2_c");
+                var myChart = $echarts.init(dom);
                 var app = {};
-                option = null;
+                var option = null;
+                var data = [
+                    [
+                        ['非芳', 0.45],
+                        ['苯', 26],
+                        ['甲苯', 99.5],
+                        ['水', 255]
+                    ],
+                    [
+                        ['非芳', 0.6],
+                        ['苯', 35],
+                        ['甲苯', 99.4],
+                        ['水', 260]
+                    ]
+                ];
                 option = {
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    title: {
-// text: '负荷',
-                        textStyle: {//标题颜色
-                            color: '#cccccc'
-                        },
-                    },
-                    color: '#55F93F',
+                    title: {},
                     tooltip: {
                         trigger: 'axis',
-                        extraCssText: 'width:90px;',
                         axisPointer: {
-                            type: 'shadow'
-                        },
-
-                    },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '3%',
-                        top: '25%',
-                        containLabel: true
+                            type: 'cross'
+                        }
                     },
                     xAxis: {
                         type: 'category',
@@ -1322,30 +1438,33 @@ Echarts2:function () {
                                 width: 1,//这里是为了突出显示加上的
                             }
                         },
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
                         axisLabel: {
-                            show: true,
+                            interval: 0,
                             textStyle: {
-                                color: '#CCCCCC'
+                                color: '#CCCCCC',
                             }
-                        }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                type: 'dashed'
+                            }
+                        },
+                    },
+                    color: ['#333eaf', '#55F93F'],
+                    grid: {
+                        left: '15%'
                     },
                     yAxis: {
                         type: 'value',
+                        min: 0,
+                        minInterval: 100,
                         axisLine: {
                             lineStyle: {
                                 color: '#3db1a6',
                                 width: 1,//这里是为了突出显示加上的
                             }
                         },
-                        name: '',
-                        minInterval: 10,
-//nameGap: 5,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
                         axisLabel: {
-                            show: true,
                             textStyle: {
                                 color: '#CCCCCC'
                             }
@@ -1353,20 +1472,78 @@ Echarts2:function () {
                         splitLine: {
                             show: false,
                             lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
+                                type: 'dashed'
                             }
                         }
                     },
                     series: [{
-                        data: [11, 15, 17, 19, 16, 13, 14],
-                        type: 'line',
-                        lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                            width: 3.5,
-                            type: 'solid'
-                        }
-                    }]
+                        name: '指标',
+                        type: 'scatter',
+                        label: {
+                            emphasis: {
+                                show: true,
+                                position: 'left',
+                                textStyle: {
+                                    color: 'blue',
+                                    fontSize: 16
+                                }
+                            }
+                        },
+                        data: data[0]
+                    },
+                        {
+                            name: '测量值',
+                            type: 'scatter',
+                            label: {
+                                emphasis: {
+                                    show: true,
+                                    position: 'left',
+                                    textStyle: {
+                                        color: 'blue',
+                                        fontSize: 16
+                                    }
+                                }
+                            },
+                            data: data[1],
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        color:'#64b9e9',
+                                        textStyle:{
+                                            fontSize:16
+                                        },
+                                        position:'top',
+                                        show: true, //自动显示数据 ，无需鼠标滑动才显示数据
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            name: '指标',
+                            type: 'line',
+                            showSymbol: false,
+                            smooth: true,
+                            data: data[0],
+                            markPoint: {
+                                itemStyle: {
+                                    normal: {
+                                        color: 'transparent'
+                                    }
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'left',
+                                        textStyle: {
+                                            color: '#333',
+                                            fontSize: 14
+                                        }
+                                    }
+                                }
+                            }
+                        }]
                 };
+                ;
                 if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
@@ -1650,7 +1827,7 @@ Echarts2:function () {
 // },
                     grid: {
                         left: '3%',
-                        right: '4%',
+                        right: '0%',
                         bottom: '0%',
                         top: '20%',
 
@@ -2590,15 +2767,15 @@ Echarts2:function () {
             },
             //第一张表格滚动
             table1Scroll:function () {
-                var parent = document.getElementById('parentCP');
-                var child = document.getElementById('childCP');
+                var parentCP = document.getElementById('parentCP');
+                var childCP = document.getElementById('childCP');
                 var childCP1 = document.getElementById('childCP1');
                 childCP1.innerHTML = childCP.innerHTML;
                 setInterval(function () {
-                    if (parent.scrollTop >= childCP.scrollHeight) {
-                        parent.scrollTop = 0;
+                    if (parentCP.scrollTop >= childCP.scrollHeight) {
+                        parentCP.scrollTop = 0;
                     } else {
-                        parent.scrollTop++;
+                        parentCP.scrollTop++;
                     }
                 }, 100);
             },
@@ -2609,20 +2786,11 @@ Echarts2:function () {
                 var height= document.getElementById('fh1_b2_a').offsetHeight;
                 //console.log(height);
                 if(width>height){
-                    // debugger;
-                    // var a =width-height;
-                    // width=width-a;
-                    // console.log(width);
-                    // document.getElementById('fh1_b2_a').style.width=width;
-                    document.getElementById('fh1_b2_a').style.borderRadius=width/2;
-                    console.log( document.getElementById('fh1_b2_a').style.width);
-                   var cc =document.getElementById('fh1_b2_a').style.borderRadius;
-                   console.log(cc);
+                    document.getElementById('fh1_b2_a').style.width=height*0.7+'px';
+                    ocument.getElementById('fh1_b2_a').style.height=height*0.7+'px';
                 }else {
-                      var a=height-width;
-                      height=height-a;
-                    console.log(height);
-                    document.getElementById('fh1_b2_a').style.height=height;
+                    document.getElementById('fh1_b2_a').style.height=width*0.7+'px';
+                    document.getElementById('fh1_b2_a').style.width=width*0.7+'px';
                 }
             }
             }
@@ -2684,11 +2852,12 @@ width: 100%;
 .fh1_b1{
     margin-left: 20px;
     margin-top: -20px;
-    width: 80%;
+    width: 70%;
     height: 100%;
 }
 .fh1_b2{
-    width: 50%;
+    width:30%;
+    padding-top: 25px;
     height: 100%;
     /*padding-bottom: 20px;*/
 
@@ -2702,8 +2871,8 @@ width: 100%;
 }
 /*圆 样式*/
 .fh1_b2_a{
-    width:70%;
-    height:70%;
+    width:100%;
+    height:100%;
     background-color: red;
     border-radius:50% ;
     margin: 0 auto;
@@ -2854,7 +3023,21 @@ width: 100%;
     background-color:tomato;
 }
 table,tr,td{
-    border:1px solid #888;
+    /*border:1px solid #888;*/
+    /*border-collapse: collapse;*/
+    border: 0px solid #888;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
     border-collapse: collapse;
+    font-size: 16px;
+}
+.jishu {
+    background-color: rgba(0%, 0%, 0%, 0);
+}
+
+.oushu {
+    background-color: rgba(21, 214, 198, 0.12);
 }
 </style>
