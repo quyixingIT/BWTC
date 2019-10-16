@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--表格-->
+                    <!--表格1-->
                     <div class="fh2" style="margin-top: 20px;">
                         <div style="width: 100%;height: 6%;background-color: #105090;">
                             <table id="CP" style="border:1px solid #888;width: 100%">
@@ -190,8 +190,91 @@
                         <div class="NH_1_b" id="NH_1_b"></div>
                     </div>
                     <div class="NH_2">
-                        <div class="NH_2_a"></div>
-                        <div class="NH_2_b"></div>
+                        <div class="NH_2_a" id="NH_2_a"></div>
+                        <!--表格2-->
+                        <div class="NH_2_b" id="NH_2_b">
+                            <div style="width: 100%;height: 23.6%;background: rgba(251,251,251,0)">
+                                <table id="H"
+                                       style="border:0px solid #888;width: 100% ;font-size: 18px;background-color: rgba(12,128,240,0.35)">
+                                    <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                    <tr>
+                                        <td style="width: 25%;color:#64B9E9;">设备</td>
+                                        <td style="width: 25%;color:#64B9E9">介质</td>
+                                        <td style="width: 25%;color:#64B9E9">单位</td>
+                                        <td style="width: 25%;color:#64B9E9">数值</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="parentH" class="parentCB"
+                                 style="height: 74%;overflow-y: scroll;overflow: hidden;width: 100%">
+                                <div id="childH" class="child" style="width: 100%">
+                                    <table style="width: 100%">
+                                        <tr class="jishu">
+                                            <td style="width: 25%;color:white">稳定塔</td>
+                                            <td style="width: 25%;color:white">S16</td>
+                                            <td style="width: 25%;color:white">kg/h</td>
+                                            <td style="width: 25%;color:white">997</td>
+                                        </tr>
+                                        <tr class="oushu">
+                                            <td style="color: white">残油塔</td>
+                                            <td style="color: white">S40</td>
+                                            <td style="color: white">kg/h</td>
+                                            <td style="color: white">1464</td>
+                                        </tr>
+                                        <tr class="jishu">
+                                            <td style="color: white">预蒸馏塔</td>
+                                            <td style="color: white">S40</td>
+                                            <td style="color: white">kg/h</td>
+                                            <td style="color: white">5912</td>
+                                        </tr>
+                                        <tr class="oushu">
+                                            <td style="color: white">萃取塔</td>
+                                            <td style="color: white">S40</td>
+                                            <td style="color: white">kg/h</td>
+                                            <td style="color: white">3556</td>
+                                        </tr>
+                                        <tr class="jishu">
+                                            <td style="color: white">解析塔</td>
+                                            <td style="color: white">S40</td>
+                                            <td style="color: white">kg/h</td>
+                                            <td style="color: white">3338</td>
+                                        </tr>
+                                        <tr class="oushu">
+                                            <td style="color: white">二甲苯塔</td>
+                                            <td style="color: white">S40</td>
+                                            <td style="color: white">kg/h</td>
+                                            <td style="color: white">2697</td>
+                                        </tr>
+                                        <tr class="jishu">
+                                            <td style="color: white">加热炉</td>
+                                            <td style="color: white">煤气</td>
+                                            <td style="color: white">Nm3/h</td>
+                                            <td style="color: white">300</td>
+                                        </tr>
+                                        <tr class="oushu">
+                                            <td style="color: white">加热炉</td>
+                                            <td style="color: white">氢气</td>
+                                            <td style="color: white">Nm3/h</td>
+                                            <td style="color: white">187</td>
+                                        </tr>
+                                        <tr class="jishu">
+                                            <td style="color: white">压缩机</td>
+                                            <td style="color: white">氮气</td>
+                                            <td style="color: white">Nm3/h</td>
+                                            <td style="color: white">100</td>
+                                        </tr>
+                                        <tr class="oushu">
+                                            <td style="color: white">预蒸馏槽</td>
+                                            <td style="color: white">氢气</td>
+                                            <td style="color: white">kg/h</td>
+                                            <td style="color: white">10</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div id="childH1" class="child"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </div>
@@ -258,6 +341,7 @@
            this.Echarts11();
            this.Echarts2();
            this.Echarts18();
+           this.Echarts3();
             this.table1Scroll();
             this.circleChange();
         },
@@ -614,111 +698,91 @@ Echarts2:function () {
         myChart.setOption(option, true);
     }
 },
+            ///历史能耗折线图
             Echarts3:function () {
-                //BT芳香烃
-                var dom = document.getElementById("u95");
-                var myChart = echarts.init(dom);
+                var dom = document.getElementById("NH_2_a");
+                var myChart = $echarts.init(dom);
                 var app = {};
-                option = null;
+               var option = null;
                 option = {
-                    title: {},
-//
-// legend: {
-//  // show:false,
-//   y: '190px',
-//   data: ['虚拟值', '测量值', '指标'],
-//   textStyle: {
-//     color: '#cccccc'
-//   }
-// },
-                    color: ['#333eaf', '#55F93F'],
-                    radar: [
-                        {
-                            nameGap: 3,
-                            indicator: [
-                                {text: 'C4~C7非芳'},
-                                {text: 'C8非芳'},
-                                {text: '苯'},
-                                {text: '甲苯'},
-                                {text: 'NFM'}
-                            ],
-                            center: ['53%', '55%'],
-                            radius: 70,
-                            startAngle: 90,
-                            splitNumber: 4,
-                            shape: 'circle',
-                            name: {
-//formatter: '【{value}】',
-                                textStyle: {
-                                    color: '#72ACD1'
-                                }
-                            },
-                            splitArea: {
-                                areaStyle: {
-                                    color: ['rgba(114, 172, 209, 0.1)',
-                                        'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)',
-                                        'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)'],
-                                    shadowColor: 'rgba(41,59,134,0.64)',
-                                    shadowBlur: 10
-                                }
-                            },
-                            axisLine: {
-                                lineStyle: {
-                                    color: 'rgba(255, 255, 255, 0.5)'
-                                }
-                            },
-                            splitLine: {
-                                lineStyle: {
-                                    color: 'rgba(255, 255, 255, 0.5)',
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    color: '#55F93F',
+                    tooltip: {
+                        trigger: 'axis',
+                        extraCssText: 'width:90px;',
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        top: '40%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        axisLine: {
+                            lineStyle: {
+                                color: '#3db1a6',
+                                width: 1,//这里是为了突出显示加上的
+                            }
+                        },
+                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#CCCCCC'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: {
+                            lineStyle: {
+                                color: '#3db1a6',
+                                width: 1,//这里是为了突出显示加上的
+                            }
+                        },
+                        minInterval: 10,
+                        nameTextStyle: {
+                            color: '#CCCCCC'
+                        },
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#CCCCCC'
+                            }
+                        },
+                        splitLine: {
+                            show: false,
+                            lineStyle: {
+                                type: 'dotted',
+                                color: '#404040'
+                            }
+                        }
+                    },
+                    series: [{
+                        data: [11, 15, 17, 19, 16, 13, 14],
+                        type: 'line',
+                        lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                            width: 3.5,
+                            type: 'solid'
+                        },
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    textStyle:{
+                                        fontSize:16
+                                    },
+                                    color:'#64b9e9',
+                                    show: true, //自动显示数据 ，无需鼠标滑动才显示数据
                                 }
                             }
                         }
-                    ],
-                    series: [
-                        {
-                            name: '雷达图',
-                            type: 'radar',
-                            itemStyle: {
-                                emphasis: {
-// color: 各异,
-                                    lineStyle: {
-                                        width: 4
-                                    }
-                                }
-                            },
-                            areaStyle: {
-                                normal: {
-                                    opacity: 0.1
-                                }
-                            },
-                            data: [
-                                {
-                                    value: [165, 328, 87, 13, 0.03],
-                                    name: '测量值',
-// areaStyle: {
-//
-//         normal: {
-//             opacity: 0.1
-//         }
-//
-//     // normal: {
-//     //  //   color: 'rgba(35,44,153,0.1)'
-//     //
-//     // }
-// }
-                                },
-                                {
-                                    value: [175, 330, 89, 12, 0.03],
-                                    name: '指标',
-                                    areaStyle: {
-                                        normal: {
-                                            color: 'rgba(255, 255, 255, 0.5)'
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    ]
+                    }]
                 };
                 if (option && typeof option === "object") {
                     myChart.setOption(option, true);
