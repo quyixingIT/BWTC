@@ -336,12 +336,13 @@
                     <div class="ZB_2_a" id="ZB_2_a"></div>
                     <div class="ZB_2_b" id="ZB_2_b"></div>
                     <div class="ZB_2_c" id="ZB_2_c"></div>
-
                 </div>
             </div>
             <div id="touyonglv" class="touyonglv">
                 <div class="TYL_1">
-                    <div class="TYL_1_a"></div>
+                    <div class="TYL_1_a">
+                        <svg id="fillgauge1" width="97%" height="150" ></svg>
+                    </div>
                     <div class="TYL_1_b"></div>
                     <div class="TYL_1_c"></div>
                 </div>
@@ -360,9 +361,11 @@
 </template>
 <script>
     const $echarts = require('echarts');
+    import * as d3 from 'd3'
     import * as go from "gojs";
     import {EleResize} from '../assets/js/esresize.js'
-    import {LiquidFillGauge} from'../assets/js/liquidFillGauge'
+    // import {liquidFillGaugeDefaultSettings} from'../assets/js/liquidFillGauge.js'
+     //import {loadLiquidFillGauge} from'../assets/js/liquidFillGauge.js'
 
     export default {
         name:'home',
@@ -396,6 +399,7 @@
             this.Echarts8();
             this.table1Scroll();
             this.circleChange();
+            this.liquidFill();
         },
         methods:{
 Echarts1:function () {
@@ -1400,7 +1404,6 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
-
             //甲苯散点图
             Echarts8:function () {
                 //甲苯散点图
@@ -1548,253 +1551,6 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
-            Echarts9:function () {
-//甲苯
-                var dom = document.getElementById("u99");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                var data = [
-                    [
-                        ['非芳', 0.45],
-                        ['苯', 26],
-                        ['甲苯', 99.5],
-                        ['水', 255]
-                    ],
-                    [
-                        ['非芳', 0.6],
-                        ['苯', 35],
-                        ['甲苯', 99.4],
-                        ['水', 260]
-                    ]
-                ];
-                option = {
-                    title: {},
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: {
-                            type: 'cross'
-                        }
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-                        axisLabel: {
-                            interval: 0,
-                            textStyle: {
-                                color: '#CCCCCC',
-// fontSize:12,
-
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                type: 'dashed'
-                            }
-                        },
-//splitNumber: 20
-                    },
-                    color: ['#333eaf', '#55F93F'],
-                    grid: {
-                        left: '15%'
-                    },
-                    yAxis: {
-                        type: 'value',
-                        min: 0,
-                        minInterval: 100,
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-                        axisLabel: {
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dashed'
-                            }
-                        }
-                    },
-                    series: [{
-                        name: '指标',
-                        type: 'scatter',
-                        label: {
-                            emphasis: {
-                                show: true,
-                                position: 'left',
-                                textStyle: {
-                                    color: 'blue',
-                                    fontSize: 16
-                                }
-                            }
-                        },
-                        data: data[0]
-                    },
-                        {
-                            name: '测量值',
-                            type: 'scatter',
-                            label: {
-                                emphasis: {
-                                    show: true,
-                                    position: 'left',
-                                    textStyle: {
-                                        color: 'blue',
-                                        fontSize: 16
-                                    }
-                                }
-                            },
-                            data: data[1]
-                        },
-                        {
-                            name: '指标',
-                            type: 'line',
-                            showSymbol: false,
-                            smooth: true,
-                            data: data[0],
-                            markPoint: {
-                                itemStyle: {
-                                    normal: {
-                                        color: 'transparent'
-                                    }
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'left',
-                                        textStyle: {
-                                            color: '#333',
-                                            fontSize: 14
-                                        }
-                                    }
-                                }
-                            }
-                        }]
-                };
-                ;
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
-            Echarts10:function () {
-                ////产量历史趋势
-                var dom = document.getElementById("fh1_b2");
-                var myChart = $echarts.init(dom);
-                var app = {};
-               var option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
             // 产量历史趋势
             Echarts11:function () {
                 ///产量历史趋势
@@ -1906,768 +1662,6 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
-            Echarts12:function () {
-                var dom = document.getElementById("u63");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
-            Echarts13:function () {
-                var dom = document.getElementById("u67");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
-            Echarts14:function () {
-                var dom = document.getElementById("u71");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-
-////产量历史趋势
-                var dom = document.getElementById("u75");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
-            Echarts15:function () {
-                var dom = document.getElementById("u79");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
-            Echarts16:function () {
-                ///APC历史趋势
-                var dom = document.getElementById("u42");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-                        splitLine: {
-                            show: false,
-                            lineStyle: {
-                                type: 'dotted',
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-            },
-            Echarts17:function () {
-                var dom = document.getElementById("u43");
-                var myChart = echarts.init(dom);
-                var app = {};
-                option = null;
-                option = {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    tooltip: {
-                        axisPointer: {
-                            type: 'shadow'
-                        },
-                        trigger: 'axis',
-                        extraCssText: 'width:200px;',
-
-                    },
-
-                    color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '0%',
-                        top: '20%',
-
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//boundaryGap: false,
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
-
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisLine: {
-                            lineStyle: {
-                                color: '#3db1a6',
-                                width: 1,//这里是为了突出显示加上的
-                            }
-                        },
-//axisTick:false,
-                        nameGap: 5,
-                        min: 0,
-                        showMinLabel: false,
-                        minInterval: 100,
-                        nameTextStyle: {
-                            color: '#CCCCCC'
-                        },
-                        axisLabel: {
-                            show: true,
-                            textStyle: {
-                                color: '#CCCCCC'
-                            }
-                        },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
-                        splitLine: {
-                            show: false
-// lineStyle: {
-//   type: 'dotted',
-//   color: '#404040'
-// }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '纯苯',
-                            type: 'line',
-                            radius: 10,
-                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                                width: 3,
-                                type: 'solid'
-                            },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
-
-                        }
-                    ]
-                };
-                if (option && typeof option === "object") {
-                    myChart.setOption(option, true);
-                }
-
-
-            },
             //单耗雷达图
             Echarts18:function(){
                 //////单耗雷达图
@@ -2765,6 +1759,282 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
+            //动态圆柱
+            liquidFill:function(){
+                let config2 = null;
+                let gauge1 = null;
+                let config3 = null;
+                let gauge3 = null;
+                config2 = this.liquidFillGaugeDefaultSettings();
+                config2.textColor = "#64B9E9";
+                config2.circleThickness = 0.1;
+                config2.circleFillGap = 0.1;
+                config2.textVertPosition = 0.5;
+                config2.waveAnimateTime = 2000;
+                config2.waveHeight = 0.1;
+                config2.waveCount = 1;
+                gauge1 = this.loadLiquidFillGauge("fillgauge1", 90.5, config2);
+            },
+            liquidFillGaugeDefaultSettings:function(){
+                return {
+                    minValue: 0, // The gauge minimum value.
+                    maxValue: 100, // The gauge maximum value.
+                    circleThickness: 0.05, // The outer circle thickness as a percentage of it's radius.
+                    circleFillGap: 0.05, // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
+                    circleColor: "#178BCA", // The color of the outer circle.
+                    waveHeight: 0.05, // The wave height as a percentage of the radius of the wave circle.
+                    waveCount: 1, // The number of full waves per width of the wave circle.
+                    waveRiseTime: 1000, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
+                    waveAnimateTime: 18000, // The amount of time in milliseconds for a full wave to enter the wave circle.
+                    waveRise: true, // Control if the wave should rise from 0 to it's full height, or start at it's full height.
+                    waveHeightScaling: true, // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
+                    waveAnimate: true, // Controls if the wave scrolls or is static.
+                    waveColor: "#178BCA", // The color of the fill wave.
+                    waveOffset: 0, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
+                    textVertPosition: .5, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
+                    textSize: 1, // The relative height of the text to display in the wave circle. 1 = 50%
+                    valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
+                    displayPercent: true, // If true, a % symbol is displayed after the value.
+                    textColor: "#045681", // The color of the value text when the wave does not overlap it.
+                    waveTextColor: "#A4DBf8" // The color of the value text when the wave overlaps it.
+                };
+            },
+            loadLiquidFillGauge: function (elementId, value, config) {
+        if(config == null) config =this.liquidFillGaugeDefaultSettings();
+
+        var gauge = d3.select("#" + elementId);
+        var radius = Math.min(parseInt(gauge.style("width")), parseInt(gauge.style("height")))/2;
+        var locationX = parseInt(gauge.style("width"))/2 - radius;
+        var locationY = parseInt(gauge.style("height"))/2 - radius;
+        var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value))/config.maxValue;
+
+        var waveHeightScale;
+        if(config.waveHeightScaling){
+            waveHeightScale = d3.scale.linear()
+                .range([0,config.waveHeight,0])
+                .domain([0,50,100]);
+        } else {
+            waveHeightScale = d3.scale.linear()
+                .range([config.waveHeight,config.waveHeight])
+                .domain([0,100]);
+        }
+
+        var textPixels = (config.textSize*radius/2);
+        var textFinalValue = parseFloat(value).toFixed(2);
+        var textStartValue = config.valueCountUp?config.minValue:textFinalValue;
+        var percentText = config.displayPercent?"%":"";
+        var circleThickness = config.circleThickness * radius;
+        var circleFillGap = config.circleFillGap * radius;
+        var fillCircleMargin = circleThickness + circleFillGap;
+        var fillCircleRadius = radius - fillCircleMargin;
+        var waveHeight = fillCircleRadius*waveHeightScale(fillPercent*100);
+
+        var waveLength = fillCircleRadius*2/config.waveCount;
+        var waveClipCount = 1+config.waveCount;
+        var waveClipWidth = waveLength*waveClipCount;
+
+        // Rounding functions so that the correct number of decimal places is always displayed as the value counts up.
+        var textRounder = function(value){ return Math.round(value); };
+        if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
+            textRounder = function(value){ return parseFloat(value).toFixed(1); };
+        }
+        if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
+            textRounder = function(value){ return parseFloat(value).toFixed(2); };
+        }
+
+        // Data for building the clip wave area.
+        var data = [];
+        for(var i = 0; i <= 40*waveClipCount; i++){
+            data.push({x: i/(40*waveClipCount), y: (i/(40))});
+        }
+
+        // Scales for drawing the outer circle.
+        var gaugeCircleX = d3.scale.linear().range([0,2*Math.PI]).domain([0,1]);
+        var gaugeCircleY = d3.scale.linear().range([0,radius]).domain([0,radius]);
+
+        // Scales for controlling the size of the clipping path.
+        var waveScaleX = d3.scale.linear().range([0,waveClipWidth]).domain([0,1]);
+        var waveScaleY = d3.scale.linear().range([0,waveHeight]).domain([0,1]);
+
+        // Scales for controlling the position of the clipping path.
+        var waveRiseScale = d3.scale.linear()
+        // The clipping area size is the height of the fill circle + the wave height, so we position the clip wave
+        // such that the it will overlap the fill circle at all when at 0%, and will totally cover the fill
+        // circle at 100%.
+            .range([(fillCircleMargin+fillCircleRadius*2+waveHeight),(fillCircleMargin-waveHeight)])
+            .domain([0,1]);
+        var waveAnimateScale = d3.scale.linear()
+            .range([0, waveClipWidth-fillCircleRadius*2]) // Push the clip area one full wave then snap back.
+            .domain([0,1]);
+
+        // Scale for controlling the position of the text within the gauge.
+        var textRiseScaleY = d3.scale.linear()
+            .range([fillCircleMargin+fillCircleRadius*2,(fillCircleMargin+textPixels*0.7)])
+            .domain([0,1]);
+
+        // Center the gauge within the parent SVG.
+        var gaugeGroup = gauge.append("g")
+            .attr('transform','translate('+locationX+','+locationY+')');
+
+        // Draw the outer circle.
+        var gaugeCircleArc = d3.svg.arc()
+            .startAngle(gaugeCircleX(0))
+            .endAngle(gaugeCircleX(1))
+            .outerRadius(gaugeCircleY(radius))
+            .innerRadius(gaugeCircleY(radius-circleThickness));
+        gaugeGroup.append("path")
+            .attr("d", gaugeCircleArc)
+            .style("fill", config.circleColor)
+            .attr('transform','translate('+radius+','+radius+')');
+
+        // Text where the wave does not overlap.
+        var text1 = gaugeGroup.append("text")
+            .text("纯苯"+textRounder(textStartValue) + percentText)
+            .attr("class", "liquidFillGaugeText")
+            .attr("text-anchor", "middle")
+            .attr("font-size", textPixels + "px")
+            .style("fill", config.textColor)
+            .attr('transform','translate('+radius+','+textRiseScaleY(config.textVertPosition)+')');
+
+        // The clipping wave area.
+        var clipArea = d3.svg.area()
+            .x(function(d) { return waveScaleX(d.x); } )
+            .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
+            .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+        var waveGroup = gaugeGroup.append("defs")
+            .append("clipPath")
+            .attr("id", "clipWave" + elementId);
+        var wave = waveGroup.append("path")
+            .datum(data)
+            .attr("d", clipArea)
+            .attr("T", 0);
+
+        // The inner circle with the clipping wave attached.
+        var fillCircleGroup = gaugeGroup.append("g")
+            .attr("clip-path", "url(#clipWave" + elementId + ")");
+        fillCircleGroup.append("circle")
+            .attr("cx", radius)
+            .attr("cy", radius)
+            .attr("r", fillCircleRadius)
+            .style("fill", config.waveColor);
+
+        // Text where the wave does overlap.
+        var text2 = fillCircleGroup.append("text")
+            .text(textRounder(textStartValue) + percentText)
+            .attr("class", "liquidFillGaugeText")
+            .attr("text-anchor", "middle")
+            .attr("font-size", textPixels + "px")
+            .style("fill", config.waveTextColor)
+            .attr('transform','translate('+radius+','+textRiseScaleY(config.textVertPosition)+')');
+
+        // Make the value count up.
+        if(config.valueCountUp){
+            var textTween = function(){
+                var i = d3.interpolate(this.textContent, textFinalValue);
+                return function(t) { this.textContent = textRounder(i(t)) + percentText; }
+            };
+            text1.transition()
+                .duration(config.waveRiseTime)
+                .tween("text", textTween);
+            text2.transition()
+                .duration(config.waveRiseTime)
+                .tween("text", textTween);
+        }
+
+        // Make the wave rise. wave and waveGroup are separate so that horizontal and vertical movement can be controlled independently.
+        var waveGroupXPosition = fillCircleMargin+fillCircleRadius*2-waveClipWidth;
+        if(config.waveRise){
+            waveGroup.attr('transform','translate('+waveGroupXPosition+','+waveRiseScale(0)+')')
+                .transition()
+                .duration(config.waveRiseTime)
+                .attr('transform','translate('+waveGroupXPosition+','+waveRiseScale(fillPercent)+')')
+                .each("start", function(){ wave.attr('transform','translate(1,0)'); }); // This transform is necessary to get the clip wave positioned correctly when waveRise=true and waveAnimate=false. The wave will not position correctly without this, but it's not clear why this is actually necessary.
+        } else {
+            waveGroup.attr('transform','translate('+waveGroupXPosition+','+waveRiseScale(fillPercent)+')');
+        }
+
+        if(config.waveAnimate) animateWave();
+
+        function animateWave() {
+            wave.attr('transform','translate('+waveAnimateScale(wave.attr('T'))+',0)');
+            wave.transition()
+                .duration(config.waveAnimateTime * (1-wave.attr('T')))
+                .ease('linear')
+                .attr('transform','translate('+waveAnimateScale(1)+',0)')
+                .attr('T', 1)
+                .each('end', function(){
+                    wave.attr('T', 0);
+                    animateWave(config.waveAnimateTime);
+                });
+        }
+
+        function GaugeUpdater(){
+            this.update = function(value){
+                var newFinalValue = parseFloat(value).toFixed(2);
+                var textRounderUpdater = function(value){ return Math.round(value); };
+                if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
+                    textRounderUpdater = function(value){ return parseFloat(value).toFixed(1); };
+                }
+                if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
+                    textRounderUpdater = function(value){ return parseFloat(value).toFixed(2); };
+                }
+
+                var textTween = function(){
+                    var i = d3.interpolate(this.textContent, parseFloat(value).toFixed(2));
+                    return function(t) { this.textContent = textRounderUpdater(i(t)) + percentText; }
+                };
+
+                text1.transition()
+                    .duration(config.waveRiseTime)
+                    .tween("text", textTween);
+                text2.transition()
+                    .duration(config.waveRiseTime)
+                    .tween("text", textTween);
+
+                var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value))/config.maxValue;
+                var waveHeight = fillCircleRadius*waveHeightScale(fillPercent*100);
+                var waveRiseScale = d3.scale.linear()
+                // The clipping area size is the height of the fill circle + the wave height, so we position the clip wave
+                // such that the it will overlap the fill circle at all when at 0%, and will totally cover the fill
+                // circle at 100%.
+                    .range([(fillCircleMargin+fillCircleRadius*2+waveHeight),(fillCircleMargin-waveHeight)])
+                    .domain([0,1]);
+                var newHeight = waveRiseScale(fillPercent);
+                var waveScaleX = d3.scale.linear().range([0,waveClipWidth]).domain([0,1]);
+                var waveScaleY = d3.scale.linear().range([0,waveHeight]).domain([0,1]);
+                var newClipArea;
+                if(config.waveHeightScaling){
+                    newClipArea = d3.svg.area()
+                        .x(function(d) { return waveScaleX(d.x); } )
+                        .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
+                        .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+                } else {
+                    newClipArea = clipArea;
+                }
+
+                var newWavePosition = config.waveAnimate?waveAnimateScale(1):0;
+                wave.transition()
+                    .duration(0)
+                    .transition()
+                    .duration(config.waveAnimate?(config.waveAnimateTime * (1-wave.attr('T'))):(config.waveRiseTime))
+                    .ease('linear')
+                    .attr('d', newClipArea)
+                    .attr('transform','translate('+newWavePosition+',0)')
+                    .attr('T','1')
+                    .each("end", function(){
+                        if(config.waveAnimate){
+                            wave.attr('transform','translate('+waveAnimateScale(0)+',0)');
+                            animateWave(config.waveAnimateTime);
+                        }
+                    });
+                waveGroup.transition()
+                    .duration(config.waveRiseTime)
+                    .attr('transform','translate('+waveGroupXPosition+','+newHeight+')')
+            }
+        }
+
+        return new GaugeUpdater();
+    },
             //第一张表格滚动
             table1Scroll:function () {
                 var parentCP = document.getElementById('parentCP');
@@ -2787,7 +2057,7 @@ Echarts2:function () {
                 //console.log(height);
                 if(width>height){
                     document.getElementById('fh1_b2_a').style.width=height*0.7+'px';
-                    ocument.getElementById('fh1_b2_a').style.height=height*0.7+'px';
+                    document.getElementById('fh1_b2_a').style.height=height*0.7+'px';
                 }else {
                     document.getElementById('fh1_b2_a').style.height=width*0.7+'px';
                     document.getElementById('fh1_b2_a').style.width=width*0.7+'px';

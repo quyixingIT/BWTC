@@ -479,14 +479,14 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.2605" cy="612.946" width="94.53" height="20"/>
 			<rect x="0" y="602.946" width="94.5211" height="20" class="st1"/>
-			<text x="19.67" y="618.95" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>171℃</text>		</g>
+			<text id="CTCQTowerKettleT" x="19.67" y="618.95" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>171℃</text>		</g>
 		<g id="shape189-58" v:mID="189" v:groupContext="shape" transform="translate(1557.39,-386.317)">
 			<title>工作表.189</title>
 			<desc>151℃</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="40.9758" cy="612.946" width="81.96" height="20"/>
 			<rect x="0" y="602.946" width="81.9516" height="20" class="st1"/>
-			<text x="13.38" y="618.95" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>151℃</text>		</g>
+			<text id="CTCQTowerLMBT1" x="13.38" y="618.95" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>151℃</text>		</g>
 		<g id="group215-61" transform="translate(88.2431,-323.833)" v:mID="215" v:groupContext="group">
 			<title>工作表.215</title>
 			<g id="shape216-62" v:mID="216" v:groupContext="shape" transform="translate(-2.47802E-013,-198.924)">
@@ -513,7 +513,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="43.1195" cy="612.946" width="86.24" height="20"/>
 			<rect x="0" y="602.946" width="86.239" height="20" class="st1"/>
-			<text x="15.53" y="618.95" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>107℃</text>		</g>
+			<text id="CTCQTowerTopT" x="15.53" y="618.95" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>107℃</text>		</g>
 		<g id="shape238-78" v:mID="238" v:groupContext="shape" transform="translate(2190.62,-264.584)">
 			<title>工作表.238</title>
 			<path d="M0 622.95 L29.69 622.95" class="st4"/>
@@ -528,7 +528,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="43.1434" cy="612.317" width="86.29" height="21.2598"/>
 			<rect x="0" y="601.687" width="86.2867" height="21.2598" class="st1"/>
-			<text x="15.55" y="618.32" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>208℃</text>		</g>
+			<text id="CTWDTowerKettleT" x="15.55" y="618.32" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>208℃</text>		</g>
 		<g id="shape253-87" v:mID="253" v:groupContext="shape" transform="translate(1072.71,-440.41)">
 			<title>工作表.253</title>
 			<path d="M0 622.95 L26.64 622.95" class="st4"/>
@@ -539,7 +539,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="50.2127" cy="617.277" width="100.43" height="11.3386"/>
 			<rect x="0" y="611.608" width="100.425" height="11.3386" class="st1"/>
-			<text x="22.62" y="623.28" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>183℃</text>		</g>
+			<text id="CTYZLTowerLMBT" x="22.62" y="623.28" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>183℃</text>		</g>
 		<g id="shape255-93" v:mID="255" v:groupContext="shape" transform="translate(1074.63,-510.254)">
 			<title>工作表.255</title>
 			<path d="M0 622.95 L21.91 622.95" class="st4"/>
@@ -550,18 +550,18 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="44.885" cy="614.443" width="89.78" height="17.0079"/>
 			<rect x="0" y="605.939" width="89.77" height="17.0079" class="st1"/>
-			<text x="17.29" y="620.44" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>133℃</text>		</g>
-		<g id="shape262-99" v:mID="262" v:groupContext="shape" transform="translate(386.022,-444.53)">
-			<title>工作表.262</title>
-			<path d="M0 622.95 L21.33 622.95" class="st4"/>
-		</g>
-		<g id="shape268-102" v:mID="268" v:groupContext="shape" transform="translate(399.12,-432.539)">
-			<title>工作表.268</title>
-			<desc>198℃</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="34.153" cy="610.899" width="68.31" height="24.0945"/>
-			<rect x="0" y="598.852" width="68.306" height="24.0945" class="st1"/>
-			<text x="6.56" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>198℃</text>		</g>
+			<text id="CTYZLTowerTopT" x="17.29" y="620.44" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>133℃</text>		</g>
+		<!--<g id="shape262-99" v:mID="262" v:groupContext="shape" transform="translate(386.022,-444.53)">-->
+			<!--<title>工作表.262</title>-->
+			<!--<path d="M0 622.95 L21.33 622.95" class="st4"/>-->
+		<!--</g>-->
+		<!--<g id="shape268-102" v:mID="268" v:groupContext="shape" transform="translate(399.12,-432.539)">-->
+			<!--<title>工作表.268</title>-->
+			<!--<desc>198℃</desc>-->
+			<!--<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>-->
+			<!--<v:textRect cx="34.153" cy="610.899" width="68.31" height="24.0945"/>-->
+			<!--<rect x="0" y="598.852" width="68.306" height="24.0945" class="st1"/>-->
+			<!--<text x="6.56" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>198℃</text>		</g>-->
 		<g id="shape269-105" v:mID="269" v:groupContext="shape" transform="translate(383.323,-529.05)">
 			<title>工作表.269</title>
 			<path d="M0 622.95 L22.33 622.95" class="st4"/>
@@ -572,7 +572,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="39.7023" cy="610.899" width="79.41" height="24.0945"/>
 			<rect x="0" y="598.852" width="79.4046" height="24.0945" class="st1"/>
-			<text x="12.11" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>203℃</text>		</g>
+			<text id="CTYFExitT" x="12.11" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>203℃</text>		</g>
 		<g id="shape271-111" v:mID="271" v:groupContext="shape" transform="translate(135.247,-353.044)">
 			<title>工作表.271</title>
 			<path d="M0 622.95 L17.92 622.95" class="st4"/>
@@ -583,7 +583,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="35.5946" cy="610.899" width="71.19" height="24.0945"/>
 			<rect x="0" y="598.852" width="71.1892" height="24.0945" class="st1"/>
-			<text x="8" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>172℃</text>		</g>
+			<text id="CTZFTowerKettleT" x="8" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>172℃</text>		</g>
 		<g id="shape273-117" v:mID="273" v:groupContext="shape" transform="translate(135.847,-514.293)">
 			<title>工作表.273</title>
 			<path d="M0 622.95 L18.04 622.95" class="st4"/>
@@ -594,7 +594,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="35.5946" cy="610.899" width="71.19" height="24.0945"/>
 			<rect x="0" y="598.852" width="71.1892" height="24.0945" class="st1"/>
-			<text x="8" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>157℃</text>		</g>
+			<text id="CTZFTowerTopT" x="8" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>157℃</text>		</g>
 		<g id="shape275-123" v:mID="275" v:groupContext="shape" transform="translate(566.562,-453.404)">
 			<title>工作表.275</title>
 			<path d="M0 622.95 L20.58 622.95" class="st4"/>
@@ -605,25 +605,25 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="34.153" cy="610.899" width="68.31" height="24.0945"/>
 			<rect x="0" y="598.852" width="68.306" height="24.0945" class="st1"/>
-			<text x="6.56" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>285℃</text>		</g>
-		<g id="shape280-129" v:mID="280" v:groupContext="shape" transform="translate(590.645,-501.722)">
-			<title>工作表.280</title>
-			<desc>312℃</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="33.3522" cy="605.385" width="66.71" height="35.1219"/>
-			<rect x="0" y="587.825" width="66.7043" height="35.1219" class="st1"/>
-			<text x="5.76" y="611.39" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>312℃</text>		</g>
+			<text id="CTZFExitT" x="6.56" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>285℃</text>		</g>
+		<!--<g id="shape280-129" v:mID="280" v:groupContext="shape" transform="translate(590.645,-501.722)">-->
+			<!--<title>工作表.280</title>-->
+			<!--<desc>312℃</desc>-->
+			<!--<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>-->
+			<!--<v:textRect cx="33.3522" cy="605.385" width="66.71" height="35.1219"/>-->
+			<!--<rect x="0" y="587.825" width="66.7043" height="35.1219" class="st1"/>-->
+			<!--<text x="5.76" y="611.39" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>312℃</text>		</g>-->
 		<g id="shape281-132" v:mID="281" v:groupContext="shape" transform="translate(800.046,-573.882)">
-			<title>工作表.281</title>
+			<title >工作表.281</title>
 			<path d="M0 622.95 L26.27 622.95" class="st4"/>
 		</g>
 		<g id="shape282-135" v:mID="282" v:groupContext="shape" transform="translate(819.798,-561.216)">
-			<title>工作表.282</title>
+			<title id="titleGZ1">工作表.282</title>
 			<desc>86℃</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="48.7163" cy="610.899" width="97.44" height="24.0945"/>
 			<rect x="0" y="598.852" width="97.4325" height="24.0945" class="st1"/>
-			<text x="26.99" y="616.9" class="st21" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>86℃</text>		</g>
+			<text id="CTWDTowerTopT" x="26.99" y="616.9" class="st21" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>86℃</text>		</g>
 		<g id="shape283-138" v:mID="283" v:groupContext="shape" transform="translate(801.725,-389.962)">
 			<title>工作表.283</title>
 			<path d="M0 622.95 L26.27 622.95" class="st4"/>
@@ -645,7 +645,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="50.6264" cy="610.899" width="101.26" height="24.0945"/>
 			<rect x="0" y="598.852" width="101.253" height="24.0945" class="st1"/>
-			<text x="23.03" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>121℃</text>		</g>
+			<text id="CTWDTowerLMBT" x="23.03" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>121℃</text>		</g>
 		<g id="shape287-150" v:mID="287" v:groupContext="shape" transform="translate(430.997,-351.694)">
 			<title>工作表.287</title>
 			<path d="M0 622.95 L26.27 622.95" class="st4"/>
@@ -656,7 +656,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="30.6547" cy="610.899" width="61.31" height="24.0945"/>
 			<rect x="0" y="598.852" width="61.3095" height="24.0945" class="st1"/>
-			<text x="8.93" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>94℃</text>		</g>
+			<text id="CTCYTowerTopT" x="8.93" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>94℃</text>		</g>
 		<g id="shape289-156" v:mID="289" v:groupContext="shape" transform="translate(431.917,-179.489)">
 			<title>工作表.289</title>
 			<path d="M0 622.95 L26.27 622.95" class="st4"/>
@@ -667,7 +667,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="33.7183" cy="610.899" width="67.44" height="24.0945"/>
 			<rect x="0" y="598.852" width="67.4367" height="24.0945" class="st1"/>
-			<text x="6.13" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>210℃</text>		</g>
+			<text id="CTCYTowerKettleT" x="6.13" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>210℃</text>		</g>
 		<g id="shape291-162" v:mID="291" v:groupContext="shape" transform="translate(27.853,-508.431)">
 			<title>工作表.291</title>
 			<desc>实 时</desc>
@@ -908,7 +908,7 @@
 								spreadMethod="reflect" gradientTransform="matrix(-1, -0, -0, -1, 265.31, 450.27)">
 							<stop offset="0" stop-color="#97aa93"/>
 							<stop offset="0.15" stop-color="#d0e8cb"/>
-							<stop offset="0.25" stop-color="#e5f2e2"/>
+							<stop offset="0.25" stop-color="#e5f2e2"/>F
 							<stop offset="0.52" stop-color="#b3c9ae"/>
 							<stop offset="0.69" stop-color="#9fb39b"/>
 							<stop offset="0.8" stop-color="#96a992"/>
@@ -2306,7 +2306,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="43.1434" cy="609.198" width="86.29" height="27.4961"/>
 			<rect x="0" y="595.45" width="86.2867" height="27.4961" class="st1"/>
-			<text x="21.41" y="615.2" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>12℃</text>		</g>
+			<text id="CTEJBTowerTopT" x="21.41" y="615.2" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>12℃</text>		</g>
 		<g id="shape964-223" v:mID="964" v:groupContext="shape" transform="translate(1248.56,-342.336)">
 			<title>工作表.964</title>
 			<path d="M0 622.95 L28.35 622.95" class="st4"/>
@@ -2321,14 +2321,14 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="44.885" cy="610.899" width="89.78" height="24.0945"/>
 			<rect x="0" y="598.852" width="89.77" height="24.0945" class="st1"/>
-			<text x="23.16" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>14℃</text>		</g>
+			<text id="CTEJBTowerLMBT" x="23.16" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>14℃</text>		</g>
 		<g id="shape967-232" v:mID="967" v:groupContext="shape" transform="translate(1260.79,-66.1593)">
 			<title>工作表.967</title>
 			<desc>10℃</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.2605" cy="613.734" width="94.53" height="18.4252"/>
 			<rect x="0" y="604.521" width="94.5211" height="18.4252" class="st1"/>
-			<text x="25.53" y="619.73" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>10℃</text>		</g>
+			<text id="CTEJBBTowerKettleT" x="25.53" y="619.73" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>10℃</text>		</g>
 		<g id="shape968-235" v:mID="968" v:groupContext="shape" transform="translate(1249.94,-76.1662)">
 			<title>工作表.968</title>
 			<path d="M0 622.95 L24.72 622.95" class="st4"/>
@@ -2347,7 +2347,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="50.2127" cy="616.285" width="100.43" height="13.3228"/>
 			<rect x="0" y="609.624" width="100.425" height="13.3228" class="st1"/>
-			<text x="22.62" y="622.29" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>191℃</text>		</g>
+			<text id="CTJXTowerKettleT" x="22.62" y="622.29" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>191℃</text>		</g>
 		<g id="shape971-245" v:mID="971" v:groupContext="shape" transform="translate(1871.78,-374.893)">
 			<title>工作表.971</title>
 			<path d="M0 622.95 L20.74 622.95" class="st4"/>
@@ -2362,21 +2362,21 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="48.7163" cy="613.734" width="97.44" height="18.4252"/>
 			<rect x="0" y="604.521" width="97.4325" height="18.4252" class="st1"/>
-			<text x="26.99" y="619.73" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>53℃</text>		</g>
+			<text id="CTJXTowerTopT" x="26.99" y="619.73" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>53℃</text>		</g>
 		<g id="shape974-254" v:mID="974" v:groupContext="shape" transform="translate(2213.05,-251.932)">
 			<title>工作表.974</title>
 			<desc>111℃</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="44.885" cy="610.899" width="89.78" height="24.0945"/>
 			<rect x="0" y="598.852" width="89.77" height="24.0945" class="st1"/>
-			<text x="17.29" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>111℃</text>		</g>
+			<text id="CTBTowerKettleT" x="17.29" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>111℃</text>		</g>
 		<g id="shape975-257" v:mID="975" v:groupContext="shape" transform="translate(2211.8,-434.596)">
 			<title>工作表.975</title>
 			<desc>92℃</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="50.2127" cy="610.899" width="100.43" height="24.0945"/>
 			<rect x="0" y="598.852" width="100.425" height="24.0945" class="st1"/>
-			<text x="28.48" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>92℃</text>		</g>
+			<text id="CTBTowerLMBT" x="28.48" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>92℃</text>		</g>
 		<g id="shape976-260" v:mID="976" v:groupContext="shape" transform="translate(2191.91,-446.403)">
 			<title>工作表.976</title>
 			<path d="M0 622.95 L23.17 622.95" class="st4"/>
@@ -2391,7 +2391,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="50.2127" cy="615.151" width="100.43" height="15.5906"/>
 			<rect x="0" y="607.356" width="100.425" height="15.5906" class="st1"/>
-			<text x="28.48" y="621.15" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>69℃</text>		</g>
+			<text id="CTBTowerTopT" x="28.48" y="621.15" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>69℃</text>		</g>
 		<g id="shape1001-269" v:mID="1001" v:groupContext="shape" transform="translate(2376.07,-583.654) scale(-1,1)">
 			<title>工作表.1001</title>
 			<desc>纯苯 PB</desc>
@@ -2400,10 +2400,10 @@
 			<rect x="0" y="598.852" width="89.77" height="24.0945" class="st1"/>
 			<text x="-85.77" y="604.9" transform="scale(-1,1)" class="st2" v:langID="2052"><v:paragraph/><v:tabList/>纯苯<v:newlineChar/><tspan
 						x="-85.77" dy="1.2em" class="st3">PB</tspan></text>		</g>
-		<g id="shape1019-273" v:mID="1019" v:groupContext="shape" transform="translate(565.381,-519.703)">
-			<title>工作表.1019</title>
-			<path d="M0 622.95 L20.58 622.95" class="st4"/>
-		</g>
+		<!--<g id="shape1019-273" v:mID="1019" v:groupContext="shape" transform="translate(565.381,-519.703)">-->
+			<!--<title>工作表.1019</title>-->
+			<!--<path d="M0 622.95 L20.58 622.95" class="st4"/>-->
+		<!--</g>-->
 		<g id="shape1020-276" v:mID="1020" v:groupContext="shape" transform="translate(2342.07,-204.52) scale(-1,1)">
 			<title>工作表.1020</title>
 			<desc>苯塔 2C-6303</desc>

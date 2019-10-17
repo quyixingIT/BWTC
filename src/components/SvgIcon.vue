@@ -556,17 +556,17 @@
 			<v:textRect cx="44.885" cy="614.443" width="89.78" height="17.0079"/>
 			<rect x="0" y="605.939" width="89.77" height="17.0079" class="st2"/>
 			<text id="XNYZLTowerTopT" x="17.29" y="620.44" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>133℃</text>		</g>
-		<g id="shape262-99" v:mID="262" v:groupContext="shape" transform="translate(386.022,-444.53)">
-			<title>工作表.262</title>
-			<path d="M0 622.95 L21.33 622.95" class="st5"/>
-		</g>
-		<g id="shape268-102" v:mID="268" v:groupContext="shape" transform="translate(399.12,-432.539)">
-			<title>工作表.268</title>
-			<desc>198℃</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="34.153" cy="610.899" width="68.31" height="24.0945"/>
-			<rect x="0" y="598.852" width="68.306" height="24.0945" class="st2"/>
-			<text x="6.56" y="616.9" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>198℃</text>		</g>
+		<!--<g id="shape262-99" v:mID="262" v:groupContext="shape" transform="translate(386.022,-444.53)">-->
+			<!--<title>工作表.262</title>-->
+			<!--<path d="M0 622.95 L21.33 622.95" class="st5"/>-->
+		<!--</g>-->
+		<!--<g id="shape268-102" v:mID="268" v:groupContext="shape" transform="translate(399.12,-432.539)">-->
+			<!--<title>工作表.268</title>-->
+			<!--<desc>198℃</desc>-->
+			<!--<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>-->
+			<!--<v:textRect cx="34.153" cy="610.899" width="68.31" height="24.0945"/>-->
+			<!--<rect x="0" y="598.852" width="68.306" height="24.0945" class="st2"/>-->
+			<!--<text x="6.56" y="616.9" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>198℃</text>		</g>-->
 		<g id="shape269-105" v:mID="269" v:groupContext="shape" transform="translate(383.323,-529.05)">
 			<title>工作表.269</title>
 			<path d="M0 622.95 L22.33 622.95" class="st5"/>
@@ -611,13 +611,13 @@
 			<v:textRect cx="34.153" cy="610.899" width="68.31" height="24.0945"/>
 			<rect x="0" y="598.852" width="68.306" height="24.0945" class="st2"/>
 			<text x="6.56" y="616.9" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>285℃</text>		</g>
-		<g id="shape280-129" v:mID="280" v:groupContext="shape" transform="translate(590.645,-501.722)">
-			<title>工作表.280</title>
-			<desc>312℃</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="33.3522" cy="605.385" width="66.71" height="35.1219"/>
-			<rect x="0" y="587.825" width="66.7043" height="35.1219" class="st2"/>
-			<text x="5.76" y="611.39" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>312℃</text>		</g>
+		<!--<g id="shape280-129" v:mID="280" v:groupContext="shape" transform="translate(590.645,-501.722)">-->
+			<!--<title>工作表.280</title>-->
+			<!--<desc>312℃</desc>-->
+			<!--<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>-->
+			<!--<v:textRect cx="33.3522" cy="605.385" width="66.71" height="35.1219"/>-->
+			<!--<rect x="0" y="587.825" width="66.7043" height="35.1219" class="st2"/>-->
+			<!--<text x="5.76" y="611.39" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>312℃</text>		</g>-->
 		<g id="shape281-132" v:mID="281" v:groupContext="shape" transform="translate(800.046,-573.882)">
 			<title>工作表.281</title>
 			<path d="M0 622.95 L26.27 622.95" class="st5"/>
@@ -2405,10 +2405,10 @@
 			<rect x="0" y="598.852" width="89.77" height="24.0945" class="st2"/>
 			<text x="-85.77" y="604.9" transform="scale(-1,1)" class="st3" v:langID="2052"><v:paragraph/><v:tabList/>纯苯<v:newlineChar/><tspan
 						x="-85.77" dy="1.2em" class="st4">PB</tspan></text>		</g>
-		<g id="shape1019-273" v:mID="1019" v:groupContext="shape" transform="translate(565.381,-519.703)">
-			<title>工作表.1019</title>
-			<path d="M0 622.95 L20.58 622.95" class="st5"/>
-		</g>
+		<!--<g id="shape1019-273" v:mID="1019" v:groupContext="shape" transform="translate(565.381,-519.703)">-->
+			<!--<title>工作表.1019</title>-->
+			<!--<path d="M0 622.95 L20.58 622.95" class="st5"/>-->
+		<!--</g>-->
 		<g id="shape1020-276" v:mID="1020" v:groupContext="shape" transform="translate(2342.07,-204.52) scale(-1,1)">
 			<title>工作表.1020</title>
 			<desc>苯塔 2C-6303</desc>
@@ -5121,76 +5121,76 @@
            //  svg.setAttribute('width', this.screenWidth);
         },
         methods:{
-            getData:function(){
-                //debugger;            //var ws=null;
-                var that=this;
-                if ('WebSocket' in window) {
-                    this.ws = new WebSocket('ws://192.168.1.113:1001/api/ZMData/Get?');
-                   // this.ws = new WebSocket('ws://192.168.1.113:59769/api/ZMData/Get');
-                    //this.ws = new WebSocket('ws://localhost:59769/api/OPCOper/Get');
-                    this.ws.onopen = function () {
-                        //debugger;
-                        console.log('WebSocket连接成功！');
-                    };
-                    this.ws.onmessage = function (res) {
-                        //debugger;
-                        var res1=JSON.parse(res.data);
-                        var res2=res1.dataToWebXNList;
-                        console.log(res1);
-                        for(var i=0; i <res2.length;i++){
-                            var id=res2[i].name;
-                            //debugger;
-                            if(document.getElementById(id)){
-                                document.getElementById(id).innerHTML=res2[i].value;
-							}
-
-						}
-                        // that.tableData=res1._intelligentControllerList;//res.data;
-                        //  that.tableData1=res1._intelligentControllerList1;//res.data;
-                        //  console.log(res1._intelligentController);
-                        //  that.ICSwitch=res1._intelligentController.ICName;
-                        //  that.ControllerName=res1._intelligentController.ICSSTargetVal;
-                        //  that.DisplayedStatus=res1._intelligentController.ICDesc;
-                        //  that.urtCountdown=res1._intelligentController.ICStatus;
-                        //  that.urtIntervalCount=res1._intelligentController.CurrentValue;
-                    };
-                    this.ws.onerror = function (error) {
-                        console.log('WebSocket连接失败,错误:' + error);
-                    };
-                    this.ws.onclose = function () {
-                        //debugger;
-                        console.log('WebSocket连接关闭！');
-                    };
-                }
-            },
-            destroyed(){
-                if (this.ws.readyState == WebSocket.OPEN) {
-                    this.ws.close();
-                    console.warn('WebSocket连接已关闭！');
-                } else {
-                    console.warn('WebSocket连接已关闭！');
-                }
-            },
-            close () {
-                this.ws.close();
-            },
-            opcwrite(id,value,col,tb){
-                //console.log(value)
-                //console.log(id)
-                //debugger;
-                //  this.$axios.get("http://192.168.1.113:1001/api/ZMData/WriteValue1?value="+value+"&&tag="+id+"&&col="+col+"&&tb="+tb).then(res=>{
-                //     console.log(res)
-                // })
-                this.$axios.get("http://localhost:59769/api/ZMData/WriteValue1?value="+value+"&&tag="+id+"&&col="+col+"&&tb="+tb).then(res=>{
-                    console.log(res)
-                })
-            },
-            updateval(row){
-                this.getA=true;
-                this.row=row;
-                console.log(row.ICLowLimit);
-            }
-        }
+            //getData:function(){
+        //         //debugger;            //var ws=null;
+        //         var that=this;
+        //         if ('WebSocket' in window) {
+        //             //this.ws = new WebSocket('ws://192.168.1.113:1001/api/ZMData/Get?');
+        //             this.ws = new WebSocket('ws://localhost:59769/api/ZMData/Get');
+        //             //this.ws = new WebSocket('ws://localhost:59769/api/OPCOper/Get');
+        //             this.ws.onopen = function () {
+        //                 //debugger;
+        //                 console.log('WebSocket连接成功！');
+        //             };
+        //             this.ws.onmessage = function (res) {
+        //                 debugger;
+        //                 var res1=JSON.parse(res.data);
+        //                 var res2=res1.dataToWebXNList;
+        //                 console.log(res1);
+        //                 for(var i=0; i <res2.length;i++){
+        //                     var id=res2[i].name;
+        //                     //debugger;
+        //                     if(document.getElementById(id)){
+        //                         document.getElementById(id).innerHTML=res2[i].value;
+		// 					}
+		//
+		// 				}
+        //                 // that.tableData=res1._intelligentControllerList;//res.data;
+        //                 //  that.tableData1=res1._intelligentControllerList1;//res.data;
+        //                 //  console.log(res1._intelligentController);
+        //                 //  that.ICSwitch=res1._intelligentController.ICName;
+        //                 //  that.ControllerName=res1._intelligentController.ICSSTargetVal;
+        //                 //  that.DisplayedStatus=res1._intelligentController.ICDesc;
+        //                 //  that.urtCountdown=res1._intelligentController.ICStatus;
+        //                 //  that.urtIntervalCount=res1._intelligentController.CurrentValue;
+        //             };
+        //             this.ws.onerror = function (error) {
+        //                 console.log('WebSocket连接失败,错误:' + error);
+        //             };
+        //             this.ws.onclose = function () {
+        //                 //debugger;
+        //                 console.log('WebSocket连接关闭！');
+        //             };
+        //         }
+        //     },
+        //     destroyed(){
+        //         if (this.ws.readyState == WebSocket.OPEN) {
+        //             this.ws.close();
+        //             console.warn('WebSocket连接已关闭！');
+        //         } else {
+        //             console.warn('WebSocket连接已关闭！');
+        //         }
+        //     },
+        //     close () {
+        //         this.ws.close();
+        //     },
+        //     opcwrite(id,value,col,tb){
+        //         //console.log(value)
+        //         //console.log(id)
+        //         //debugger;
+        //         //  this.$axios.get("http://192.168.1.113:1001/api/ZMData/WriteValue1?value="+value+"&&tag="+id+"&&col="+col+"&&tb="+tb).then(res=>{
+        //         //     console.log(res)
+        //         // })
+        //         this.$axios.get("http://localhost:59769/api/ZMData/WriteValue1?value="+value+"&&tag="+id+"&&col="+col+"&&tb="+tb).then(res=>{
+        //             console.log(res)
+        //         })
+        //     },
+        //     updateval(row){
+        //         this.getA=true;
+        //         this.row=row;
+        //         console.log(row.ICLowLimit);
+        //     }
+         }
     }
 </script>
 
