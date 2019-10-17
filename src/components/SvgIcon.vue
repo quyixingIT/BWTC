@@ -5114,7 +5114,7 @@
         },
         mounted(){
             //let _this = this;
-            this.getData();
+            //this.getData();
            // var textValue=document.getElementById("aa");
            //  var svg= document.getElementById("SvgIcon");
            //  svg.setAttribute('height', this.screeHeight);

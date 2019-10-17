@@ -345,6 +345,7 @@
                     </div>
                     <div class="TYL_1_b"></div>
                     <div class="TYL_1_c"></div>
+                    <div class="TYL_1_d"></div>
                 </div>
                 <div class="TYL_2">
                     <div class="TYL_2_a"></div>
@@ -400,6 +401,7 @@
             this.table1Scroll();
             this.circleChange();
             this.liquidFill();
+            this.Echarts12();
         },
         methods:{
 Echarts1:function () {
@@ -1759,6 +1761,103 @@ Echarts2:function () {
                     myChart.setOption(option, true);
                 }
             },
+            ///APC投用率
+            Echarts12:function(){
+                ///APC投用率
+                var dom = document.getElementById("TYL_1_c");
+                var myChart = $echarts.init(dom);
+                var app = {};
+              var option = null;
+                option = {
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    tooltip: {
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+                        trigger: 'axis',
+                        extraCssText: 'width:50px;',
+
+                    },
+                    color: ['#55F93F'],
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '0%',
+                        top: '30%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        axisLine: {
+                            lineStyle: {
+                                color: '#3db1a6',
+                                width: 1,//这里是为了突出显示加上的
+                            }
+                        },
+                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#CCCCCC'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: {
+                            lineStyle: {
+                                color: '#3db1a6',
+                                width: 1,//这里是为了突出显示加上的
+                            }
+                        },
+                        nameGap: 5,
+                        min: 0,
+                        showMinLabel: false,
+                        nameTextStyle: {
+                            color: '#CCCCCC'
+                        },
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#CCCCCC'
+                            }
+                        },
+                        splitLine: {
+                            show: false,
+                            lineStyle: {
+                                type: 'dotted',
+                                color: '#404040'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            type: 'line',
+                            radius: 10,
+                            lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                width: 3,
+                                type: 'solid'
+                            },
+                            data: [88, 95, 90, 93, 89, 92, 90],
+                            itemStyle:{
+                                normal:{
+                                    label:{
+                                        textStyle:{
+                                            fontSize:16
+                                        },
+                                        color:'#64b9e9',
+                                        show:true, //自动显示数据 ，无需鼠标滑动才显示数据
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                };
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+            },
+
             //动态圆柱
             liquidFill:function(){
                 let config2 = null;
@@ -2257,17 +2356,22 @@ width: 100%;
     background-color: red;
 }
 .TYL_1_a{
-    width: 33.33%;
+    width: 25%;
     height: 100%;
     background-color: aliceblue;
 }
 .TYL_1_b{
-    width: 33.33%;
+    width: 20%;
     height: 100%;
     background-color:sienna;
 }
 .TYL_1_c{
-    width: 33.33%;
+    width: 30%;
+    height: 100%;
+    background-color:green;
+}
+.TYL_1_d{
+    width: 25%;
     height: 100%;
     background-color:green;
 }
