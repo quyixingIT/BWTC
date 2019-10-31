@@ -21,7 +21,7 @@ function endLoading() {
 let loadCount = 0, loadingArray=[];
 //请求拦截
 axios.interceptors.request.use(config =>{
-    config.baseURL='http://192.168.1.113:82';
+    config.baseURL='http://192.168.1.113:1001';
     loadCount++;
     //加载动画
     startLoading();

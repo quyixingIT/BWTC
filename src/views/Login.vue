@@ -1,8 +1,8 @@
 <template>
     <div class="contain">
 <div class="title">
-    <img src="../assets/logo.gif" class="logo" alt="logo">
-    <span class="titleText">宝武炭材新一期苯加氢信息系统V1.0</span>
+    <img src="../assets/BWlogo.png" class="logo" alt="logo">
+    <span class="titleText">宝武炭材新一期苯加氢自适应生产信息系统</span>
 </div>
         <div class="content">
             <div class="login">
@@ -132,7 +132,7 @@
                        // }).then(res=>{
                        //     console.log(res);
                       //  })
-                        this.$axios.get('/FuelOilService.asmx/login?userName='+userEmail+'&password='+password).then(res=>{
+                        this.$axios.get('/api/Login/login?userName='+userEmail+'&password='+password).then(res=>{
                            //console.log(res);
                            if (res.data.success){
                               let userinfo = JSON.stringify(res.data.user);
@@ -221,7 +221,7 @@
     }
     .logo{
         height:80px;
-        width:80px;
+        width:160px;
     }
     .titleText{
         position: absolute;

@@ -17,7 +17,7 @@
                 <router-link to="/home">
                     <el-menu-item index="0">
                         <i class="fa fa-pie-chart fa-margin"></i>
-                        <span slot="title">智慧看板</span>
+                        <span slot="title">智慧引擎</span>
                     </el-menu-item>
                 </router-link>
              <router-link to="/SCZM">
@@ -92,7 +92,7 @@
                         path:'info',
                         children:[
                             {path:'infoshow',name:"个人信息"},
-                            {path:'fundlist',name:"参数配置"}
+                            {path:'PriceEdit',name:"价格管理"}
                         ]
                     }
                 ],
@@ -103,9 +103,9 @@
 methods:{
       readMenu:function () {
          // let token=localStorage.eleToken;
-            this.$axios.get('/FuelOilService.asmx/getNavigation').then(res=>{
-             return res;
-            })
+         //    this.$axios.get('/FuelOilService.asmx/getNavigation').then(res=>{
+         //     return res;
+         //    })
            // this.$axios.get('/FuelOilService.asmx/getNavigation?token='+token).then(res=>{
            //      console.log(res);
            //       return res;
@@ -158,6 +158,7 @@ methods:{
         background-color: #0A243D;
         z-index: 99;
         border-right: 5px solid #016577;
+        border-top: 5px solid #016577 ;
     }
     .el-menu {
         border: none;

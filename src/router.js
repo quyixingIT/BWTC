@@ -11,8 +11,9 @@ import FundList from './views/FundList.vue'
 import ZFLGC from './views/ZFLGC.vue'
 import Scaler from './views/Scaler.vue'
 import OptizimeRecipe from './views/OptizimeRecipe.vue'
+
 import SCZM from './views/SCZM.vue'
-import test01 from './views/test01.vue'
+import PriceEdit from './views/PriceEdit.vue'
 Vue.use(Router)
 
  const router=new Router({
@@ -35,7 +36,7 @@ Vue.use(Router)
                {path:'/ZFLGC',name:'ZFLGC',component:ZFLGC},
                {path:'/Scaler',name:'Scaler',component:Scaler},
                {path:'/OptizimeRecipe',name:'OptizimeRecipe',component:OptizimeRecipe},
-               {path:'/test01',name:'test01',component:test01},
+               {path:'/PriceEdit',name:'PriceEdit',component:PriceEdit},
    ]
       },
       {

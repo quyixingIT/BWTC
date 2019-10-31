@@ -2,7 +2,7 @@
 <div class="SCZM">
     <!--<img src="../assets/svg/SCZM1.svg" alt="图片1">-->
     <!--<img src="../assets/svg/SCZM.svg" alt="图片">-->
-        <img src="../assets/title.png"/>
+        <img src="../assets/XNGC.png"/>
     <div class="xuni">
         <SvgIcon></SvgIcon>
     </div>
@@ -42,8 +42,8 @@ methods:{
         //debugger;            //var ws=null;
         var that=this;
         if ('WebSocket' in window) {
-            //this.ws = new WebSocket('ws://192.168.1.113:1001/api/ZMData/Get?');
-            this.ws = new WebSocket('ws://localhost:59769/api/ZMData/Get');
+            this.ws = new WebSocket('ws://192.168.1.113:1002/api/ZMData/Get?');
+            // this.ws = new WebSocket('ws://localhost:59769/api/ZMData/Get');
             //this.ws = new WebSocket('ws://localhost:59769/api/OPCOper/Get');
             this.ws.onopen = function () {
                 //debugger;

@@ -1,26 +1,39 @@
 /* 智慧看板*/
 <template>
     <div class="allbox" id="allbox">
-        <img id="imgtitle" src="../assets/title.png" alt="">
+        <img id="imgtitle" src="../assets/ZHKB.png" alt="">
         <div class="content">
                 <div id="fuhe" class="fuhe">
                     <div class="fh1">
                         <div class="fh1_a"id="fh1_a"></div>
-                        <div class="fh1_b">
-                            <div class="fh1_b1" id="fh1_b1"></div>
-                            <!--圆-->
-                            <div class="fh1_b2"id="fh1_b2">
-                                <div class="fh1_b2_a" id="fh1_b2_a">
+                        <div class="fh1_b" id="fh1_b">
+
+                        <div class="fh1_b1" id="fh1_b1" ></div>
+                        <div class="fh1_b1" id="fh1_b1_a" style="display: none;" ></div>
+                        <div class="fh1_b1" id="fh1_b1_b" style="display: none;" ></div>
+                        <div class="fh1_b1" id="fh1_b1_c" style="display: none;"></div>
+                        <div class="fh1_b1" id="fh1_b1_d" style="display: none;"></div>
+                        <div class="fh1_b1" id="fh1_b1_e" style="display: none;"></div>
+                        <div class="fh1_b1" id="fh1_b1_f" style="display: none;"></div>
+
+                        <!--圆-->
+                        <div class="fh1_b2"id="fh1_b2">
+                            <div class="fh1_b2_a" id="fh1_b2_a">
+                                <div class="fh1_b2_a_1">
+                                    <p id="titleText1" style="color: #ffff;font-size: 20px;font-family: 'Microsoft YaHei';text-align: center">纯苯</p>
+                                    <p id="titleText2" style="color: #64B9E9;font-size: 30px;font-family: 'Microsoft YaHei'">50t/h</p>
 
                                 </div>
 
                             </div>
+
                         </div>
+                    </div>
                     </div>
                     <!--表格1-->
                     <div class="fh2" style="margin-top: 20px;padding-right: 10px;text-align: center">
                         <div style="width: 100%;height: 9%;background-color: #105090;">
-                            <table id="CP" class="tableTitle" style="border:0px solid #888;width: 100%;text-align: center">
+                            <table id="CP"  class="tableTitle" style="border:0px solid #888;width: 100%;text-align: center">
                                 <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
                                 <tr>
                                     <td style="width: 30%;color:#64B9E9;">设备</td>
@@ -33,149 +46,137 @@
                              style="height: 80%;overflow-y: scroll;overflow: hidden;width: 100%">
                             <div id="childCP" class="child" style="width: 100%">
                                 <table style="width: 100%">
-                                    <tr class="jishu">
-                                        <td style="width: 30%;color:white">蒸发塔</td>
-                                        <td style="width: 40%;color:white">塔顶出料</td>
-                                        <td style="width: 30%;color:white">100</td>
-                                    </tr>
-                                    <tr class="oushu">
+                                    <tr class="jishu" v-model="tableData0">
                                         <td style="color:white;">蒸发塔</td>
-                                        <td style="color:white;">塔釜进料</td>
-                                        <td style="color:white;">500</td>
+                                        <td style="color:white;">进料</td>
+                                        <td style="color:white;">{{tableData0}}</td>
 
                                     </tr>
-                                    <tr class="jishu">
+                                    <tr class="oushu" v-model="tableData1">
+                                        <td style="width: 30%;color:white">蒸发塔</td>
+                                        <td style="width: 40%;color:white">塔釜出料</td>
+                                        <td style="width: 30%;color:white">{{tableData1}}</td>
+                                    </tr>
+
+                                    <tr class="jishu" v-model="tableData2">
                                         <td style="color:white;">残油塔</td>
-                                        <td style="color:white;">侧线进料</td>
-                                        <td style="color:white;">111</td>
+                                        <td style="color:white;">进料</td>
+                                        <td style="color:white;">{{tableData2}}</td>
 
                                     </tr>
-                                    <tr class="oushu">
+                                    <tr class="oushu" v-model="tableData3">
                                         <td style="color:white;">残油塔</td>
                                         <td style="color:white;">塔釜出料</td>
-                                        <td style="color:white;">500</td>
+                                        <td style="color:white;">{{tableData3}}</td>
 
                                     </tr>
-                                    <tr class="jishu">
-                                        <td style="color:white;">预反应器</td>
-                                        <td style="color:white;">塔釜进料</td>
-                                        <td style="color:white;">200</td>
+                                    <tr class="jishu" v-model="tableData4">
+                                        <td style="color:white;">稳定塔</td>
+                                        <td style="color:white;">进料</td>
+                                        <td style="color:white;">{{tableData4}}</td>
 
                                     </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">预反应器</td>
+                                    <tr class="oushu" v-model="tableData5">
+                                        <td style="color:white;">稳定塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">{{tableData5}}</td>
+
+                                    </tr>
+                                    <tr class="jishu" v-model="tableData6">
+                                        <td style="color:white;">预蒸馏塔</td>
                                         <td style="color:white;">塔顶出料</td>
-                                        <td style="color:white;">500</td>
+                                        <td style="color:white;">{{tableData6}}</td>
 
                                     </tr>
-                                    <tr class="jishu">
-                                        <td style="color:white;">主反应器</td>
-                                        <td style="color:white;">塔顶进料</td>
-                                        <td style="color:white;">700</td>
 
-                                    </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">主反应器</td>
-                                        <td style="color:white;">塔釜出料</td>
-                                        <td style="color:white;">200</td>
-
-                                    </tr>
-                                    <tr class="jishu">
-                                        <td style="color:white;">稳定塔</td>
-                                        <td style="color:white;">侧线进料</td>
-                                        <td style="color:white;">300</td>
-
-                                    </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">稳定塔</td>
-                                        <td style="color:white;">塔釜出料</td>
-                                        <td style="color:white;">400</td>
-
-                                    </tr>
-                                    <tr class="jishu">
+                                    <tr class="oushu" v-model="tableData7">
                                         <td style="color:white;">预蒸馏塔</td>
                                         <td style="color:white;">侧线进料</td>
-                                        <td style="color:white;">100</td>
+                                        <td style="color:white;">{{tableData7}}</td>
 
                                     </tr>
-                                    <tr class="oushu">
+                                    <tr class="jishu"v-model="tableData8">
                                         <td style="color:white;">预蒸馏塔</td>
                                         <td style="color:white;">塔釜出料</td>
-                                        <td style="color:white;">350</td>
+                                        <td style="color:white;">{{tableData8}}</td>
 
                                     </tr>
-                                    <tr class="jishu">
+
+                                    <tr class="oushu" v-model="tableData9">
+                                        <td style="color:white;">萃取塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">{{tableData9}}</td>
+
+                                    </tr>
+                                    <tr class="jishu" v-model="tableData10">
+                                        <td style="color:white;">萃取塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">{{tableData10}}</td>
+
+                                    </tr>
+                                    <tr class="oushu" v-model="tableData11">
+                                        <td style="color:white;">萃取塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">{{tableData11}}</td>
+
+                                    </tr>
+                                    <tr class="jishu" v-model="tableData12">
+                                        <td style="color:white;">解析塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">{{tableData12}}</td>
+
+                                    </tr>
+                                    <tr class="oushu" v-model="tableData13">
+                                        <td style="color:white;">解析塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">{{tableData13}}</td>
+
+                                    </tr>
+                                    <tr class="jishu" v-model="tableData14">
+                                        <td style="color:white;">苯塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">{{tableData14}}</td>
+
+                                    </tr>
+
+                                    <tr class="oushu" v-model="tableData15">
+                                        <td style="color:white;">苯塔</td>
+                                        <td style="color:white;">侧线进料</td>
+                                        <td style="color:white;">{{tableData15}}</td>
+
+                                    </tr>
+
+                                    <tr class="jishu" v-model="tableData16">
+                                        <td style="color:white;">苯塔</td>
+                                        <td style="color:white;">塔釜出料</td>
+                                        <td style="color:white;">{{tableData16}}</td>
+
+                                    </tr>
+                                    <tr class="oushu" v-model="tableData17">
+                                        <td style="color:white;">二甲苯塔</td>
+                                        <td style="color:white;">塔顶出料</td>
+                                        <td style="color:white;">{{tableData17}}</td>
+
+                                    </tr>
+
+                                    <tr class="jishu" v-model="tableData18">
                                         <td style="color:white;">二甲苯塔</td>
                                         <td style="color:white;">侧线进料</td>
-                                        <td style="color:white;">111</td>
+                                        <td style="color:white;">{{tableData18}}</td>
 
                                     </tr>
-                                    <tr class="oushu">
+                                    <tr class="oushu" v-model="tableData19">
                                         <td style="color:white;">二甲苯塔</td>
                                         <td style="color:white;">侧线出料</td>
-                                        <td style="color:white;">300</td>
+                                        <td style="color:white;">{{tableData19}}</td>
 
                                     </tr>
-                                    <tr class="jishu">
+                                    <tr class="jishu" v-model="tableData20">
                                         <td style="color:white;">二甲苯塔</td>
                                         <td style="color:white;">塔釜出料</td>
-                                        <td style="color:white;">100</td>
-
+                                        <td style="color:white;">{{tableData20}}</td>
                                     </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">二甲苯塔</td>
-                                        <td style="color:white;">塔顶出料</td>
-                                        <td style="color:white;">50</td>
 
-                                    </tr>
-                                    <tr class="jishu">
-                                        <td style="color:white;">萃取塔</td>
-                                        <td style="color:white;">侧线进料</td>
-                                        <td style="color:white;">300</td>
-
-                                    </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">萃取塔</td>
-                                        <td style="color:white;">塔顶出料</td>
-                                        <td style="color:white;">111</td>
-
-                                    </tr>
-                                    <tr class="jishu">
-                                        <td style="color:white;">萃取塔</td>
-                                        <td style="color:white;">塔釜出料</td>
-                                        <td style="color:white;">200</td>
-
-                                    </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">解析塔</td>
-                                        <td style="color:white;">侧线进料</td>
-                                        <td style="color:white;">400</td>
-
-                                    </tr>
-                                    <tr class="jishu">
-                                        <td style="color:white;">解析塔</td>
-                                        <td style="color:white;">塔顶出料</td>
-                                        <td style="color:white;">600</td>
-
-                                    </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">苯塔</td>
-                                        <td style="color:white;">侧线进料</td>
-                                        <td style="color:white;">111</td>
-
-                                    </tr>
-                                    <tr class="jishu">
-                                        <td style="color:white;">苯塔</td>
-                                        <td style="color:white;">塔顶出料</td>
-                                        <td style="color:white;">6000</td>
-
-                                    </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white;">苯塔</td>
-                                        <td style="color:white;">塔釜出料</td>
-                                        <td style="color:white;">3000</td>
-
-                                    </tr>
                                 </table>
                             </div>
                             <div id="childCP1" class="child"></div>
@@ -189,12 +190,17 @@
                         <div class="NH_1_a" id="NH_1_a"></div>
                         <div class="NH_1_b" id="NH_1_b"></div>
                     </div>
-                    <div class="NH_2">
+                    <div class="NH_2" id="NH_2">
                         <div class="NH_2_a" id="NH_2_a"></div>
+                        <div class="NH_2_a" id="NH_2_a1" style="display: none;"></div>
+                        <div class="NH_2_a" id="NH_2_a2" style="display: none;"></div>
+                        <div class="NH_2_a" id="NH_2_a3" style="display: none;"></div>
+                        <div class="NH_2_a" id="NH_2_a4" style="display: none;"></div>
+                        <div class="NH_2_a" id="NH_2_a5" style="display: none;"></div>
                         <!--表格2-->
                         <div class="NH_2_b" id="NH_2_b">
-                            <div style="width: 100%;height: 23.6%;background: rgba(251,251,251,0)">
-                                <table id="H"
+                            <div style="width: 100%;height:17%;background: rgba(251,251,251,0);text-align: center">
+                                <table id="H" class="TableStyle"
                                        style="border:0px solid #888;width: 100% ;font-size: 18px;background-color: rgba(12,128,240,0.35)">
                                     <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
                                     <tr>
@@ -206,68 +212,63 @@
                                 </table>
                             </div>
                             <div id="parentH" class="parentCB"
-                                 style="height: 74%;overflow-y: scroll;overflow: hidden;width: 100%">
+                                 style="height: 70%;overflow-y: scroll;overflow: hidden;width: 100%;">
                                 <div id="childH" class="child" style="width: 100%">
                                     <table style="width: 100%">
-                                        <tr class="jishu">
+                                        <tr class="jishu" v-model="dataToWebConsumptionTableList0">
                                             <td style="width: 25%;color:white">稳定塔</td>
                                             <td style="width: 25%;color:white">S16</td>
                                             <td style="width: 25%;color:white">kg/h</td>
-                                            <td style="width: 25%;color:white">997</td>
+                                            <td style="width: 25%;color:white">{{dataToWebConsumptionTableList0}}</td>
                                         </tr>
-                                        <tr class="oushu">
+                                        <tr class="oushu" v-model="dataToWebConsumptionTableList1">
                                             <td style="color: white">残油塔</td>
                                             <td style="color: white">S40</td>
                                             <td style="color: white">kg/h</td>
-                                            <td style="color: white">1464</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList1}}</td>
                                         </tr>
-                                        <tr class="jishu">
+                                        <tr class="jishu" v-model="dataToWebConsumptionTableList2">
                                             <td style="color: white">预蒸馏塔</td>
                                             <td style="color: white">S40</td>
                                             <td style="color: white">kg/h</td>
-                                            <td style="color: white">5912</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList2}}</td>
                                         </tr>
-                                        <tr class="oushu">
+                                        <tr class="oushu" v-model="dataToWebConsumptionTableList3">
                                             <td style="color: white">萃取塔</td>
                                             <td style="color: white">S40</td>
                                             <td style="color: white">kg/h</td>
-                                            <td style="color: white">3556</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList3}}</td>
                                         </tr>
-                                        <tr class="jishu">
+                                        <tr class="jishu" v-model="dataToWebConsumptionTableList4">
+                                            <td style="color: white">萃取塔</td>
+                                            <td style="color: white">S40</td>
+                                            <td style="color: white">kg/h</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList4}}</td>
+                                        </tr>
+                                        <tr class="oushu" v-model="dataToWebConsumptionTableList5">
                                             <td style="color: white">解析塔</td>
                                             <td style="color: white">S40</td>
                                             <td style="color: white">kg/h</td>
-                                            <td style="color: white">3338</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList5}}</td>
                                         </tr>
-                                        <tr class="oushu">
+                                        <tr class="jishu" v-model="dataToWebConsumptionTableList6">
                                             <td style="color: white">二甲苯塔</td>
                                             <td style="color: white">S40</td>
                                             <td style="color: white">kg/h</td>
-                                            <td style="color: white">2697</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList6}}</td>
                                         </tr>
-                                        <tr class="jishu">
+                                        <tr class="oushu" v-model="dataToWebConsumptionTableList7">
                                             <td style="color: white">加热炉</td>
-                                            <td style="color: white">煤气</td>
-                                            <td style="color: white">Nm3/h</td>
-                                            <td style="color: white">300</td>
+                                            <td style="color: white">COG</td>
+                                            <td style="color: white">Nm³/h</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList7}}</td>
                                         </tr>
-                                        <tr class="oushu">
-                                            <td style="color: white">加热炉</td>
-                                            <td style="color: white">氢气</td>
-                                            <td style="color: white">Nm3/h</td>
-                                            <td style="color: white">187</td>
-                                        </tr>
-                                        <tr class="jishu">
-                                            <td style="color: white">压缩机</td>
-                                            <td style="color: white">氮气</td>
-                                            <td style="color: white">Nm3/h</td>
-                                            <td style="color: white">100</td>
-                                        </tr>
-                                        <tr class="oushu">
-                                            <td style="color: white">预蒸馏槽</td>
-                                            <td style="color: white">氢气</td>
-                                            <td style="color: white">kg/h</td>
-                                            <td style="color: white">10</td>
+
+                                        <tr class="jishu" v-model="dataToWebConsumptionTableList8">
+                                            <td style="color: white">补充氢</td>
+                                            <td style="color: white">H₂</td>
+                                            <td style="color: white">Nm³/h</td>
+                                            <td style="color: white">{{dataToWebConsumptionTableList8}}</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -280,59 +281,381 @@
         </div>
         <div class="content"style="margin-top: 0px">
             <div id="zhibiao" class="zhibiao">
-                <div class="ZB_1">
-                    <div class="ZB_1_a">
+                <div class="ZB_1" id="ZB_1">
+
+                    <div class="ZB_1_N" >粗<br/>苯<br/>数<br/>据</div>
+                    <div class="ZB_1_a ">
                         <!--表格3-->
-                        <div style="width: 100%;height: 19%;background: rgba(251,251,251,0)">
-                            <table id="JB"
-                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35)">
+                                    <div style="width: 100%;height: 17%;background: rgba(251,251,251,0);">
+                                        <table id="CBData"
+                                               style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35);text-align: center">
+                                            <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                            <tr>
+                                                <td style="width: 33%;color:#64B9E9;">组分</td>
+                                                <td style="width: 20%;color:#64B9E9">单位</td>
+                                                <td style="width: 25%;color:#64B9E9">测量值</td>
+                                                <td style="width: 22%;color:#64B9E9">指标</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div id="parent" class="parentCB"
+                                         style="height: 70%;overflow-y: scroll;overflow: hidden;width: 100%">
+                                        <div id="child" class="child" style="width: 100%">
+                                            <table style="text-align: center;width: 100%">
+                                                <tr class="jishu" v-model="analyserCOLOValue0">
+                                                    <td style="width: 33%;color:white">C4-7非芳</td>
+                                                    <td style="width: 20%;color:white">wt%</td>
+                                                    <td style="width: 25%;color:white">{{analyserCOLOValue0}}</td>
+                                                    <td style="width: 22%;color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="oushu" v-model="analyserCOLOValue1">
+                                                    <td style="color:white">C8非芳</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue1}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="jishu" v-model="analyserCOLOValue2">
+                                                    <td style="color:white">苯</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue2}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="oushu" v-model="analyserCOLOValue3">
+                                                    <td style="color:white">甲苯</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue3}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="jishu" v-model="analyserCOLOValue4">
+                                                    <td style="color:white">乙基苯</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue4}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="oushu" v-model="analyserCOLOValue5">
+                                                    <td style="color:white">二甲苯</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue5}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="jishu" v-model="analyserCOLOValue6">
+                                                    <td style="color:white">苯乙烯</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue6}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="oushu" v-model="analyserCOLOValue7">
+                                                    <td style="color:white">三甲苯</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue7}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="jishu" v-model="analyserCOLOValue8">
+                                                    <td style="color:white">古马隆</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue8}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="oushu" v-model="analyserCOLOValue9">
+                                                    <td style="color:white">茚</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue9}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="jishu" v-model="analyserCOLOValue10">
+                                                    <td style="color:white">萘</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue10}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="oushu" v-model="analyserCOLOValue11">
+                                                    <td style="color:white">甲基萘</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue11}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                                <tr class="jishu" v-model="analyserCOLOValue12">
+                                                    <td style="color:white">联苯</td>
+                                                    <td style="color:white">wt%</td>
+                                                    <td style="color:white">{{analyserCOLOValue12}}</td>
+                                                    <td style="color:white">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div id="child1" class="child" style="text-align: center"></div>
+                                    </div>
+                    </div>
+
+                    <div class="ZB_1_N" style="display: none;">B/T<br/>芳<br/>香<br/>烃<br/>数<br/>据</div>
+                    <div style="display: none;" class="ZB_1_a">
+                        <!--表格3-->
+                        <div style="width: 100%;height: 17%;background: rgba(251,251,251,0);">
+                            <table id="CBDataA"
+                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35);text-align: center">
                                 <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
                                 <tr>
-                                    <td style="width: 29%;color:#64B9E9;">组分</td>
-                                    <td style="width: 18%;color:#64B9E9">单位</td>
-                                    <td style="width: 30%;color:#64B9E9">测量值</td>
-                                    <td style="width: 17%;color:#64B9E9">指标</td>
+                                    <td style="width: 33%;color:#64B9E9;">组分</td>
+                                    <td style="width: 20%;color:#64B9E9">单位</td>
+                                    <td style="width: 25%;color:#64B9E9">测量值</td>
+                                    <td style="width: 22%;color:#64B9E9">指标</td>
                                 </tr>
                             </table>
                         </div>
-                        <div id="parentJB" class="parentCB"
-                             style="height: 81%;overflow-y: scroll;overflow: hidden;width: 100%">
-                            <div id="childJB" class="child" style="width: 100%">
-                                <table>
-                                    <tr class="jishu">
-                                        <td style="width: 30%;color:white">非芳</td>
-                                        <td style="width: 23%;color:white">WT%</td>
-                                        <td style="width: 30%;color:white">0.52</td>
-                                        <td style="width: 33%;color:white">0.53</td>
+                        <div id="parentA" class="parentCB"
+                             style="height: 70%;overflow-y: scroll;overflow: hidden;width: 100%">
+                            <div id="childA" class="child" style="width: 100%">
+                                <table style="text-align: center;width: 100%">
+                                    <tr class="jishu" v-model="analyserBTAROValue0">
+                                        <td style="width: 33%;color:white">C4-7非芳</td>
+                                        <td style="width: 20%;color:white">ppmw</td>
+                                        <td style="width: 25%;color:white">{{analyserBTAROValue0}}</td>
+                                        <td style="width: 22%;color:white"></td>
                                     </tr>
-                                    <tr class="oushu">
+                                    <tr class="oushu" v-model="analyserBTAROValue1">
+                                        <td style="color:white">C8非芳</td>
+                                        <td style="color:white">ppmw</td>
+                                        <td style="color:white">{{analyserBTAROValue1}}</td>
+                                        <td style="color:white"></td>
+                                    </tr>
+                                    <tr class="jishu" v-model="analyserBTAROValue2">
                                         <td style="color:white">苯</td>
-                                        <td style="color:white">PPMW</td>
-                                        <td style="color:white">83</td>
-                                        <td style="color:white">86</td>
+                                        <td style="color:white">wt%</td>
+                                        <td style="color:white">{{analyserBTAROValue2}}</td>
+                                        <td style="color:white"></td>
                                     </tr>
-                                    <tr class="jishu">
+                                    <tr class="oushu" v-model="analyserBTAROValue3">
                                         <td style="color:white">甲苯</td>
-                                        <td style="color:white">WT%</td>
-                                        <td style="color:white">99.4</td>
-                                        <td style="color:white">99.5</td>
+                                        <td style="color:white">wt%</td>
+                                        <td style="color:white">{{analyserBTAROValue3}}</td>
+                                        <td style="color:white"></td>
                                     </tr>
-                                    <tr class="oushu">
-                                        <td style="color:white">水</td>
-                                        <td style="color:white">PPMW</td>
-                                        <td style="color:white">250</td>
-                                        <td style="color:white">250</td>
+                                    <tr class="jishu" v-model="analyserBTAROValue4">
+                                        <td style="color:white">NFM</td>
+                                        <td style="color:white">ppmw</td>
+                                        <td style="color:white">{{analyserBTAROValue4}}</td>
+                                        <td style="color:white">1</td>
                                     </tr>
                                 </table>
                             </div>
-
-                            <div id="childJB1" class="child"></div>
+                            <div id="childA1" class="child" style="text-align: center"></div>
                         </div>
                     </div>
+
+                    <div class="ZB_1_N" style="display: none;">非<br/>芳<br/>烃<br/>数<br/>据</div>
+                    <div style="display: none;" class="ZB_1_a">
+                        <!--表格3-->
+                        <div style="width: 100%;height: 17%;background: rgba(251,251,251,0);">
+                            <table id="CBDataB"
+                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35);text-align: center">
+                                <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                <tr>
+                                    <td style="width: 33%;color:#64B9E9;">组分</td>
+                                    <td style="width: 20%;color:#64B9E9">单位</td>
+                                    <td style="width: 25%;color:#64B9E9">测量值</td>
+                                    <td style="width: 22%;color:#64B9E9">指标</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="parentB" class="parentCB"
+                             style="height: 70%;overflow-y: scroll;overflow: hidden;width: 100%">
+                            <div id="childB"class="child" style="width: 100%">
+                                <table style="text-align: center;width: 100%">
+                                    <tr class="jishu" v-model="analyserNONAROValue0">
+                                        <td style="width: 33%;color:white">C4-7非芳</td>
+                                        <td style="width: 20%;color:white">wt%</td>
+                                        <td style="width: 25%;color:white">{{analyserNONAROValue0}}</td>
+                                        <td style="width: 22%;color:white"></td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserNONAROValue1">
+                                        <td style="color:white">苯</td>
+                                        <td style="color:white">wt%</td>
+                                        <td style="color:white">{{analyserNONAROValue1}}</td>
+                                        <td style="color:white">20</td>
+                                    </tr>
+                                    <tr class="jishu" v-model="analyserNONAROValue2">
+                                        <td style="color:white">甲苯</td>
+                                        <td style="color:white">wt%</td>
+                                        <td style="color:white">{{analyserNONAROValue2}}</td>
+                                        <td style="color:white"></td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserNONAROValue3">
+                                        <td style="color:white">NFM</td>
+                                        <td style="color:white">ppmw</td>
+                                        <td style="color:white">{{analyserNONAROValue3}}</td>
+                                        <td style="color:white">2</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="childB1" class="child" style="text-align: center"></div>
+                        </div>
+                    </div>
+
+                    <div class="ZB_1_N" style="display: none;">循<br/>环<br/>气<br/>体<br/>数<br/>据</div>
+                    <div style="display: none;" class="ZB_1_ a">
+                        <!--表格3-->
+                        <div style="width: 100%;height: 17%;background: rgba(251,251,251,0);">
+                            <table id="CBDataC"
+                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35);text-align: center">
+                                <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                <tr>
+                                    <td style="width: 33%;color:#64B9E9;">组分</td>
+                                    <td style="width: 20%;color:#64B9E9">单位</td>
+                                    <td style="width: 25%;color:#64B9E9">测量值</td>
+                                    <td style="width: 22%;color:#64B9E9">指标</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="parentC" class="parentCB"
+                             style="height: 70%;overflow-y: scroll;overflow: hidden;width: 100%">
+                            <div id="childC"class="child" style="width: 100%">
+                                <table style="text-align: center;width: 100%">
+                                    <tr class="jishu" v-model="analyserRECGASValue0">
+                                        <td style="width: 33%;color:white">H₂</td>
+                                        <td style="width: 20%;color:white">MOL%</td>
+                                        <td style="width: 25%;color:white">{{analyserRECGASValue0}}</td>
+                                        <td style="width: 22%;color:white">99</td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserRECGASValue1">
+                                        <td style="color:white">O₂</td>
+                                        <td style="color:white">MOL%</td>
+                                        <td style="color:white">{{analyserRECGASValue1}}</td>
+                                        <td style="color:white">10</td>
+                                    </tr>
+                                    <tr class="jishu" v-model="analyserRECGASValue2">
+                                        <td style="color:white">N₂</td>
+                                        <td style="color:white">MOL%</td>
+                                        <td style="color:white">{{analyserRECGASValue2}}</td>
+                                        <td style="color:white"></td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserRECGASValue3">
+                                        <td style="color:white">CH₄</td>
+                                        <td style="color:white">MOL%</td>
+                                        <td style="color:white">{{analyserRECGASValue3}}</td>
+                                        <td style="color:white">0.1</td>
+                                    </tr>
+                                    <tr class="jishu" v-model="analyserRECGASValue4">
+                                        <td style="color:white">C₂H₆</td>
+                                        <td style="color:white">MOL%</td>
+                                        <td style="color:white">{{analyserRECGASValue4}}</td>
+                                        <td style="color:white"></td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserRECGASValue5">
+                                        <td style="color:white">C₃H₈</td>
+                                        <td style="color:white">MOL%</td>
+                                        <td style="color:white">{{analyserRECGASValue5}}</td>
+                                        <td style="color:white"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="childC1" class="child" style="text-align: center"></div>
+                        </div>
+                    </div>
+
+                    <div class="ZB_1_N" style="display: none;">纯<br/>苯<br/>数<br/>据</div>
+                    <div style="display: none;" class="ZB_1_a">
+                        <!--表格3-->
+                        <div style="width: 100%;height: 17%;background: rgba(251,251,251,0);">
+                            <table id="CBDataD"
+                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35);text-align: center">
+                                <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                <tr>
+                                    <td style="width: 33%;color:#64B9E9;">组分</td>
+                                    <td style="width: 20%;color:#64B9E9">单位</td>
+                                    <td style="width: 25%;color:#64B9E9">测量值</td>
+                                    <td style="width: 22%;color:#64B9E9">指标</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="parentD" class="parentCB"
+                             style="height: 70%;overflow-y: scroll;overflow: hidden;width: 100%">
+                            <div id="childD"class="child" style="width: 100%">
+                                <table style="text-align: center;width: 100%">
+                                    <tr class="jishu" v-model="analyserBENValue0">
+                                        <td style="width: 33%;color:white">非芳</td>
+                                        <td style="width: 20%;color:white">ppmw</td>
+                                        <td style="width: 25%;color:white">{{analyserBENValue0}}</td>
+                                        <td style="width: 22%;color:white">0.1</td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserBENValue1">
+                                        <td style="color:white">甲苯</td>
+                                        <td style="color:white">ppmw</td>
+                                        <td style="color:white">{{analyserBENValue1}}</td>
+                                        <td style="color:white">0.05</td>
+                                    </tr>
+                                    <tr class="jishu" v-model="analyserBENValue2">
+                                        <td style="color:white">苯</td>
+                                        <td style="color:white">wt%</td>
+                                        <td style="color:white">{{analyserBENValue2}}</td>
+                                        <td style="color:white">99.9</td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserBENValue3">
+                                        <td style="color:white">水</td>
+                                        <td style="color:white">ppmw</td>
+                                        <td style="color:white">{{analyserBENValue3}}</td>
+                                        <td style="color:white"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="childD1" class="child" style="text-align: center"></div>
+                        </div>
+                    </div>
+
+                    <div class="ZB_1_N" style="display: none;">甲<br/>苯<br/>数<br/>据</div>
+                    <div style="display: none;" class="ZB_1_a">
+                        <!--表格3-->
+                        <div style="width: 100%;height: 17%;background: rgba(251,251,251,0);">
+                            <table id="CBDataE"
+                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35);text-align: center">
+                                <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                <tr>
+                                    <td style="width: 33%;color:#64B9E9;">组分</td>
+                                    <td style="width: 20%;color:#64B9E9">单位</td>
+                                    <td style="width: 25%;color:#64B9E9">测量值</td>
+                                    <td style="width: 22%;color:#64B9E9">指标</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="parentE" class="parentCB"
+                             style="height: 70%;overflow-y: scroll;overflow: hidden;width: 100%">
+                            <div id="childE"class="child" style="width: 100%">
+                                <table style="text-align: center;width: 100%">
+                                    <tr class="jishu" v-model="analyserTOLValue0">
+                                        <td style="width: 33%;color:white">非芳</td>
+                                        <td style="width: 20%;color:white">wt%</td>
+                                        <td style="width: 25%;color:white">0.52</td>
+                                        <td style="width: 22%;color:white">1</td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserTOLValue1">
+                                        <td style="color:white">苯</td>
+                                        <td style="color:white">ppmw</td>
+                                        <td style="color:white">{{analyserTOLValue1}}</td>
+                                        <td style="color:white">0.05</td>
+                                    </tr>
+                                    <tr class="jishu" v-model="analyserTOLValue2">
+                                        <td style="color:white">甲苯</td>
+                                        <td style="color:white">wt%</td>
+                                        <td style="color:white">{{analyserTOLValue2}}</td>
+                                        <td style="color:white">99</td>
+                                    </tr>
+                                    <tr class="oushu" v-model="analyserTOLValue3">
+                                        <td style="color:white">水</td>
+                                        <td style="color:white">ppmw</td>
+                                        <td style="color:white">{{analyserTOLValue3}}</td>
+                                        <td style="color:white"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="childE1" class="child" style="text-align: center"></div>
+                        </div>
+                    </div>
+
                     <div class="ZB_1_b" id="ZB_1_b"></div>
                     <div class="ZB_1_c" id="ZB_1_c"></div>
+
                 </div>
                 <div class="ZB_2">
+                    <div class="ZB_2_N" >循<br/>环<br/>气<br/>体</div>
                     <div class="ZB_2_a" id="ZB_2_a"></div>
                     <div class="ZB_2_b" id="ZB_2_b"></div>
                     <div class="ZB_2_c" id="ZB_2_c"></div>
@@ -343,14 +666,120 @@
                     <div class="TYL_1_a">
                         <svg id="fillgauge1" width="97%" height="150" ></svg>
                     </div>
-                    <div class="TYL_1_b"></div>
-                    <div class="TYL_1_c"></div>
-                    <div class="TYL_1_d"></div>
+                    <div class="TYL_1_b" id="TYL_1_b"></div>
+                    <div class="TYL_1_c" id="TYL_1_c"></div>
+                    <!--<div class="TYL_1_d">-->
+                        <!--<img src="../assets/green.png"  alt=""  v-if="kind==1" style="width: 64px;height: 64px;align-items: center;">-->
+                        <!--<img src="../assets/red.png" alt="" v-if="kind==0" style="width: 64px;height: 64px;align-items: center;">-->
+                    <!--</div>-->
                 </div>
                 <div class="TYL_2">
-                    <div class="TYL_2_a"></div>
-                    <div class="TYL_2_b"></div>
-                    <div class="TYL_2_c"></div>
+                    <div class="TYL_2_a">
+                        <svg id="fillgauge2" width="97%" height="150"></svg>
+                    </div>
+                    <div class="TYL_2_b" id="TYL_2_b"></div>
+                    <div class="TYL_2_c" >
+                        <div style="width: 100%;height: 17%;background: rgba(251,251,251,0);">
+                            <table id="ZZ" class="TableStyle"
+                                   style="border:0px solid #888;width: 100%;font-size: 18px;background-color: rgba(12,128,240,0.35)">
+                                <!--border-width="1px" bordercolor="#016577" style="width: 100%" cellpadding="0" cellspacing="0" bgcolor="#001F38"-->
+                                <tr>
+                                    <td style="width: 30%;color:#64B9E9;">区域</td>
+                                    <td style="width: 40%;color:#64B9E9">装置</td>
+                                    <td style="width: 30%;color:#64B9E9">开停状态</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="parentZZ" class="parentCB"
+                             style="height: 63%;overflow-y: scroll;overflow: hidden;width: 100%">
+                            <div id="childZZ" class="child" style="width: 100%">
+                                <table style="width: 100%;">
+                                    <tr class="jishu">
+                                        <td style="width: 30%;color:white">100单元</td>
+                                        <td style="width: 40%;color:white">蒸发塔</td>
+                                        <td style="width: 30%;color:white;padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData0>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white">100单元</td>
+                                        <td style="color:white">预反应器</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png"  width="30" height="30" >
+                                            <!--<img src="../assets/red.png" v-else width="30" height="30" >-->
+                                        </td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white">100单元</td>
+                                        <td style="color:white">残油塔</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData2>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white">100单元</td>
+                                        <td style="color:white">主反应器</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png"  width="30" height="30" >
+                                            <!--<img src="../assets/red.png" v-else width="30" height="30" >-->
+                                        </td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white">100单元</td>
+                                        <td style="color:white">稳定塔</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData4>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white">200单元</td>
+                                        <td style="color:white">预蒸馏塔</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData7>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white">300单元</td>
+                                        <td style="color:white">萃取塔</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData10>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white">300单元</td>
+                                        <td style="color:white">解析塔</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData13>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                    <tr class="jishu">
+                                        <td style="color:white">300单元</td>
+                                        <td style="color:white">苯塔</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData15>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                    <tr class="oushu">
+                                        <td style="color:white">400单元</td>
+                                        <td style="color:white">二甲苯塔</td>
+                                        <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
+                                            <img src="../assets/green.png" v-if="tableData18>=10" width="30" height="30" >
+                                            <img src="../assets/red.png" v-else width="30" height="30" >
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div id="childZZ1" class="child"></div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -363,10 +792,9 @@
 <script>
     const $echarts = require('echarts');
     import * as d3 from 'd3'
-    import * as go from "gojs";
-    import {EleResize} from '../assets/js/esresize.js'
-    // import {liquidFillGaugeDefaultSettings} from'../assets/js/liquidFillGauge.js'
-     //import {loadLiquidFillGauge} from'../assets/js/liquidFillGauge.js'
+    require('swiper/dist/css/swiper.css');
+    import { swiper, swiperSlide } from 'vue-awesome-swiper'
+    import 'swiper/dist/css/swiper.css'
 
     export default {
         name:'home',
@@ -374,6 +802,95 @@
             return{
                 screenWidth: document.body.clientWidth,     // 屏幕宽
                 screeHeight: document.body.clientHeight,
+                kind:0,//红绿灯状态
+                k:1,///产量部分表循环标识
+                f:1,//能耗部分表循环标识
+                g:1,//指标部分表格切换标识
+                hisProValue0:[230, 245, 238, 224, 236, 248, 271],//历史
+                hisProValue1:[230, 245, 238, 224, 236, 248, 271],
+                hisProValue2:[230, 245, 238, 224, 236, 248, 271],
+                hisProValue3:[230, 245, 238, 224, 236, 248, 271],
+                hisProValue4:[230, 245, 238, 224, 236, 248, 271],
+                hisProValue5:[230, 245, 238, 224, 236, 248, 271],
+                hisProValue6:[230, 245, 238, 224, 236, 248, 271],
+                consumptionProValue:[],//实时能耗散点图
+                consumptionUnitProValue:[],//实时单耗六芒星
+                dataToWebConsumptionTableList:null,//单耗表格部分
+                hisConsumptionValue0:[11, 15, 17, 19, 16, 13, 14],//能耗7天历史
+                hisConsumptionValue1:[11, 15, 17, 19, 16, 13, 14],
+                hisConsumptionValue2:[11, 15, 17, 19, 16, 13, 14],
+                hisConsumptionValue3:[11, 15, 17, 19, 16, 13, 14],
+                hisConsumptionValue4:[11, 15, 17, 19, 16, 13, 14],
+                hisConsumptionValue5:[11, 15, 17, 19, 16, 13, 14],
+                proCTValueList:[{'name':"纯苯",'value':"9587"},{'name':"甲苯",'value':"9587"},{'name':"二甲苯",'value':"9587"},
+                    {'name':"重苯",'value':"9587"},{'name':"C8",'value':"9587"},{'name':"C9",'value':"9587"},{'name':"非芳",'value':"9587"}],//实时
+
+                analyserCOLOValue0:100,//粗笨组分测量值
+                analyserCOLOValue1:100,
+                analyserCOLOValue2:100,
+                analyserCOLOValue3:100,
+                analyserCOLOValue4:100,
+                analyserCOLOValue5:100,
+                analyserCOLOValue6:100,
+                analyserCOLOValue7:100,
+                analyserCOLOValue8:100,
+                analyserCOLOValue9:100,
+                analyserCOLOValue10:100,
+                analyserCOLOValue11:100,
+                analyserCOLOValue12:100,
+
+                analyserBTAROValue:[],
+                analyserBTAROValue0:200,//芳香烃测量值
+                analyserBTAROValue1:200,
+                analyserBTAROValue2:200,
+                analyserBTAROValue3:200,
+                analyserBTAROValue4:200,
+
+                analyserNONAROValue0:300,//非芳烃测量值
+                analyserNONAROValue1:300,
+                analyserNONAROValue2:300,
+                analyserNONAROValue3:300,
+
+                analyserRECGASValue0:300,//循环气测量值
+                analyserRECGASValue1:300,
+                analyserRECGASValue2:300,
+                analyserRECGASValue3:300,
+                analyserRECGASValue4:300,
+                analyserRECGASValue5:300,
+
+                analyserBENValue0:300,//纯苯测量值
+                analyserBENValue1:300,
+                analyserBENValue2:300,
+                analyserBENValue3:300,
+
+                analyserTOLValue0:200,//甲苯测量值
+                analyserTOLValue1:200,
+                analyserTOLValue2:200,
+                analyserTOLValue3:200,
+
+                PIDRatio:100,   //自控投用率
+                APCRatio:100, //APC投用率
+                PIDUseNum:20,//PID投用个数
+                PIDLoopNum:20,//PID总数
+                APCUseNum:20,//APC投用个数
+                APCLoopNum:20,//APC投用总数
+                hisPIDRatioValue:[88, 95, 90, 93, 89, 92, 90],//历史7天投用率
+                show:false,
+                tableData0:1600, tableData1:1600, tableData2:1600, tableData3:1600, tableData4:1600, tableData5:1600,
+                tableData6:1600, tableData7:1600, tableData8:1600, tableData9:1600, tableData10:1600, tableData11:1600, tableData12:1600,
+                tableData13:1600, tableData14:1600, tableData15:1600, tableData16:1600, tableData17:1600, tableData18:1600, tableData19:1600,
+                tableData20:1600, tableData21:1600, tableData22:1600, tableData23:1600,
+
+                dataToWebConsumptionTableList0:1464,dataToWebConsumptionTableList1:1464,
+                dataToWebConsumptionTableList2:1464,dataToWebConsumptionTableList3:1464,
+                dataToWebConsumptionTableList4:1464,dataToWebConsumptionTableList5:1464,
+                dataToWebConsumptionTableList6:1464,dataToWebConsumptionTableList7:1464,
+                dataToWebConsumptionTableList8:1464,
+
+
+
+
+
             }
         },
         mounted(){
@@ -384,27 +901,72 @@
             document.getElementById("nenghao").setAttribute('width',(this.screenWidth-200)/2);
             document.getElementById("zhibiao").setAttribute('width',(this.screenWidth-200)/2);
             document.getElementById("touyonglv").setAttribute('width',(this.screenWidth-200)/2);
-            // document.getElementById("fuhe").setAttribute('height',(this.screenWidth-200)/2);
-            // document.getElementById("nenghao").setAttribute('height',(this.screenWidth-200)/2);
-            // document.getElementById("zhibiao").setAttribute('height',(this.screenWidth-200)/2);
-            // document.getElementById("touyonglv").setAttribute('height',(this.screenWidth-200)/2);
-           this. Echarts1();
-           this.Echarts11();
-           this.Echarts2();
-           this.Echarts18();
-           this.Echarts3();
+            // var fh1_b="fh1_b";
+            // var div="div";
+            var fh1_b1="fh1_b1";
+
+            var loadCT=10.111.toFixed(1);
+            var loadMonth=10.111.toFixed(1);
+            var loadYear=10.11.toFixed(1);
+            // var fh1_b1_d="fh1_b1_d";
+             var NH_2_a="NH_2_a";
+             var NH_2="NH_2";
+
+            this.FirstData();
+           this. Echarts1(loadCT,loadMonth,loadYear);
+           this.Echarts2(this.consumptionProValue);
+           this.Echarts18(this.consumptionUnitProValue);
+
            this.Echarts4();
            this.Echarts5();
            this.Echarts6();
             this.Echarts7();
             this.Echarts8();
             this.table1Scroll();
+            this.tableScroll2();
+            this.tableScroll3();
+             this.tableScroll3a();
+             this.tableScroll3b();
+            this.tableScroll3c();
+            this.tableScroll3d();
+            this.tableScroll3e();
+            this.tableScroll4();
             this.circleChange();
             this.liquidFill();
             this.Echarts12();
+            this.Echart20();
+            this.liquidFill2();
+            this.Echart21();
+            this.Echarts11(fh1_b1,'纯苯',this.hisProValue0);
+            var hisConsumptionValue=null;
+            this.Echarts3(NH_2_a,'S40历史能耗',hisConsumptionValue);
+            //this.TableChange1(NH_2,NH_2_a,3000);
+            this.TableChange2("ZB_1","ZB_1_a",50000);
+            var fh1_b="fh1_b";//产量父级div
+            var fh1_b1="fh1_b1";//产量div class
+            var NH_2="NH_2";//能耗父级div
+            var NH_2_a="NH_2_a";//能耗div class
+             this.TableChange(fh1_b,fh1_b1,5000);
+            this.TableChange1(NH_2,NH_2_a,5000);
+            // var fh1_b="fh1_b";//产量父级div
+            // var fh1_b1="fh1_b1";//产量div class
+            // var NH_2="NH_2";//能耗父级div
+            // var NH_2_a="NH_2_a";//能耗div class
+            // // that.TableChange(fh1_b,fh1_b1,5000);
+            // // that.TableChange1(NH_2,NH_2_a,5000);
+
+            // this.Echarts11(fh1_b1_a,"甲苯");
+            // this.Echarts11(fh1_b1_b,"二甲苯");
+            // this.Echarts11(fh1_b1_c,"重苯");
+            // this.Echarts11(fh1_b1_d,"C8");
+            // this.Echarts11(fh1_b1_e,"C9");
+            // this.Echarts11(fh1_b1_f,"非芳");
+             //this.TableChange(fh1_b,fh1_b1,3000);
+
         },
+
         methods:{
-Echarts1:function () {
+Echarts1:function (loadCT,loadMonth,loadYear) {
     var dom = document.getElementById("fh1_a");
     var myChart = $echarts.init(dom);
     var app = {};
@@ -419,15 +981,13 @@ Echarts1:function () {
                 name: ' ',
                 type: 'gauge',
                 min: 0,
-                max: 220,
-                splitNumber: 11,
+                max: 16,
+                splitNumber: 8,
                 center: ['50%', '60%'],
                 radius: '85%',
                 axisLine: {            // 坐标轴线
                     lineStyle: {       // 属性lineStyle控制线条样式
-                        color: [[0.09, 'lime'],
-                            [0.82, '#1e90ff'],
-                            [1, '#ff4500']],
+                        color: [[0.75, '#1e90ff'], [0.875, 'green'], [1, '#ff4500']],
                         width: 1,
                         shadowColor: '#fff', //默认透明
                         shadowBlur: 10
@@ -465,40 +1025,36 @@ Echarts1:function () {
                 title: {
                     textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                         fontWeight: 'bolder',
-//fontSize: 50,
                         fontStyle: 'italic',
                         color: '#fff',
                         shadowColor: '#fff', //默认透明
-                        shadowBlur: 10
-                    }
+                        shadowBlur: 10,
+
+                    },
+                    offsetCenter: ['0', '75']
                 },
                 detail: {
-// backgroundColor: 'rgba(30,144,255,0.8)',
-// borderWidth: 1,
-// borderColor: '#fff',
-//shadowColor: '#fff', //默认透明
-//shadowBlur: 5,
                     offsetCenter: [0, '50%'],       // x, y，单位px
                     textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                         fontWeight: 'bolder',
-                        color: '#64B9E9'
+                        color: '#1e90ff'
                     }
                 },
-                data: [{value: 40, name: 't'}]
+                data: [{value: loadCT, name: 't/h'}]
             },
             {
                 name: ' ',
                 type: 'gauge',
-                center: ['26%', '70%'],    // 默认全局居中
-                radius: '65%',
+                center: ['24%', '65%'],    // 默认全局居中
+                radius: '70%',
                 min: 0,
-                max: 7,
+                max: 15,
                 endAngle: 45,
-                splitNumber: 7,
+                splitNumber: 5,
                 axisLine: {            // 坐标轴线
                     lineStyle: {       // 属性lineStyle控制线条样式
-                        color: [[0.29, 'lime'], [0.86, '#1e90ff'], [1, '#ff4500']],
-                        width: 2,
+                        color: [[0.2, '#1e90ff'], [0.8, '#1C84EA'], [1, '#1A7AD9']],
+                        width: 1,
                         shadowColor: '#fff', //默认透明
                         shadowBlur: 10
                     }
@@ -534,7 +1090,7 @@ Echarts1:function () {
                     shadowBlur: 5
                 },
                 title: {
-                    offsetCenter: [0, '-30%'],       // x, y，单位px
+                    offsetCenter: [0, '65'],       // x, y，单位px
                     textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                         fontWeight: 'bolder',
                         fontStyle: 'italic',
@@ -544,8 +1100,6 @@ Echarts1:function () {
                     }
                 },
                 detail: {
-//backgroundColor: 'rgba(30,144,255,0.8)',
-// borderWidth: 1,
                     borderColor: '#fff',
                     shadowColor: '#fff', //默认透明
                     shadowBlur: 5,
@@ -554,27 +1108,26 @@ Echarts1:function () {
                     offsetCenter: [0, '50%'],       // x, y，单位px
                     textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                         fontWeight: 'bolder',
-                        color: '#64B9E9'
+                        color: '#1C84EA'
                     }
                 },
-                data: [{value: 1.5, name: 't'}]
+                data: [{value: loadMonth, name: 'kt'}]
             },
             {
-                name: ' ',
                 type: 'gauge',
-                center: ['76%', '70%'],    // 默认全局居中
-                radius: '65%',
+                center: ['78%', '65%'],    // 默认全局居中
+                radius: '70%',
                 min: 0,
-                max: 7,
+                max: 20,
                 endAngle: -45,
                 startAngle: 145,
-                splitNumber: 7,
+                splitNumber: 5,
                 axisLine: {            // 坐标轴线
                     lineStyle: {       // 属性lineStyle控制线条样式
-                        color: [[0.29, 'lime'], [0.86, '#1e90ff'], [1, '#ff4500']],
-                        width: 2,
+                        color: [[0.2, '#ff7105'], [0.8, '#ED6905'], [1, '#DA6105']],
+                        width: 1,
                         shadowColor: '#fff', //默认透明
-                        shadowBlur: 10
+                        shadowBlur: 20
                     }
                 },
                 axisLabel: {            // 坐标轴小标记
@@ -608,7 +1161,7 @@ Echarts1:function () {
                     shadowBlur: 5
                 },
                 title: {
-                    offsetCenter: [0, '-30%'],       // x, y，单位px
+                    offsetCenter: [0, '65'],       // x, y，单位px
                     textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                         fontWeight: 'bolder',
                         fontStyle: 'italic',
@@ -618,8 +1171,6 @@ Echarts1:function () {
                     }
                 },
                 detail: {
-//backgroundColor: 'rgba(30,144,255,0.8)',
-// borderWidth: 1,
                     borderColor: '#fff',
                     shadowColor: '#fff', //默认透明
                     shadowBlur: 5,
@@ -628,10 +1179,10 @@ Echarts1:function () {
                     offsetCenter: [0, '50%'],       // x, y，单位px
                     textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                         fontWeight: 'bolder',
-                        color: '#64B9E9'
+                        color: '#ED6905'
                     }
                 },
-                data: [{value: 1.5, name: 't'}]
+                data: [{value: loadYear, name: '10kt'}]
             }
         ]
     };
@@ -647,24 +1198,13 @@ Echarts1:function () {
     }
 },
             //实时能耗
-Echarts2:function () {
+Echarts2:function (consumptionProValue) {
     var dom = document.getElementById("NH_1_a");
     var myChart = $echarts.init(dom);
     var app = {};
    var option = null;
-    var data = [
-        [
-            ['S40', 22],
-            ['氢气', 35],
-            ['S16', 25],
-            ['煤气', 26],
-            ['氮气', 12],
-            ['S3', 15]]
-    ];
-
+    var data =consumptionProValue;
     option = {
-//    color: '#782225',
-
         backgroundColor: 'rgba(0,0,0,0)',
         textStyle: {
             textColor: '#999999'
@@ -691,10 +1231,10 @@ Echarts2:function () {
             }
         },
         grid: {
-            left: '0%',
+            left: '6%',
             right: '3%',
-            bottom: '15%',
-            top: '20%',
+            bottom: '0%',
+            top: '30%',
             containLabel: true
         },
         yAxis: {
@@ -719,37 +1259,57 @@ Echarts2:function () {
         },
         series: [{
             name: '155',
-            data: data[0],
+            data: data,
             symbolSize: function (dataItem) {
                 return dataItem[1];
             },
             type: 'scatter',
-// symbolSize: function (data) {
-//     return Math.sqrt(data[2]) / 5e2;
-// },
+            symbolSize: function (dataItem) {
+                if(dataItem[0]=="S40"){
+                    return  33;
+                }else if(dataItem[0]=="H₂"){
+                    return  21;
+                }else if(dataItem[0]=="S16"){
+                    return  17;
+                }else if(dataItem[0]=="COG"){
+                    return  10;
+                }else if(dataItem[0]=="N₂"){
+                    return  8;
+                }else if(dataItem[0]=="S3"){
+                    return  6;
+                }
+            },
+            // symbolSize: function (dataItem) {
+            //     return dataItem[1] * 0.01;
+            // },
+            // symbolSize: function (data) {
+            //     return Math.sqrt(data[2]) / 5e2;
+            // },
             label: {
                 emphasis: {
                     show: true,
                     formatter: function (param) {
                         return param.data[3];
                     },
-//position: 'top'
+                    //position: 'top'
                 }
             },
-// itemStyle: {
-//     normal: {
-//         shadowBlur: 10,
-//         shadowColor: 'rgba(120, 36, 50, 0.5)',
-//         shadowOffsetY: 5,
-//         color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-//             offset: 0,
-//             color: 'rgb(251, 118, 123)'
-//         }, {
-//             offset: 1,
-//             color: 'rgb(204, 46, 72)'
-//         }])
-//     }
-// }
+            itemStyle: {
+                normal: {
+                    label: {
+                        color:'#64b9e9',
+                        textStyle:{
+                            fontSize:16
+                        },
+                        position:'top',
+                        show: true, //自动显示数据 ，无需鼠标滑动才显示数据
+                        formatter:function (value) {
+
+                            return parseFloat(value.data[1]).toFixed(0);
+                        }
+                    }
+                }
+            }
         }]
     };
     if (option && typeof option === "object") {
@@ -757,12 +1317,17 @@ Echarts2:function () {
     }
 },
             ///历史能耗折线图
-            Echarts3:function () {
-                var dom = document.getElementById("NH_2_a");
+            Echarts3:function (id,title,hisConsumptionValue) {
+                var dom = document.getElementById(id);
                 var myChart = $echarts.init(dom);
                 var app = {};
                var option = null;
                 option = {
+                    title:{
+                        text:title,
+                        left:'center',
+                        y:10,
+                        textStyle:{color:'#64b9e9'}},
                     backgroundColor: 'rgba(0,0,0,0)',
                     color: '#55F93F',
                     tooltip: {
@@ -774,10 +1339,10 @@ Echarts2:function () {
 
                     },
                     grid: {
-                        left: '3%',
+                        left: '6%',
                         right: '4%',
-                        bottom: '3%',
-                        top: '40%',
+                        bottom: '10%',
+                        top: '30%',
                         containLabel: true
                     },
                     xAxis: {
@@ -823,7 +1388,7 @@ Echarts2:function () {
                         }
                     },
                     series: [{
-                        data: [11, 15, 17, 19, 16, 13, 14],
+                        data: hisConsumptionValue,
                         type: 'line',
                         lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
                             width: 3.5,
@@ -834,6 +1399,10 @@ Echarts2:function () {
                                 label: {
                                     textStyle:{
                                         fontSize:16
+                                    },
+                                    formatter:function(value){
+
+                                        return parseFloat(value.value.toFixed(0));
                                     },
                                     color:'#64b9e9',
                                     show: true, //自动显示数据 ，无需鼠标滑动才显示数据
@@ -854,22 +1423,31 @@ Echarts2:function () {
                 var app = {};
                 var data = [
                     [
-                        ['C4~C7非芳',235],
-                        ['C8 非芳', 355],
-                        ['苯', 86],
-                        ['甲苯', 13],
-                        ['NFM', 0.013]
+                        ['C4-7非芳',''],
+                        ['C8 非芳','' ],
+                        ['苯', ''],
+                        ['甲苯','' ],
+                        ['NFM', 1]
                     ],
-                    [
-                        ['C4~C7非芳', 250],
-                        ['C8 非芳', 365],
-                        ['苯', 88],
-                        ['甲苯', 13.5],
-                        ['NFM', 0.025]
-                    ]
+                        [
+                        ['C4-7非芳',this.analyserBTAROValue0],
+                            ['C8 非芳', this.analyserBTAROValue1],
+                            ['苯', this.analyserBTAROValue2],
+                            ['甲苯', this.analyserBTAROValue3],
+                                ['NFM', this.analyserBTAROValue4]
+                        ]
                 ];
               var option = {
-                    title: {},
+                  title: {
+                      text:'B/T芳香烃',
+                      left:'center',
+                      y:'25',
+                      textStyle:{
+                          color:'#64b9e9',
+                          fontSize:16,
+                          fontFamily:'Microsoft YaHei'
+                      }
+                  },
                     tooltip: {
                         trigger: 'axis',
                         axisPointer: {
@@ -877,9 +1455,10 @@ Echarts2:function () {
                         }
                     },
                     grid: {
+                        top:'40%',
                         left: '2%',
                         right: '2%',
-                        bottom: '3%',
+                        bottom: '0',
                         containLabel: true
                     },
                     xAxis: {
@@ -892,7 +1471,7 @@ Echarts2:function () {
                         },
                         axisLabel: {
                             interval: 0,
-                            rotate:25,
+                            // rotate:25,
                             textStyle: {
                                 color: '#CCCCCC',
                                 fontSize: 12,
@@ -904,10 +1483,10 @@ Echarts2:function () {
                             }
                         }
                     },
-                    color: ['#333eaf', '#55F93F'],
-                    grid: {
-                        left: '20%'
-                    },
+                    color: ['#FFF71F', '#55F93F'],
+                    // grid: {
+                    //     left: '20%'
+                    // },
                     yAxis: {
                         type: 'value',
                         axisLine: {
@@ -917,7 +1496,7 @@ Echarts2:function () {
                             }
                         },
                         min: 0,
-                        minInterval: 20,
+                        minInterval: 50,
                         axisLabel: {
                             textStyle: {
                                 color: '#CCCCCC'
@@ -938,7 +1517,7 @@ Echarts2:function () {
                                 show: true,
                                 position: 'left',
                                 textStyle: {
-                                    color: 'blue',
+                                    color: '#3db1a6',
                                     fontSize: 16
                                 }
                             }
@@ -953,7 +1532,7 @@ Echarts2:function () {
                                     show: true,
                                     position: 'left',
                                     textStyle: {
-                                        color: 'blue',
+                                        color: '#3db1a6',
                                         fontSize: 16
                                     }
                                 }
@@ -971,31 +1550,33 @@ Echarts2:function () {
                                     }
                                 }
                             }
-                        },
-                        {
-                            name: '指标',
-                            type: 'line',
-                            showSymbol: false,
-                            smooth: true,
-                            data: data[0],
-                            markPoint: {
-                                itemStyle: {
-                                    normal: {
-                                        color: 'transparent'
-                                    }
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'left',
-                                        textStyle: {
-                                            color: '#333',
-                                            fontSize: 14
-                                        }
-                                    }
-                                }
-                            }
-                        }]
+                        }
+                        // ,
+                        // {
+                        //     name: '指标',
+                        //     type: 'line',
+                        //     showSymbol: false,
+                        //     smooth: true,
+                        //     data: data[0],
+                        //     markPoint: {
+                        //         itemStyle: {
+                        //             normal: {
+                        //                 color: 'transparent'
+                        //             }
+                        //         },
+                        //         label: {
+                        //             normal: {
+                        //                 show: true,
+                        //                 position: 'left',
+                        //                 textStyle: {
+                        //                     color: '#333',
+                        //                     fontSize: 14
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        ]
                 };
                 if (option && typeof option === "object") {
                     myChart.setOption(option, true);
@@ -1010,20 +1591,30 @@ Echarts2:function () {
                var option = null;
                 var data = [
                     [
-                        ['C4~C7非芳', 70.5],
-                        ['苯', 15],
-                        ['甲苯', 0.3],
-                        ['NFM', 0.013]
+                        ['C4-7非芳', ''],
+                        ['苯', ''],
+                        ['甲苯', 20],
+                        ['NFM', 2]
                     ],
-                    [
-                        ['C4~C7非芳', 73],
-                        ['苯', 17],
-                        ['甲苯', 0.35],
-                        ['NFM', 0.015]
-                    ]
+                        [
+                        ['C4-7非芳', this.analyserNONAROValue0],
+                            ['苯', this.analyserNONAROValue1],
+                            ['甲苯', this.analyserNONAROValue2],
+                            ['NFM', this.analyserNONAROValue3]
+                        ]
+
                 ];
                 option = {
-                    title: {},
+                    title: {
+                        text:'非芳香烃',
+                        left:'center',
+                        y:'25',
+             textStyle:{
+                            color:'#64b9e9',
+                 fontSize:16,
+                 fontFamily:'Microsoft YaHei'
+}
+                      },
                     tooltip: {
                         trigger: 'axis',
                         axisPointer: {
@@ -1031,9 +1622,10 @@ Echarts2:function () {
                         }
                     },
                     grid: {
-                        left: '2%',
+                        top:'40%',
+                        left: '10%',
                         right: '2%',
-                        bottom: '3%',
+                        bottom: '0',
                         containLabel: true
                     },
                     xAxis: {
@@ -1058,10 +1650,10 @@ Echarts2:function () {
                             }
                         }
                     },
-                    color: ['#333eaf', '#55F93F'],
-                    grid: {
-                        left: '15%'
-                    },
+                    color: ['#ff881d', '#55f93f'],
+                    // grid: {
+                    //     left: '15%'
+                    // },
                     yAxis: {
                         type: 'value',
                         axisLine: {
@@ -1092,7 +1684,7 @@ Echarts2:function () {
                                 show: true,
                                 position: 'left',
                                 textStyle: {
-                                    color: 'blue',
+                                    color: '#3db1a6',
                                     fontSize: 16
                                 }
                             }
@@ -1107,7 +1699,7 @@ Echarts2:function () {
                                     show: true,
                                     position: 'left',
                                     textStyle: {
-                                        color: 'blue',
+                                        color: '#3db1a6',
                                         fontSize: 16
                                     }
                                 }
@@ -1125,31 +1717,31 @@ Echarts2:function () {
                                     }
                                 }
                             }
-                        },
-                        {
-                            name: '指标',
-                            type: 'line',
-                            showSymbol: false,
-                            smooth: true,
-                            data: data[0],
-                            markPoint: {
-                                itemStyle: {
-                                    normal: {
-                                        color: 'transparent'
-                                    }
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'left',
-                                        textStyle: {
-                                            color: '#333',
-                                            fontSize: 14
-                                        }
-                                    }
-                                }
-                            }
-                        }]
+                        }
+                        // {
+                        //     name: '指标',
+                        //     type: 'line',
+                        //     showSymbol: false,
+                        //     smooth: true,
+                        //     data: data[0],
+                        //     markPoint: {
+                        //         itemStyle: {
+                        //             normal: {
+                        //                 color: 'transparent'
+                        //             }
+                        //         },
+                        //         label: {
+                        //             normal: {
+                        //                 show: true,
+                        //                 position: 'left',
+                        //                 textStyle: {
+                        //                     color: '#333',
+                        //                     fontSize: 14
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        ]
                 };
                 ;
                 if (option && typeof option === "object") {
@@ -1164,19 +1756,19 @@ Echarts2:function () {
                 var app = {};
                var option = null;
                 option = {
-                    color: ['#333eaf', '#55F93F'],
+                    color: ['#ff881d', '#55f93f'],
                     radar: [
                         {
                             nameGap: 3,
                             indicator: [
-                                {text: 'H2'},
-                                {text: 'O2'},
-                                {text: 'N2'},
-                                {text: 'CH4'},
-                                {text: 'C2H6'},
-                                {text: 'C3H8'}
+                                {text: 'H₂'},
+                                {text: 'O₂'},
+                                {text: 'N₂'},
+                                {text: 'CH₄'},
+                                {text: 'C₂H₆'},
+                                {text: 'C₃H₈'}
                             ],
-                            center: ['43%', '55%'],
+                            center: ['43%', '45%'],
                             radius: 70,
                             startAngle: 90,
                             splitNumber: 4,
@@ -1225,8 +1817,8 @@ Echarts2:function () {
                             },
                             data: [
                                 {
-                                    value: [91.5, 0.5, 2.5, 3.1, 1.1, 0],
-                                    name: '测量值',
+                                    value: [this.analyserRECGASValue0, this.analyserRECGASValue1, this.analyserRECGASValue2, this.analyserRECGASValue3, this.analyserRECGASValue4,this.analyserRECGASValue5],
+                                    name: '指标',
                                     areaStyle: {
                                         normal: {
                                             color: 'rgba(255, 255, 255, 0.5)'
@@ -1234,8 +1826,8 @@ Echarts2:function () {
                                     }
                                 },
                                 {
-                                    value: [92.5, 0.4, 3.2, 3.7, 1.22, 0],
-                                    name: '指标',
+                                    value: [99, 5, 0.1, 3.1, 1.1, 1],
+                                    name: '测量值',
                                     areaStyle: {
                                         normal: {
                                             color: 'rgba(255, 255, 255, 0.5)'
@@ -1259,25 +1851,34 @@ Echarts2:function () {
                var option = null;
                 var data = [
                     [
-                        ['非芳', 300],
-                        ['甲苯', 5],
-                        ['苯', 99.96],
-                        ['水', 250]
+                        ['非芳', 0.1],
+                        ['甲苯', 0.05],
+                        ['苯', 99.9],
+                        ['水', '']
                     ],
-                    [
-                        ['非芳', 310],
-                        ['甲苯', 6],
-                        ['苯', 99.97],
-                        ['水', 237]
-                    ]
+                        [
+                        ['非芳', this.analyserBENValue0],
+                            ['甲苯', this.analyserBENValue1],
+                            ['苯', this.analyserBENValue2],
+                            ['水', this.analyserBENValue3]
+                        ]
                 ];
                 option = {
-                    title: {},
+                    title: {
+                        text:'纯苯',
+                        left:'center',
+                        y:'10',
+                        textStyle:{
+                            color:'#64b9e9',
+                            fontSize:16,
+                            fontFamily:'Microsoft YaHei'
+                        }
+                    },
                     grid: {
                         left: '3%',
                         right: '4%',
-                        bottom: '-3%',
-                        top: '15%',
+                        bottom: '10%',
+                        top: '30%',
                         containLabel: true
                     },
                     tooltip: {
@@ -1308,10 +1909,10 @@ Echarts2:function () {
                             }
                         }
                     },
-                    color: ['#333eaf', '#55F93F'],
-                    grid: {
-                        left: '15%'
-                    },
+                    color: ['#ff881d', '#55f93f'],
+                    // grid: {
+                    //     left: '15%'
+                    // },
                     yAxis: {
                         type: 'value',
                         min: 0,
@@ -1342,7 +1943,7 @@ Echarts2:function () {
                                 show: true,
                                 position: 'left',
                                 textStyle: {
-                                    color: 'blue',
+                                    color: '#3db1a6',
                                     fontSize: 16
                                 }
                             }
@@ -1357,7 +1958,7 @@ Echarts2:function () {
                                     show: true,
                                     position: 'left',
                                     textStyle: {
-                                        color: 'blue',
+                                        color: '#3db1a6',
                                         fontSize: 16
                                     }
                                 }
@@ -1375,31 +1976,8 @@ Echarts2:function () {
                                     }
                                 }
                             }
-                        },
-                        {
-                            name: '指标',
-                            type: 'line',
-                            showSymbol: false,
-                            smooth: true,
-                            data: data[0],
-                            markPoint: {
-                                itemStyle: {
-                                    normal: {
-                                        color: 'transparent'
-                                    }
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'left',
-                                        textStyle: {
-                                            color: '#333',
-                                            fontSize: 14
-                                        }
-                                    }
-                                }
-                            }
-                        }]
+                        }
+                        ]
                 };
                 ;
                 if (option && typeof option === "object") {
@@ -1415,20 +1993,30 @@ Echarts2:function () {
                 var option = null;
                 var data = [
                     [
-                        ['非芳', 0.45],
-                        ['苯', 26],
-                        ['甲苯', 99.5],
-                        ['水', 255]
+                        ['非芳', 1],
+                        ['苯', 0.05],
+                        ['甲苯', 99],
+                        ['水', '']
                     ],
                     [
-                        ['非芳', 0.6],
-                        ['苯', 35],
-                        ['甲苯', 99.4],
-                        ['水', 260]
+                        ['非芳',this.analyserTOLValue0],
+                        ['苯', this.analyserTOLValue1],
+                        ['甲苯', this.analyserTOLValue2],
+                        ['水', this.analyserTOLValue3]
                     ]
+
                 ];
                 option = {
-                    title: {},
+                    title: {
+                        text:'甲苯',
+                        left:'center',
+                        y:'10',
+                        textStyle:{
+                            color:'#64b9e9',
+                            fontSize:16,
+                            fontFamily:'Microsoft YaHei'
+                        }
+                    },
                     tooltip: {
                         trigger: 'axis',
                         axisPointer: {
@@ -1455,9 +2043,13 @@ Echarts2:function () {
                             }
                         },
                     },
-                    color: ['#333eaf', '#55F93F'],
+                    color: ['#ff881d', '#55f93f'],
                     grid: {
-                        left: '15%'
+                        left: '3%',
+                        right: '4%',
+                        bottom: '10%',
+                        top: '30%',
+                        containLabel: true
                     },
                     yAxis: {
                         type: 'value',
@@ -1489,7 +2081,7 @@ Echarts2:function () {
                                 show: true,
                                 position: 'left',
                                 textStyle: {
-                                    color: 'blue',
+                                    color: '#3db1a6',
                                     fontSize: 16
                                 }
                             }
@@ -1504,7 +2096,7 @@ Echarts2:function () {
                                     show: true,
                                     position: 'left',
                                     textStyle: {
-                                        color: 'blue',
+                                        color: '#3db1a6',
                                         fontSize: 16
                                     }
                                 }
@@ -1522,45 +2114,28 @@ Echarts2:function () {
                                     }
                                 }
                             }
-                        },
-                        {
-                            name: '指标',
-                            type: 'line',
-                            showSymbol: false,
-                            smooth: true,
-                            data: data[0],
-                            markPoint: {
-                                itemStyle: {
-                                    normal: {
-                                        color: 'transparent'
-                                    }
-                                },
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'left',
-                                        textStyle: {
-                                            color: '#333',
-                                            fontSize: 14
-                                        }
-                                    }
-                                }
-                            }
-                        }]
+                        }
+                        ]
                 };
                 ;
                 if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
             },
+
             // 产量历史趋势
-            Echarts11:function () {
+            Echarts11:function (id,title,hisProValue) {
+    console.log(this.hisProValue);
                 ///产量历史趋势
-                var dom = document.getElementById("fh1_b1");
+                var dom = document.getElementById(id);
                 var myChart = $echarts.init(dom);
                 var app = {};
                var option = null;
                 option = {
+                    // title:{text:title,
+                    //     left:'center',
+                    //    y:30,
+                    // textStyle:{color:'#64B9E9'}},
                     backgroundColor: 'rgba(0, 0, 0, 0)',
                     tooltip: {
                         axisPointer: {
@@ -1570,24 +2145,12 @@ Echarts2:function () {
                         extraCssText: 'width:200px;',
 
                     },
-
                     color: ['#55F93F'],
-// legend: {
-//   data: ['纯苯'],
-//   left: '60px',
-//   icon: 'roundRect',
-//   itemHeight: '8',
-//   itemGap: 1,
-//   top: '2%',
-//   textStyle: {
-//     color: '#ffffff',//字体颜色
-//   },
-// },
                     grid: {
                         left: '3%',
-                        right: '0%',
+                        right: '4%',
                         bottom: '0%',
-                        top: '20%',
+                        top: '30%',
 
                         containLabel: true
                     },
@@ -1599,7 +2162,6 @@ Echarts2:function () {
                                 width: 1,//这里是为了突出显示加上的
                             }
                         },
-//boundaryGap: false,
                         data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
                         axisLabel: {
                             show: true,
@@ -1616,11 +2178,10 @@ Echarts2:function () {
                                 width: 1,//这里是为了突出显示加上的
                             }
                         },
-//axisTick:false,
                         nameGap: 5,
                         min: 0,
                         showMinLabel: false,
-                        minInterval: 100,
+                        minInterval: 100,//纵坐标间隔
                         nameTextStyle: {
                             color: '#CCCCCC'
                         },
@@ -1630,13 +2191,6 @@ Echarts2:function () {
                                 color: '#CCCCCC'
                             }
                         },
-
-
-// splitLine: {
-//     lineStyle: {
-//         type: 'dashed'
-//     }
-// },
                         splitLine: {
                             show: false,
                             lineStyle: {
@@ -1654,8 +2208,19 @@ Echarts2:function () {
                                 width: 3,
                                 type: 'solid'
                             },
-//stack: '单能耗',
-                            data: [230, 245, 238, 224, 236, 248, 271],
+                            data:hisProValue,
+                            itemStyle:{
+                                normal:{
+                                    label:{
+                                        textStyle:{
+                                            fontSize:16
+                                        },
+
+                                        color:'#64b9e9',
+                                        show:true, //自动显示数据 ，无需鼠标滑动才显示数据
+                                    }
+                                }
+                            }
 
                         }
                     ]
@@ -1665,15 +2230,15 @@ Echarts2:function () {
                 }
             },
             //单耗雷达图
-            Echarts18:function(){
+            Echarts18:function(consumptionUnitProValue){
                 //////单耗雷达图
                 var dom = document.getElementById("NH_1_b");
                 var myChart = $echarts.init(dom);
                 var app = {};
                var option = null;
-                var dataBJ = [
-                    [186, 142, 192, 3.88, 93, 79, 18]
-                ];
+                var dataBJ =
+                    consumptionUnitProValue;
+
                 var lineStyle = {
                     normal: {
                         width: 1,
@@ -1702,12 +2267,12 @@ Echarts2:function () {
                     radar: {
                         nameGap: 2,
                         indicator: [
-                            {name: 'S40', max: 300},
-                            {name: 'S3', max: 250},
-                            {name: 'S16', max: 300},
-                            {name: '氢气', max: 5},
-                            {name: '煤气', max: 200},
-                            {name: '氮气', max: 100}
+                            {name: 'S40', max: consumptionUnitProValue[0]*1.1},
+                            {name: 'S3', max: consumptionUnitProValue[1]*1.1},
+                            {name: 'S16', max: consumptionUnitProValue[2]*1.1},
+                            {name: 'H₂', max: consumptionUnitProValue[3]*1.1},
+                            {name: 'COG', max: consumptionUnitProValue[4]*1.1},
+                            {name: 'N₂', max: consumptionUnitProValue[5]*1.1}
                         ],
                         center: ['50%', '58%'],
                         radius: 55,
@@ -1838,7 +2403,7 @@ Echarts2:function () {
                                 width: 3,
                                 type: 'solid'
                             },
-                            data: [88, 95, 90, 93, 89, 92, 90],
+                            data: this.hisPIDRatioValue,
                             itemStyle:{
                                 normal:{
                                     label:{
@@ -1847,8 +2412,15 @@ Echarts2:function () {
                                         },
                                         color:'#64b9e9',
                                         show:true, //自动显示数据 ，无需鼠标滑动才显示数据
-                                    }
-                                }
+                                        formatter:function (value) {
+                                            //debugger;
+                                             return parseFloat(value.data).toFixed(0);
+                                        }
+                                    },
+
+
+                                },
+
                             }
                         }
                     ]
@@ -1872,7 +2444,25 @@ Echarts2:function () {
                 config2.waveAnimateTime = 2000;
                 config2.waveHeight = 0.1;
                 config2.waveCount = 1;
-                gauge1 = this.loadLiquidFillGauge("fillgauge1", 90.5, config2);
+                var PIDRatio=this.PIDRatio.toFixed(0);
+                gauge1 = this.loadLiquidFillGauge("fillgauge1",PIDRatio, config2);
+            },
+            //动态圆柱2
+            liquidFill2:function(){
+                let config2 = null;
+                let gauge1 = null;
+                let config3 = null;
+                let gauge3 = null;
+                config2 = this.liquidFillGaugeDefaultSettings();
+                config2.textColor = "#64B9E9";
+                config2.circleThickness = 0.1;
+                config2.circleFillGap = 0.1;
+                config2.textVertPosition = 0.5;
+                config2.waveAnimateTime = 2000;
+                config2.waveHeight = 0.1;
+                config2.waveCount = 1;
+                var APCRatio=this.APCRatio.toFixed(0);
+                gauge1 = this.loadLiquidFillGauge("fillgauge2", APCRatio, config2);
             },
             liquidFillGaugeDefaultSettings:function(){
                 return {
@@ -2148,6 +2738,673 @@ Echarts2:function () {
                     }
                 }, 100);
             },
+            //第二张动态表格 能耗动态表格
+            tableScroll2:function(){
+                //能耗动态表格
+                var parentH = document.getElementById('parentH');
+                var childH = document.getElementById('childH');
+                var childH1 = document.getElementById('childH1');
+                childH1.innerHTML = childH.innerHTML;
+                setInterval(function () {
+                    if (parentH.scrollTop >= childH.scrollHeight) {
+                        parentH.scrollTop = 0;
+                    } else {
+                        parentH.scrollTop++;
+                    }
+                }, 300);
+            },
+            ////指标中粗苯动态表格
+            tableScroll3:function(){
+                ////指标中粗苯动态表格
+                ////指标中粗苯动态表格
+                var parent = document.getElementById('parent');
+                var child = document.getElementById('child');
+                var child1 = document.getElementById('child1');
+                child1.innerHTML = child.innerHTML;
+                setInterval(function () {
+                    if (parent.scrollTop >= child.scrollHeight) {
+                        parent.scrollTop = 0;
+                    } else {
+                        parent.scrollTop++;
+                    }
+                }, 300);
+            },
+            tableScroll3a:function(){
+                ////指标中粗苯动态表格
+                ////指标中粗苯动态表格
+                var parent = document.getElementById('parentA');
+                var child = document.getElementById('childA');
+                var child1 = document.getElementById('childA1');
+                child1.innerHTML = child.innerHTML;
+                setInterval(function () {
+                    if (parent.scrollTop >= child.scrollHeight) {
+                        parent.scrollTop = 0;
+                    } else {
+                        parent.scrollTop++;
+                    }
+                }, 300);
+            },
+            tableScroll3b:function(){
+                ////指标中粗苯动态表格
+                ////指标中粗苯动态表格
+                var parent = document.getElementById('parentB');
+                var child = document.getElementById('childB');
+                var child1 = document.getElementById('childB1');
+                child1.innerHTML = child.innerHTML;
+                setInterval(function () {
+                    if (parent.scrollTop >= child.scrollHeight) {
+                        parent.scrollTop = 0;
+                    } else {
+                        parent.scrollTop++;
+                    }
+                }, 300);
+            },
+            tableScroll3c:function(){
+                ////指标中粗苯动态表格
+                ////指标中粗苯动态表格
+                var parent = document.getElementById('parentC');
+                var child = document.getElementById('childC');
+                var child1 = document.getElementById('childC1');
+                child1.innerHTML = child.innerHTML;
+                setInterval(function () {
+                    if (parent.scrollTop >= child.scrollHeight) {
+                        parent.scrollTop = 0;
+                    } else {
+                        parent.scrollTop++;
+                    }
+                }, 300);
+            },
+            tableScroll3d:function(){
+                ////指标中粗苯动态表格
+                ////指标中粗苯动态表格
+                var parent = document.getElementById('parentD');
+                var child = document.getElementById('childD');
+                var child1 = document.getElementById('childD1');
+                child1.innerHTML = child.innerHTML;
+                setInterval(function () {
+                    if (parent.scrollTop >= child.scrollHeight) {
+                        parent.scrollTop = 0;
+                    } else {
+                        parent.scrollTop++;
+                    }
+                }, 300);
+            },
+            tableScroll3e:function(){
+                ////指标中粗苯动态表格
+                ////指标中粗苯动态表格
+                var parent = document.getElementById('parentE');
+                var child = document.getElementById('childE');
+                var child1 = document.getElementById('childE1');
+                child1.innerHTML = child.innerHTML;
+                setInterval(function () {
+                    if (parent.scrollTop >= child.scrollHeight) {
+                        parent.scrollTop = 0;
+                    } else {
+                        parent.scrollTop++;
+                    }
+                }, 300);
+            },
+            tableScroll4:function(){
+                //投用率部分中装置动态表格
+                var parentZZ = document.getElementById('parentZZ');
+                var childZZ = document.getElementById('childZZ');
+                var childZZ1 = document.getElementById('childZZ1');
+                childZZ1.innerHTML = childZZ.innerHTML;
+                setInterval(function () {
+                    if (parentZZ.scrollTop >= childZZ.scrollHeight) {
+                        parentZZ.scrollTop = 0;
+                    } else {
+                        parentZZ.scrollTop++;
+                    }
+                }, 300);
+            },
+            //温度计1
+            Echart20:function () {
+    //debugger;
+    var that=this;
+                var myChart = $echarts.init(document.getElementById('TYL_1_b'));
+                var TP_value = that.PIDUseNum;
+                var kd = [];
+                var Gradient = [];
+                var leftColor = '';
+                var showValue = '';
+                var boxPosition = [50, 0];
+                var TP_txt = ''
+                // 刻度使用柱状图模拟，短设置1，长的设置3；构造一个数据
+                for(var i = 0, len = that.PIDLoopNum; i <= len; i++) {
+                    if(i < 0 || i > that.PIDLoopNum) {
+                        kd.push('')
+                    } else {
+
+                        if(i  === that.PIDLoopNum) {
+                            kd.push('-6');
+                        } else {
+                            kd.push('');
+                        }
+                    }
+
+                }
+
+                var b=that.PIDUseNum
+                //中间线的渐变色和文本内容
+                if(TP_value >=0) {
+                    TP_txt = '温度偏高';
+                    Gradient.push({
+                        offset: 1,
+                        color: '#93FE94'
+                    }, {
+                        offset: 0.5,
+                        color: '#E4D225'
+                    }, {
+                        offset: 0,
+                        color: '#E01F28'
+                    })
+                }
+                if(TP_value > that.PIDUseNum) {
+                    showValue = that.PIDUseNum
+               } else {
+                    if(TP_value < 1) {
+                        showValue = 0
+                    } else {
+                        showValue = TP_value
+                    }
+                }
+                if(TP_value < 0) {
+                    boxPosition = [that.PIDLoopNum, 0];
+                }
+               // debugger;
+                var a=Gradient;
+                leftColor = Gradient[Gradient.length - 1].color;
+                // 因为柱状初始化为0，温度存在负值，所以加上负值60和空出距离10
+                var option = {
+                    //backgroundColor: '#0C2F6F',
+                    title: {
+                        text: '温度计',
+                        show: false
+                    },
+                    yAxis: [{
+                        show: false,
+                        data: [],
+                        min: 0,
+                        max: that.PIDLoopNum,
+                        axisLine: {
+                            show: false
+                        }
+                    }, {
+                        show: false,
+                        min: 0,
+                        max: that.PIDLoopNum,
+                    }
+                        , {
+                            type: 'category',
+
+                            offset: -100,
+                            y:50,
+                            axisLabel: {
+                                fontSize: 11,
+                                color: 'white'
+                            },
+                            axisLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            z:2
+                        }
+                    ],
+                    xAxis: [{
+                        show: false,
+                        min: -40,
+                        max: 80,
+                        data: []
+                    }, {
+                        show: false,
+                        min: -40,
+                        max: 80,
+                        data: []
+                    }, {
+                        show: false,
+                        min: -40,
+                        max: 80,
+                        data: []
+                    }, {
+                        show: false,
+                        min: -20,
+                        max: 80,
+                    }, {
+                        show: false,
+                        min: -70,
+                        max: 80,
+                    }],
+                    series: [{
+                        name: '条',
+                        type: 'bar',
+                        // 对应上面XAxis的第一个对)象配置
+                        xAxisIndex: 0,
+                        data: [{
+                            value: showValue ,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: [-40,0],
+                                    width: 200,
+                                    height: 150,
+                                    formatter: '{back| ' + TP_value + ' \n}',
+                                    rich: {
+                                        back: {
+                                            align: 'center',
+                                            lineHeight: 70,
+                                            fontSize: 30,
+                                            fontFamily: 'digifacewide',
+                                            color: '#64B9E9'
+                                        },
+                                        unit: {
+                                            fontFamily: '微软雅黑',
+                                            fontSize: 15,
+                                            lineHeight: 50,
+                                            color: leftColor
+                                        },
+                                        downTxt: {
+                                            lineHeight: 50,
+                                            fontSize: 25,
+                                            align: 'center',
+                                            color: '#fff'
+                                        }
+                                    }
+                                }
+                            }
+                        }],
+
+                        barWidth: 18,
+                        itemStyle: {
+                            normal: {
+                                color: new $echarts.graphic.LinearGradient(0, 1, 0, 0, Gradient)
+                            }
+                        },
+                        z: 4
+                    }, {
+                        name: '白框',
+                        type: 'bar',
+                        xAxisIndex: 1,
+                        barGap: '-100%',
+                        data: [parseInt(that.PIDLoopNum+12)],
+                        barWidth: 28,
+                        itemStyle: {
+                            normal: {
+                                color: '#0C2E6D',
+                                barBorderRadius: 50,
+                            }
+                        },
+                        z: 1
+                    }, {
+                        name: '外框',
+                        type: 'bar',
+                        xAxisIndex: 2,
+                        barGap: '-100%',
+                        data: [parseInt(that.PIDLoopNum+17)],
+                        barWidth: 38,
+                        itemStyle: {
+                            normal: {
+                                color: '#4577BA',
+                                barBorderRadius: 50,
+                            }
+                        },
+                        z: 0
+                    }, {
+                        name: '圆',
+                        type: 'scatter',
+                        hoverAnimation: false,
+                        data: [0],
+                        xAxisIndex: 0,
+                        symbolSize: 40,
+                        itemStyle: {
+                            normal: {
+                                color: '#E01F28',
+                                opacity: 1,
+                            }
+                        },
+                        z: 2
+                    }, {
+                        name: '白圆',
+                        type: 'scatter',
+                        hoverAnimation: false,
+                        data: [0],
+                        xAxisIndex: 1,
+                        symbolSize: 50,
+                        itemStyle: {
+                            normal: {
+                                color: '#0C2E6D',
+                                opacity: 1,
+                            }
+                        },
+                        z: 1
+                    }, {
+                        name: '外圆',
+                        type: 'scatter',
+                        hoverAnimation: false,
+                        data: [0],
+                        xAxisIndex: 2,
+                        symbolSize: 60,
+                        itemStyle: {
+                            normal: {
+                                color: '#4577BA',
+                                opacity: 1,
+                            }
+                        },
+                        z: 0
+                    }, {
+                        name: '刻度',
+                        type: 'bar',
+                        yAxisIndex: 0,
+                        xAxisIndex: 3,
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'left',
+                                distance: 10,
+                                color: '#93FE94',
+                                fontSize: 20,
+                                formatter: function(params) {
+
+                                    if(params.dataIndex === that.PIDUseNum) {
+                                        return params.dataIndex;
+                                    }else if(params.dataIndex === that.PIDLoopNum){
+                                        return params.dataIndex;
+                                    }
+                                    else {
+                                        return '';
+                                    }
+
+                                }
+                            }
+                        },
+                        barGap: '-100%',
+                        data: kd,
+                        barWidth: 1,
+                        itemStyle: {
+                            normal: {
+                                color: 'white',
+                                barBorderRadius: 120,
+                            }
+                        },
+                        z: 0
+                    }]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
+            //温度计2
+            Echart21:function () {
+    var that=this;
+                var myChart = $echarts.init(document.getElementById('TYL_2_b'));
+                var TP_value = that.APCUseNum;
+                var kd = [];
+                var Gradient = [];
+                var leftColor = '';
+                var showValue = '';
+                var boxPosition = [50, 0];
+                var TP_txt = ''
+                // 刻度使用柱状图模拟，短设置1，长的设置3；构造一个数据
+                for(var i = 0, len = that.APCLoopNum; i <= len; i++) {
+                    if(i < 0 || i > that.APCLoopNum) {
+                        kd.push('')
+                    } else {
+
+                        if(i  === that.APCLoopNum) {
+                            kd.push('-6');
+                        } else {
+                            kd.push('');
+                        }
+                    }
+
+                }
+                //中间线的渐变色和文本内容
+                if(TP_value >=0) {
+                    TP_txt = '温度偏高';
+                    Gradient.push({
+                        offset: 1,
+                        color: '#93FE94'
+                    }, {
+                        offset: 0.5,
+                        color: '#E4D225'
+                    }, {
+                        offset: 0,
+                        color: '#E01F28'
+                    })
+                }
+                if(TP_value > that.APCUseNum) {
+                    showValue = that.APCUseNum
+                } else {
+                    if(TP_value < 1) {
+                        showValue = 0
+                    } else {
+                        showValue = TP_value
+                    }
+                }
+                if(TP_value < 0) {
+                    boxPosition = [that.APCLoopNum, 0];
+                }
+                leftColor = Gradient[Gradient.length - 1].color;
+                // 因为柱状初始化为0，温度存在负值，所以加上负值60和空出距离10
+                var option = {
+                    //backgroundColor: '#0C2F6F',
+                    title: {
+                        text: '温度计',
+                        show: false
+                    },
+                    yAxis: [{
+                        show: false,
+                        data: [],
+                        min: 0,
+                        max: that.APCLoopNum,
+                        axisLine: {
+                            show: false
+                        }
+                    }, {
+                        show: false,
+                        min: 0,
+                        max: that.APCLoopNum,
+                    }
+                        , {
+                            type: 'category',
+
+                            offset: -100,
+                            y:50,
+                            axisLabel: {
+                                fontSize: 11,
+                                color: 'white'
+                            },
+                            axisLine: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            z:2
+                        }
+                    ],
+                    xAxis: [{
+                        show: false,
+                        min: -40,
+                        max: 80,
+                        data: []
+                    }, {
+                        show: false,
+                        min: -40,
+                        max: 80,
+                        data: []
+                    }, {
+                        show: false,
+                        min: -40,
+                        max: 80,
+                        data: []
+                    }, {
+                        show: false,
+                        min: -20,
+                        max: 80,
+                    }, {
+                        show: false,
+                        min: -70,
+                        max: 80,
+                    }],
+                    series: [{
+                        name: '条',
+                        type: 'bar',
+                        // 对应上面XAxis的第一个对)象配置
+                        xAxisIndex: 0,
+                        data: [{
+                            value: showValue ,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: [-40,0],
+                                    width: 200,
+                                    height: 150,
+                                    formatter: '{back| ' + TP_value + ' \n}',
+                                    rich: {
+                                        back: {
+                                            align: 'center',
+                                            lineHeight: 70,
+                                            fontSize: 30,
+                                            fontFamily: 'digifacewide',
+                                            color: '#64B9E9'
+                                        },
+                                        unit: {
+                                            fontFamily: '微软雅黑',
+                                            fontSize: 15,
+                                            lineHeight: 50,
+                                            color: leftColor
+                                        },
+                                        downTxt: {
+                                            lineHeight: 50,
+                                            fontSize: 25,
+                                            align: 'center',
+                                            color: '#fff'
+                                        }
+                                    }
+                                }
+                            }
+                        }],
+
+                        barWidth: 18,
+                        itemStyle: {
+                            normal: {
+                                color: new $echarts.graphic.LinearGradient(0, 1, 0, 0, Gradient)
+                            }
+                        },
+                        z: 4
+                    }, {
+                        name: '白框',
+                        type: 'bar',
+                        xAxisIndex: 1,
+                        barGap: '-100%',
+                        data: [that.APCLoopNum+4],
+                        barWidth: 28,
+                        itemStyle: {
+                            normal: {
+                                color: '#0C2E6D',
+                                barBorderRadius: 50,
+                            }
+                        },
+                        z: 1
+                    }, {
+                        name: '外框',
+                        type: 'bar',
+                        xAxisIndex: 2,
+                        barGap: '-100%',
+                        data: [that.APCLoopNum+5],
+                        barWidth: 38,
+                        itemStyle: {
+                            normal: {
+                                color: '#4577BA',
+                                barBorderRadius: 50,
+                            }
+                        },
+                        z: 0
+                    }, {
+                        name: '圆',
+                        type: 'scatter',
+                        hoverAnimation: false,
+                        data: [0],
+                        xAxisIndex: 0,
+                        symbolSize: 40,
+                        itemStyle: {
+                            normal: {
+                                color: '#E01F28',
+                                opacity: 1,
+                            }
+                        },
+                        z: 2
+                    }, {
+                        name: '白圆',
+                        type: 'scatter',
+                        hoverAnimation: false,
+                        data: [0],
+                        xAxisIndex: 1,
+                        symbolSize: 50,
+                        itemStyle: {
+                            normal: {
+                                color: '#0C2E6D',
+                                opacity: 1,
+                            }
+                        },
+                        z: 1
+                    }, {
+                        name: '外圆',
+                        type: 'scatter',
+                        hoverAnimation: false,
+                        data: [0],
+                        xAxisIndex: 2,
+                        symbolSize: 60,
+                        itemStyle: {
+                            normal: {
+                                color: '#4577BA',
+                                opacity: 1,
+                            }
+                        },
+                        z: 0
+                    }, {
+                        name: '刻度',
+                        type: 'bar',
+                        yAxisIndex: 0,
+                        xAxisIndex: 3,
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'left',
+                                distance: 10,
+                                color: '#93FE94',
+                                fontSize: 20,
+                                formatter: function(params) {
+
+                                    if(params.dataIndex === that.APCUseNum) {
+                                        return params.dataIndex;
+                                    }else if(params.dataIndex === that.APCLoopNum){
+                                        return params.dataIndex;
+                                    }
+                                    else {
+                                        return '';
+                                    }
+
+                                }
+                            }
+                        },
+                        barGap: '-100%',
+                        data: kd,
+                        barWidth: 1,
+                        itemStyle: {
+                            normal: {
+                                color: 'white',
+                                barBorderRadius: 120,
+                            }
+                        },
+                        z: 0
+                    }]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
             //圆形自适应屏幕
             circleChange:function () {
             var width= document.getElementById('fh1_b2_a').offsetWidth;
@@ -2155,14 +3412,360 @@ Echarts2:function () {
                 var height= document.getElementById('fh1_b2_a').offsetHeight;
                 //console.log(height);
                 if(width>height){
-                    document.getElementById('fh1_b2_a').style.width=height*0.7+'px';
-                    document.getElementById('fh1_b2_a').style.height=height*0.7+'px';
+                    document.getElementById('fh1_b2_a').style.width=height*0.8+'px';
+                    document.getElementById('fh1_b2_a').style.height=height*0.8+'px';
                 }else {
-                    document.getElementById('fh1_b2_a').style.height=width*0.7+'px';
-                    document.getElementById('fh1_b2_a').style.width=width*0.7+'px';
+                    document.getElementById('fh1_b2_a').style.height=width*0.8+'px';
+                    document.getElementById('fh1_b2_a').style.width=width*0.8+'px';
                 }
-            }
-            }
+            },
+            TableChange:function(fh1_b,child,speed){
+                var that=this;
+                var ts = this.G(fh1_b).getElementsByClassName(child);//获取容器内需要轮流显示的子元素：这里是 div
+
+                var timer1 = setInterval(function(){//定义时间控制器
+                    if(that.k>0){
+                        ts[that.k-1].style.display='none';
+
+                    }
+                    ts[that.k].style.display='block';//显示需要显示的
+
+                    //debugger;
+                    if(that.k==0){
+                        that.Echarts11("fh1_b1","纯苯",that.hisProValue0);
+
+                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+
+                    }else if(that.k==1){
+                        that.Echarts11("fh1_b1_a","甲苯",that.hisProValue1);
+
+                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.k==2){
+                        that.Echarts11("fh1_b1_b","二甲苯",that.hisProValue2);
+
+                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.k==3){
+                        that.Echarts11("fh1_b1_c","重苯",that.hisProValue3);
+
+                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.k==4){
+                        that.Echarts11("fh1_b1_d","C8",that.hisProValue4);
+
+                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.k==5){
+                        that.Echarts11("fh1_b1_e","C9",that.hisProValue5);
+
+                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.k==6){
+                        that.Echarts11("fh1_b1_f","非芳",that.hisProValue6);
+                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }
+                    for(var m=0;m<ts.length;m++)
+                    {
+                        if(m!=that.k){
+                            ts[m].style.display='none';
+                        }
+                    }
+                    if(that.k>ts.length-2){
+                        that.k=0;
+                    }else{
+                        that.k++;
+                    }
+
+
+                },speed);
+            },
+            TableChange1:function(NH_2,child,speed){
+                var that=this;
+                var ts = this.G(NH_2).getElementsByClassName(child);//获取容器内需要轮流显示的子元素：这里是 div
+
+                var timer2 = setInterval(function(){//定义时间控制器
+
+                    if(that.f>0){
+                        ts[that.f-1].style.display='none';
+
+                    }
+                    ts[that.f].style.display='block';//显示需要显示的
+
+                    //debugger;
+                    if(that.f==0){
+                        that.Echarts3("NH_2_a","S40历史能耗",that.hisConsumptionValue0);
+
+                        // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+
+                    }else if(that.f==1){
+                        that.Echarts3("NH_2_a1","H₂历史能耗",that.hisConsumptionValue1);
+
+                        // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.f==2){
+                        that.Echarts3("NH_2_a2","S16历史能耗",that.hisConsumptionValue2);
+
+                        // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.f==3){
+                        that.Echarts3("NH_2_a3","COG历史能耗",that.hisConsumptionValue3);
+                        //
+                        // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.f==4){
+                        that.Echarts3("NH_2_a4","N₂历史能耗",that.hisConsumptionValue4);
+
+                        // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    }else if(that.f==5){
+                        that.Echarts3("NH_2_a5","S3历史能耗",that.hisConsumptionValue5);
+
+                        // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                        // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                     }
+                     //else if(that.k==6){
+                    //     that.Echarts11("fh1_b1_f","非芳");
+                    //     document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
+                    //     document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                    // }
+                    for(var m=0;m<ts.length;m++)
+                    {
+                        if(m!=that.f){
+                            ts[m].style.display='none';
+                        }
+                    }
+                    if(that.f>ts.length-2){
+                        that.f=0;
+                    }else{
+                        that.f++;
+                    }
+
+
+                },speed);
+            },
+            TableChange2:function(NH_2,child,speed){
+                var that=this;
+
+                var ts = this.G(NH_2).getElementsByClassName(child);//获取容器内需要轮流显示的子元素：这里是 div
+                var ts1=this.G(NH_2).getElementsByClassName("ZB_1_N");
+                var timer3 = setInterval(function(){//定义时间控制器
+
+                    if(that.g>0){
+                        ts[that.g-1].style.display='none';
+                        ts1[that.g-1].style.display='none';
+
+                    }
+                    ts[that.g].style.display='block';//显示需要显示的
+                    ts1[that.g].style.display='block';
+
+                    for(var m=0;m<ts.length;m++)
+                    {
+                        if(m!=that.g){
+                            ts[m].style.display='none';
+                            ts1[m].style.display='none';
+                        }
+                    }
+                    if(that.g>ts.length-2){
+                        that.g=0;
+                    }else{
+                        that.g++;
+                    }
+
+
+                },speed);
+            },
+            G:function(e){
+
+    var a=document.getElementById(e);
+                return document.getElementById(e);
+
+            },
+            //后台返回数据
+            FirstData:function(){
+    var that=this;
+    //debugger;
+                if ('WebSocket' in window) {
+                    that.ws = new WebSocket('ws://192.168.1.113:1001/api/ShowPanel/Get?');
+                    // this.ws = new WebSocket('ws://localhost:59769/api/ZMData/Get');
+                    //this.ws = new WebSocket('ws://localhost:59769/api/OPCOper/Get');
+                    that.ws.onopen = function () {
+                        //debugger;
+                        console.log('WebSocket连接成功！');
+                    };
+                    that.ws.onmessage = function (res) {
+                        //  var titleGZ1=document.getElementById('titleGZ1').innerHTML;
+                        //  document.getElementById('titleGZ1').innerHTML='测试title';
+                        var res1=JSON.parse(res.data);
+                        // var res2=res1.dataToWebXNList;
+                        // var res3=res1.dataToWebCTList;
+                        console.log(res1);
+                        //仪表盘
+                        var loadCT=res1.loadCT.toFixed(1);
+                        var loadMonth=res1.loadMonth.toFixed(1);
+                        var loadYear=res1.loadYear.toFixed(1);
+                        that. Echarts1(loadCT,loadMonth,loadYear);
+
+                        that.hisProValue0= res1.hisProValue[0];
+                        that.hisProValue1= res1.hisProValue[1];
+                        that.hisProValue2= res1.hisProValue[2];
+                        that.hisProValue3= res1.hisProValue[3];
+                        that.hisProValue4= res1.hisProValue[4];
+                        that.hisProValue5= res1.hisProValue[5];
+                        that.hisProValue6= res1.hisProValue[6];
+
+                        that.proCTValueList=res1.proCTValueList;
+                         that.tableData0=res1.dataToWebProTableList[0].value;
+                        that.tableData1=res1.dataToWebProTableList[1].value;
+                        that.tableData2=res1.dataToWebProTableList[2].value;
+                        that.tableData3=res1.dataToWebProTableList[3].value;
+                        that.tableData4=res1.dataToWebProTableList[4].value;
+                        that.tableData5=res1.dataToWebProTableList[5].value;
+                        that.tableData6=res1.dataToWebProTableList[6].value;
+                        that.tableData7=res1.dataToWebProTableList[7].value;
+                        that.tableData8=res1.dataToWebProTableList[8].value;
+                        that.tableData9=res1.dataToWebProTableList[9].value;
+                        that.tableData10=res1.dataToWebProTableList[10].value;
+                        that.tableData11=res1.dataToWebProTableList[11].value;
+                        that.tableData12=res1.dataToWebProTableList[12].value;
+                        that.tableData13=res1.dataToWebProTableList[13].value;
+                        that.tableData14=res1.dataToWebProTableList[14].value;
+                        that.tableData15=res1.dataToWebProTableList[15].value;
+                        that.tableData16=res1.dataToWebProTableList[16].value;
+                        that.tableData17=res1.dataToWebProTableList[17].value;
+                        that.tableData18=res1.dataToWebProTableList[18].value;
+                        that.tableData19=res1.dataToWebProTableList[19].value;
+                        that.tableData20=res1.dataToWebProTableList[20].value;
+                        //that.tableData21=res1.dataToWebProTableList[1].value;
+                        //实时能耗散点图
+                        that.consumptionProValue=res1.consumptionProValue;
+                        var consumptionProValue= that.consumptionProValue;
+                        that.Echarts2(consumptionProValue);
+                        //实时单耗六芒星
+                        that.consumptionUnitProValue=res1.consumptionUnitProValue;
+                        var consumptionUnitProValue=that.consumptionUnitProValue;
+                        that.Echarts18(consumptionUnitProValue);
+                        //单耗表格
+                        that.dataToWebConsumptionTableList0=res1.dataToWebConsumptionTableList[0].value;
+                        that.dataToWebConsumptionTableList1=res1.dataToWebConsumptionTableList[1].value;
+                        that.dataToWebConsumptionTableList2=res1.dataToWebConsumptionTableList[2].value;
+                        that.dataToWebConsumptionTableList3=res1.dataToWebConsumptionTableList[3].value;
+                        that.dataToWebConsumptionTableList4=res1.dataToWebConsumptionTableList[4].value;
+                        that.dataToWebConsumptionTableList5=res1.dataToWebConsumptionTableList[5].value;
+                        that.dataToWebConsumptionTableList6=res1.dataToWebConsumptionTableList[6].value;
+                        that.dataToWebConsumptionTableList7=res1.dataToWebConsumptionTableList[7].value;
+                        that.dataToWebConsumptionTableList8=res1.dataToWebConsumptionTableList[8].value;
+                        //历史能耗折线图
+                        that.hisConsumptionValue0=res1.hisConsumptionValue[0];
+                        that.hisConsumptionValue1=res1.hisConsumptionValue[1];
+                        that.hisConsumptionValue2=res1.hisConsumptionValue[2];
+                        that.hisConsumptionValue3=res1.hisConsumptionValue[3];
+                        that.hisConsumptionValue4=res1.hisConsumptionValue[4];
+                        that.hisConsumptionValue5=res1.hisConsumptionValue[5];
+                        //粗苯组分测量值
+                        that.analyserCOLOValue0=res1.analyserCOLOValue[0][0];
+                        that.analyserCOLOValue1=res1.analyserCOLOValue[0][1];
+                        that.analyserCOLOValue2=res1.analyserCOLOValue[0][2];
+                        that.analyserCOLOValue3=res1.analyserCOLOValue[0][3];
+                        that.analyserCOLOValue4=res1.analyserCOLOValue[0][4];
+                        that.analyserCOLOValue5=res1.analyserCOLOValue[0][5];
+                        that.analyserCOLOValue6=res1.analyserCOLOValue[0][6];
+                        that.analyserCOLOValue7=res1.analyserCOLOValue[0][7];
+                        that.analyserCOLOValue8=res1.analyserCOLOValue[0][8];
+                        that.analyserCOLOValue9=res1.analyserCOLOValue[0][9];
+                        that.analyserCOLOValue10=res1.analyserCOLOValue[0][10];
+                        that.analyserCOLOValue11=res1.analyserCOLOValue[0][11];
+                        that.analyserCOLOValue12=res1.analyserCOLOValue[0][12];
+                        //芳香烃测量值
+                        that.analyserBTAROValue=res1.analyserBTAROValue[0];
+                        that.analyserBTAROValue0=res1.analyserBTAROValue[0][0];
+                        that.analyserBTAROValue1=res1.analyserBTAROValue[0][1];
+                        that.analyserBTAROValue2=res1.analyserBTAROValue[0][2];
+                        that.analyserBTAROValue3=res1.analyserBTAROValue[0][3];
+                        that.analyserBTAROValue4=res1.analyserBTAROValue[0][4];
+                        that.Echarts4();
+
+                        //非芳烃测量值
+                        that.analyserNONAROValue0=res1.analyserNONAROValue[0][0];
+                        that.analyserNONAROValue1=res1.analyserNONAROValue[0][1];
+                        that.analyserNONAROValue2=res1.analyserNONAROValue[0][2];
+                        that.analyserNONAROValue3=res1.analyserNONAROValue[0][3];
+                        that.Echarts5();
+                        //循环气测量值
+                        that.analyserRECGASValue0=res1.analyserRECGASValue[0][0];
+                        that.analyserRECGASValue1=res1.analyserRECGASValue[0][1];
+                        that.analyserRECGASValue2=res1.analyserRECGASValue[0][2];
+                        that.analyserRECGASValue3=res1.analyserRECGASValue[0][3];
+                        that.analyserRECGASValue4=res1.analyserRECGASValue[0][4];
+                        that.analyserRECGASValue5=res1.analyserRECGASValue[0][5];
+                        that.Echarts6();
+                        //甲苯测量值
+                        that.analyserTOLValue0=res1.analyserTOLValue[0][0];
+                        that.analyserTOLValue1=res1.analyserTOLValue[0][1];
+                        that.analyserTOLValue2=res1.analyserTOLValue[0][2];
+                        that.analyserTOLValue3=res1.analyserTOLValue[0][3];
+                        that.Echarts8();
+//纯苯测量值
+                        that.analyserBENValue0=res1.analyserBENValue[0][0];
+                        that.analyserBENValue1=res1.analyserBENValue[0][1];
+                        that.analyserBENValue2=res1.analyserBENValue[0][2];
+                        that.analyserBENValue3=res1.analyserBENValue[0][3];
+                        that.Echarts7();
+
+
+
+                        //自控投用率
+                        that.PIDRatio=res1.PIDRatio;
+                        //APC投用率
+                        that.APCRatio=res1.APCRatio;
+                        //PID投用个数
+                        that.PIDUseNum=res1.PIDUseNum;
+                        //PID总数
+                        that.PIDLoopNum=res1.PIDLoopNum;
+                        //apc投用个数
+                        that.APCUseNum=res1.APCUseNum;
+                        //apc总数
+                        that.APCLoopNum=res1.APCLoopNum;
+                        //7天自控投用率历史记录
+                        that.hisPIDRatioValue=res1.hisPIDRatioValue[0];
+                         that.Echarts12();
+
+                         //温度计
+                        that.Echart20();
+                        that.Echart21();
+                       // console.log(that.hisPIDRatioValue);
+//液位圆
+                        that.liquidFill();
+                        that.liquidFill2();
+                        //产量历史趋势
+                       // that.Echarts11(fh1_b1,'纯苯',this.hisProValue);
+                        var parentCP = document.getElementById('parentCP');
+                        var childCP = document.getElementById('childCP');
+                        var childCP1 = document.getElementById('childCP1');
+                        childCP1.innerHTML = childCP.innerHTML;
+
+                        var parentZZ = document.getElementById('parentZZ');
+                        var childZZ = document.getElementById('childZZ');
+                        var childZZ1 = document.getElementById('childZZ1');
+                        childZZ1.innerHTML = childZZ.innerHTML;
+                    };
+                    that.ws.onerror = function (error) {
+                        console.log('WebSocket连接失败,错误:' + error);
+                    };
+                    that.ws.onclose = function () {
+                        //debugger;
+                        console.log('WebSocket连接关闭！');
+                    };
+                }
+
+            },
+//第二部分后台返回数据
+
+            },
+
 
     }
 </script>
@@ -2219,6 +3822,7 @@ width: 100%;
     align-content:center;
 }
 .fh1_b1{
+    /*display: none;*/
     margin-left: 20px;
     margin-top: -20px;
     width: 70%;
@@ -2228,6 +3832,11 @@ width: 100%;
     width:30%;
     padding-top: 25px;
     height: 100%;
+    /*display: flex;!*设置为弹性容器*!*/
+    /*align-items: center; !*定义div1的元素垂直居中*!*/
+    /*justify-content: center; !*定义div1的里的元素水平居中*!*/
+    /*text-align: center;*/
+    /*line-height: 100%;*/
     /*padding-bottom: 20px;*/
 
 }
@@ -2242,9 +3851,14 @@ width: 100%;
 .fh1_b2_a{
     width:100%;
     height:100%;
-    background-color: red;
+     border:5px solid #64B9e9;
     border-radius:50% ;
     margin: 0 auto;
+    display: flex;/*设置为弹性容器*/
+    align-items: center; /*定义div1的元素垂直居中*/
+    justify-content: center; /*定义div1的里的元素水平居中*/
+}
+.fh1_b2_a_1{
 
 }
     .nenghao{
@@ -2260,34 +3874,38 @@ width: 100%;
         display: flex;
         width: 100%;
         height: 50%;
-        background-color: red;
+        /*background-color: red;*/
     }
     .NH_2{
         display: flex;
         width: 100%;
         height: 50%;
-        background-color: blue;
+        /*padding-bottom: 20px;*/
+        /*margin-bottom: 20px;*/
+        /*background-color: blue;*/
     }
 .NH_1_a{
     width: 50%;
     height: 100%;
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 .NH_1_b{
     width: 50%;
     height: 100%;
-    background-color: darkslategray;
+    /*background-color: darkslategray;*/
 }
 .NH_2_a{
     width: 50%;
     height: 100%;
-    background-color: aliceblue;
+
+    /*background-color: aliceblue;*/
 }
 .NH_2_b{
     width: 50%;
     height: 100%;
-    background-color: fuchsia;
+    /*background-color: fuchsia;*/
 }
+
     .zhibiao{
         /*float: left;*/
         background: url("../assets/BK.png") no-repeat;
@@ -2301,44 +3919,71 @@ width: 100%;
         display: flex;
         width: 100%;
         height: 50%;
-        background-color: red;
+        /*background-color: red;*/
+    }
+    .ZB_1_N{
+        width: 6%;
+        height: 100%;
+        padding-left:10px;
+        padding-top: 50px;
+        text-align: center;
+        line-height: 32px;
+        font-size:1em;
+        color: #64B9E9;
     }
     .ZB_1_a{
-        width: 33.33%;
+        width: 34%;
         height: 100%;
-        background-color: aliceblue;
+        /*padding-left:10px;*/
+        padding-top: 20px;
+        /*margin-right:10px;*/
+        /*background-color: aliceblue;*/
     }
 .ZB_1_b{
-    width: 33.33%;
+    width: 30%;
     height: 100%;
-    background-color:sienna;
+    /*background-color:sienna;*/
 }
 .ZB_1_c{
-    width: 33.33%;
+    width: 30%;
     height: 100%;
-    background-color:green;
+    /*background-color:green;*/
 }
 .ZB_2{
     display: flex;
     width: 100%;
     height: 50%;
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
+
+}
+.ZB_2_N{
+    width: 6%;
+    height: 100%;
+    padding-left:10px;
+    padding-top: 50px;
+    text-align: center;
+    line-height: 32px;
+    font-size:1em;
+    color: #64B9E9;
 }
 .ZB_2_a{
-    width: 33.33%;
+
+    width: 34%;
     height: 100%;
-    background-color:darkslategray;
+
+    /*background-color:darkslategray;*/
 }
 .ZB_2_b{
-    width: 33.33%;
+    width: 30%;
     height: 100%;
-    background-color:rosybrown;
+    /*background-color:rosybrown;*/
 }
     .ZB_2_c{
-        width: 33.33%;
+        width: 30%;
         height: 100%;
-        background-color:tomato;
+        /*background-color:tomato;*/
     }
+
     .touyonglv{
         /*float: right;*/
         background: url("../assets/BK.png") no-repeat;
@@ -2353,51 +3998,60 @@ width: 100%;
     display: flex;
     width: 100%;
     height: 50%;
-    background-color: red;
+    /*background-color: red;*/
 }
 .TYL_1_a{
     width: 25%;
     height: 100%;
-    background-color: aliceblue;
+    padding-top: 50px;
+    /*background-color: aliceblue;*/
 }
 .TYL_1_b{
     width: 20%;
     height: 100%;
-    background-color:sienna;
+    padding-top: 30px;
+    /*background-color:sienna;*/
 }
 .TYL_1_c{
-    width: 30%;
+    width: 55%;
     height: 100%;
-    background-color:green;
+    /*background-color:green;*/
 }
-.TYL_1_d{
-    width: 25%;
-    height: 100%;
-    background-color:green;
-}
+/*.TYL_1_d{*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*width: 15%;*/
+    /*height: 100%;*/
+    /*!*background-color:green;*!*/
+/*}*/
 .TYL_2{
     display: flex;
     width: 100%;
     height: 50%;
-    background-color: blueviolet;
+    padding-bottom:20px;
+    /*background-color: blueviolet;*/
 }
 .TYL_2_a{
-    width: 33.33%;
+    width: 25%;
     height: 100%;
-    background-color:darkslategray;
+    padding-top: 20px;
+    /*background-color:darkslategray;*/
 }
 .TYL_2_b{
-    width: 33.33%;
-    height: 100%;
-    background-color:rosybrown;
+    width:20%;
+    height:100%;
+    /*margin-bottom: 50px;*/
+    /*//margin:0 auto;*/
+    /*background-color:rosybrown;*/
 }
 .TYL_2_c{
-    width: 33.33%;
-    height: 100%;
-    background-color:tomato;
+    width:55%;
+    height:100%;
+
+    /*background-color:tomato;*/
 }
 table,tr,td{
-    /*border:1px solid #888;*/
+    /*border:1px solid red;*/
     /*border-collapse: collapse;*/
     border: 0px solid #888;
     padding-top: 10px;
@@ -2406,6 +4060,7 @@ table,tr,td{
     margin-bottom: 3px;
     border-collapse: collapse;
     font-size: 16px;
+    text-align: center;
 }
 .jishu {
     background-color: rgba(0%, 0%, 0%, 0);

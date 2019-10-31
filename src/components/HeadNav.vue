@@ -3,7 +3,7 @@
       <el-row>
           <el-col :span="6" class="logo-container">
               <img src="../assets/BWlogo.png" class="logo" alt="">
-              <span class="title">宝武炭材新一期苯加氢信息系统V1.0</span>
+              <span class="title">宝武炭材新一期苯加氢自适应生产信息系统</span>
           </el-col>
           <el-col :span="6" class="user">
               <div class="userinfo">
@@ -75,7 +75,7 @@ this.$router.push('/infoshow');
     }
     .logo-container {
         line-height: 60px;
-        min-width: 600px;
+        min-width: 700px;
     }
     .logo {
         height: 50px;
