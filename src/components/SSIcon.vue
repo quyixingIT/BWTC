@@ -550,7 +550,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="44.885" cy="614.443" width="89.78" height="17.0079"/>
 			<rect x="0" y="605.939" width="89.77" height="17.0079" class="st1"/>
-			<text id="CTYZLTowerTopT" x="17.29" y="620.44" class="st20" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>133℃</text>		</g>
+			<text id="CTYZLTowerTopT" x="17.29" y="620.44" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>133℃</text>		</g>
 		<!--<g id="shape262-99" v:mID="262" v:groupContext="shape" transform="translate(386.022,-444.53)">-->
 			<!--<title>工作表.262</title>-->
 			<!--<path d="M0 622.95 L21.33 622.95" class="st4"/>-->
@@ -623,7 +623,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="48.7163" cy="610.899" width="97.44" height="24.0945"/>
 			<rect x="0" y="598.852" width="97.4325" height="24.0945" class="st1"/>
-			<text id="CTWDTowerTopT" x="26.99" y="616.9" class="st21" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>86℃</text>		</g>
+			<text id="CTWDTowerTopT" x="26.99" y="616.9" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>86℃</text>		</g>
 		<g id="shape283-138" v:mID="283" v:groupContext="shape" transform="translate(801.725,-389.962)">
 			<title>工作表.283</title>
 			<path d="M0 622.95 L26.27 622.95" class="st4"/>

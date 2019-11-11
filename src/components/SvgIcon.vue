@@ -577,7 +577,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="39.7023" cy="610.899" width="79.41" height="24.0945"/>
 			<rect x="0" y="598.852" width="79.4046" height="24.0945" class="st2"/>
-			<text id="" x="12.11" y="616.9" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>203℃</text>		</g>
+			<text id="XNYFExitT" x="12.11" y="616.9" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>203℃</text>		</g>
 		<g id="shape271-111" v:mID="271" v:groupContext="shape" transform="translate(135.247,-353.044)">
 			<title>工作表.271</title>
 			<path d="M0 622.95 L17.92 622.95" class="st5"/>
@@ -610,7 +610,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="34.153" cy="610.899" width="68.31" height="24.0945"/>
 			<rect x="0" y="598.852" width="68.306" height="24.0945" class="st2"/>
-			<text x="6.56" y="616.9" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>285℃</text>		</g>
+			<text id="XNZFExitT" x="6.56" y="616.9" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>285℃</text>		</g>
 		<!--<g id="shape280-129" v:mID="280" v:groupContext="shape" transform="translate(590.645,-501.722)">-->
 			<!--<title>工作表.280</title>-->
 			<!--<desc>312℃</desc>-->
@@ -5218,7 +5218,8 @@
 	.st20 {fill:#7bafd4;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 	.st21 {fill:#83bae0;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 	.st22 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
-
+	.st23 {fill:#ff0000;font-family:微软雅黑;font-size:1.66667em}
+	.st24 {fill:#f59d56;font-family:微软雅黑;font-size:1.66667em}
 
     .SCZM{
         /*background-color: #080D1C;*/

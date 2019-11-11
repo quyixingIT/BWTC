@@ -1,5 +1,5 @@
 <template>
-  <header class="head-nav"style="overflow: hidden">
+  <header id="head-nav"  class="head-nav"style="overflow: hidden">
       <el-row>
           <el-col :span="6" class="logo-container">
               <img src="../assets/BWlogo.png" class="logo" alt="">

@@ -1,7 +1,7 @@
 /* 智慧看板*/
 <template>
     <div class="allbox" id="allbox">
-        <img id="imgtitle" src="../assets/ZHKB.png" alt="">
+        <img id="imgtitle" class="imgtitle" src="../assets/ZHKB.png" alt="">
         <div class="content">
                 <div id="fuhe" class="fuhe">
                     <div class="fh1">
@@ -189,6 +189,29 @@
                     <div class="NH_1">
                         <div class="NH_1_a" id="NH_1_a"></div>
                         <div class="NH_1_b" id="NH_1_b"></div>
+                        <div class="NH_1_c" id="NH_1_c">
+                            <table class="TableStyle1">
+                                <caption align="top" style="color: #64B9E9;">实时单耗</caption>
+                                <tr >
+                                    <td>S40</td>
+                                    <td v-model="consumptionUnitProValue0">{{consumptionUnitProValue0}}</td>
+                                    <td>H₂</td>
+                                    <td v-model="consumptionUnitProValue1">{{consumptionUnitProValue1}}</td>
+                                </tr>
+                                <tr>
+                                    <td>S16</td>
+                                    <td v-model="consumptionUnitProValue2">{{consumptionUnitProValue2}}</td>
+                                    <td>N₂</td>
+                                    <td v-model="consumptionUnitProValue3">{{consumptionUnitProValue3}}</td>
+                                </tr>
+                                <tr>
+                                    <td>S3</td>
+                                    <td v-model="consumptionUnitProValue4">{{consumptionUnitProValue4}}</td>
+                                    <td>COG</td>
+                                    <td v-model="consumptionUnitProValue5">{{consumptionUnitProValue5}}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     <div class="NH_2" id="NH_2">
                         <div class="NH_2_a" id="NH_2_a"></div>
@@ -664,7 +687,7 @@
             <div id="touyonglv" class="touyonglv">
                 <div class="TYL_1">
                     <div class="TYL_1_a">
-                        <svg id="fillgauge1" width="97%" height="150" ></svg>
+                        <svg id="fillgauge1" width="97%" height="100%" ></svg>
                     </div>
                     <div class="TYL_1_b" id="TYL_1_b"></div>
                     <div class="TYL_1_c" id="TYL_1_c"></div>
@@ -698,7 +721,7 @@
                                         <td style="width: 30%;color:white">100单元</td>
                                         <td style="width: 40%;color:white">蒸发塔</td>
                                         <td style="width: 30%;color:white;padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData0>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData0>=7230" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -714,7 +737,7 @@
                                         <td style="color:white">100单元</td>
                                         <td style="color:white">残油塔</td>
                                         <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData2>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData2>=120" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -730,7 +753,7 @@
                                         <td style="color:white">100单元</td>
                                         <td style="color:white">稳定塔</td>
                                         <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData4>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData4>=6670" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -738,7 +761,7 @@
                                         <td style="color:white">200单元</td>
                                         <td style="color:white">预蒸馏塔</td>
                                         <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData7>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData7>=4750" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -746,7 +769,7 @@
                                         <td style="color:white">300单元</td>
                                         <td style="color:white">萃取塔</td>
                                         <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData10>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData10>=5500" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -754,7 +777,7 @@
                                         <td style="color:white">300单元</td>
                                         <td style="color:white">解析塔</td>
                                         <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData13>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData13>=41500" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -762,7 +785,7 @@
                                         <td style="color:white">300单元</td>
                                         <td style="color:white">苯塔</td>
                                         <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData15>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData15>=7450" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -770,7 +793,7 @@
                                         <td style="color:white">400单元</td>
                                         <td style="color:white">二甲苯塔</td>
                                         <td style="color:white; padding-top: 5px;padding-bottom: 0px;">
-                                            <img src="../assets/green.png" v-if="tableData18>=10" width="30" height="30" >
+                                            <img src="../assets/green.png" v-if="tableData18>=150" width="30" height="30" >
                                             <img src="../assets/red.png" v-else width="30" height="30" >
                                         </td>
                                     </tr>
@@ -795,7 +818,7 @@
     require('swiper/dist/css/swiper.css');
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     import 'swiper/dist/css/swiper.css'
-
+ // import Utils from '../util'
     export default {
         name:'home',
         data(){
@@ -815,6 +838,12 @@
                 hisProValue6:[230, 245, 238, 224, 236, 248, 271],
                 consumptionProValue:[],//实时能耗散点图
                 consumptionUnitProValue:[],//实时单耗六芒星
+                consumptionUnitProValue0:0,//表格实时单耗
+                consumptionUnitProValue1:0,//表格实时单耗
+                consumptionUnitProValue2:0,//表格实时单耗
+                consumptionUnitProValue3:0,//表格实时单耗
+                consumptionUnitProValue4:0,//表格实时单耗
+                consumptionUnitProValue5:0,//表格实时单耗
                 dataToWebConsumptionTableList:null,//单耗表格部分
                 hisConsumptionValue0:[11, 15, 17, 19, 16, 13, 14],//能耗7天历史
                 hisConsumptionValue1:[11, 15, 17, 19, 16, 13, 14],
@@ -886,6 +915,7 @@
                 dataToWebConsumptionTableList4:1464,dataToWebConsumptionTableList5:1464,
                 dataToWebConsumptionTableList6:1464,dataToWebConsumptionTableList7:1464,
                 dataToWebConsumptionTableList8:1464,
+                dateTime:['10/30','10/31','11/01','11/02','11/03','11/04','11/05'],
 
 
 
@@ -894,6 +924,10 @@
             }
         },
         mounted(){
+            var that=this;
+            // Utils.$on('liquidFill',function () {
+            //     that.liquidFill();
+            // })
          document.getElementById("allbox").setAttribute('width',this.screenWidth);
          document.getElementById("imgtitle").setAttribute('width',this.screenWidth-200);
          // document.getElementById("allbox").setAttribute('height',this.screeHeight-100);
@@ -939,7 +973,7 @@
             this.Echart21();
             this.Echarts11(fh1_b1,'纯苯',this.hisProValue0);
             var hisConsumptionValue=null;
-            this.Echarts3(NH_2_a,'S40历史能耗',hisConsumptionValue);
+            this.Echarts3(NH_2_a,'S40历史能耗',hisConsumptionValue,'万元');
             //this.TableChange1(NH_2,NH_2_a,3000);
             this.TableChange2("ZB_1","ZB_1_a",50000);
             var fh1_b="fh1_b";//产量父级div
@@ -1317,7 +1351,7 @@ Echarts2:function (consumptionProValue) {
     }
 },
             ///历史能耗折线图
-            Echarts3:function (id,title,hisConsumptionValue) {
+            Echarts3:function (id,title,hisConsumptionValue,unit) {
                 var dom = document.getElementById(id);
                 var myChart = $echarts.init(dom);
                 var app = {};
@@ -1353,7 +1387,7 @@ Echarts2:function (consumptionProValue) {
                                 width: 1,//这里是为了突出显示加上的
                             }
                         },
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
+                        data: this.dateTime,//['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
                         axisLabel: {
                             show: true,
                             textStyle: {
@@ -1362,6 +1396,7 @@ Echarts2:function (consumptionProValue) {
                         }
                     },
                     yAxis: {
+                        name:unit,
                         type: 'value',
                         axisLine: {
                             lineStyle: {
@@ -1400,10 +1435,10 @@ Echarts2:function (consumptionProValue) {
                                     textStyle:{
                                         fontSize:16
                                     },
-                                    formatter:function(value){
-
-                                        return parseFloat(value.value.toFixed(0));
-                                    },
+                                    // formatter:function(value){
+                                    //
+                                    //     return parseFloat(value.value.toFixed(0));
+                                    // },
                                     color:'#64b9e9',
                                     show: true, //自动显示数据 ，无需鼠标滑动才显示数据
                                 }
@@ -1756,7 +1791,7 @@ Echarts2:function (consumptionProValue) {
                 var app = {};
                var option = null;
                 option = {
-                    color: ['#ff881d', '#55f93f'],
+                    color: ['#55f93f'],
                     radar: [
                         {
                             nameGap: 3,
@@ -1816,17 +1851,18 @@ Echarts2:function (consumptionProValue) {
                                 }
                             },
                             data: [
+                                // {
+                                //     value: [99, 5, 0.1, 3.1, 1.1, 1],
+                                //     value: [this.analyserRECGASValue0, this.analyserRECGASValue1, this.analyserRECGASValue2, this.analyserRECGASValue3, this.analyserRECGASValue4,this.analyserRECGASValue5],
+                                //     name: '指标',
+                                //     areaStyle: {
+                                //         normal: {
+                                //             color: 'rgba(255, 255, 255, 0.5)'
+                                //         }
+                                //     }
+                                // },
                                 {
                                     value: [this.analyserRECGASValue0, this.analyserRECGASValue1, this.analyserRECGASValue2, this.analyserRECGASValue3, this.analyserRECGASValue4,this.analyserRECGASValue5],
-                                    name: '指标',
-                                    areaStyle: {
-                                        normal: {
-                                            color: 'rgba(255, 255, 255, 0.5)'
-                                        }
-                                    }
-                                },
-                                {
-                                    value: [99, 5, 0.1, 3.1, 1.1, 1],
                                     name: '测量值',
                                     areaStyle: {
                                         normal: {
@@ -2162,7 +2198,7 @@ Echarts2:function (consumptionProValue) {
                                 width: 1,//这里是为了突出显示加上的
                             }
                         },
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
+                        data: this.dateTime,
                         axisLabel: {
                             show: true,
                             textStyle: {
@@ -2267,12 +2303,18 @@ Echarts2:function (consumptionProValue) {
                     radar: {
                         nameGap: 2,
                         indicator: [
-                            {name: 'S40', max: consumptionUnitProValue[0]*1.1},
-                            {name: 'S3', max: consumptionUnitProValue[1]*1.1},
-                            {name: 'S16', max: consumptionUnitProValue[2]*1.1},
-                            {name: 'H₂', max: consumptionUnitProValue[3]*1.1},
-                            {name: 'COG', max: consumptionUnitProValue[4]*1.1},
-                            {name: 'N₂', max: consumptionUnitProValue[5]*1.1}
+                            // {name: 'S40', max: consumptionUnitProValue[1]*1.1},
+                            // {name: 'S3', max: consumptionUnitProValue[1]*1.1},
+                            // {name: 'S16', max: consumptionUnitProValue[1]*1.1},
+                            // {name: 'H₂', max: consumptionUnitProValue[1]*1.1},
+                            // {name: 'COG', max: consumptionUnitProValue[1]*1.1},
+                            // {name: 'N₂', max: consumptionUnitProValue[1]*1.1}
+                            {name: 'S40', max: 50,min:-10},
+                            {name: 'H₂', max: 50,min:-10},
+                            {name: 'S16', max: 50,min:-10},
+                            {name: 'COG', max:50,min:-10},
+                            {name: 'N₂', max: 50,min:-10},
+                            {name: 'S3', max: 50,min:-10}
                         ],
                         center: ['50%', '58%'],
                         radius: 55,
@@ -2311,7 +2353,7 @@ Echarts2:function (consumptionProValue) {
                             itemStyle: {
                                 normal: {
                                     //F9713C
-                                    color: '#f9933e'
+                                    color:'#55F93F',// '#f9933e'
                                 }
                             },
                             areaStyle: {
@@ -2320,7 +2362,7 @@ Echarts2:function (consumptionProValue) {
                                 }
                             }
                         }
-                    ]
+                    ],color: ['#55F93F']
                 };
                 if (option && typeof option === "object") {
                     myChart.setOption(option, true);
@@ -2359,7 +2401,7 @@ Echarts2:function (consumptionProValue) {
                                 width: 1,//这里是为了突出显示加上的
                             }
                         },
-                        data: ['12/9', '13/9', '14/9', '15/9', '16/9', '17/9', '18/9'],
+                        data: this.dateTime,
                         axisLabel: {
                             show: true,
                             textStyle: {
@@ -2432,6 +2474,7 @@ Echarts2:function (consumptionProValue) {
 
             //动态圆柱
             liquidFill:function(){
+
                 let config2 = null;
                 let gauge1 = null;
                 let config3 = null;
@@ -2466,26 +2509,40 @@ Echarts2:function (consumptionProValue) {
             },
             liquidFillGaugeDefaultSettings:function(){
                 return {
-                    minValue: 0, // The gauge minimum value.
-                    maxValue: 100, // The gauge maximum value.
-                    circleThickness: 0.05, // The outer circle thickness as a percentage of it's radius.
-                    circleFillGap: 0.05, // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
+                    minValue: 0, // The gauge minimum value.最小值
+                    maxValue: 100, // The gauge maximum value.最大值
+                    circleThickness: 0.05, // The outer circle thickness as a percentage of it's radius.外圆厚度占其半径的百分比。
+                    circleFillGap: 0.05, //外圈与波圆之间的间隙尺寸为外圈半径的百分比。
+                    // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
                     circleColor: "#178BCA", // The color of the outer circle.
-                    waveHeight: 0.05, // The wave height as a percentage of the radius of the wave circle.
-                    waveCount: 1, // The number of full waves per width of the wave circle.
-                    waveRiseTime: 1000, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
-                    waveAnimateTime: 18000, // The amount of time in milliseconds for a full wave to enter the wave circle.
-                    waveRise: true, // Control if the wave should rise from 0 to it's full height, or start at it's full height.
-                    waveHeightScaling: true, // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
-                    waveAnimate: true, // Controls if the wave scrolls or is static.
+                    waveHeight: 0.05, // The wave height as a percentage of the radius of the wave circle.波高是波圈半径的百分比。
+                    waveCount: 1, // The number of full waves per width of the wave circle.每波圆宽度的全波数
+                    waveRiseTime: 1000, //波浪从0上升到最后高度的时间，以毫秒为单位
+                    // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
+                    waveAnimateTime: 18000, //用于输入波形圆的全波的时间(毫秒)
+                    // The amount of time in milliseconds for a full wave to enter the wave circle.
+                    waveRise: true, // 控制波浪是从0上升到它的全高，还是从它的全高开始。
+                    // Control if the wave should rise from 0 to it's full height, or start at it's full height.
+                    waveHeightScaling: true, //控制在低和高填充百分比下的波浪尺寸缩放。真时，波浪高度在50%填充时达到最大值，
+                    // 最小值为0%和100%填充。//这有助于防止波浪使波浪圆在接近它的最小或最大填充时完全充满或者是空的
+                    // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
+                    waveAnimate: true, //控制波浪是否滚动或是静态的。
+                    // Controls if the wave scrolls or is static.
                     waveColor: "#178BCA", // The color of the fill wave.
-                    waveOffset: 0, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
-                    textVertPosition: .5, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
-                    textSize: 1, // The relative height of the text to display in the wave circle. 1 = 50%
-                    valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
-                    displayPercent: true, // If true, a % symbol is displayed after the value.
-                    textColor: "#045681", // The color of the value text when the wave does not overlap it.
-                    waveTextColor: "#A4DBf8" // The color of the value text when the wave overlaps it.
+                    waveOffset: 0, //初始偏移波的量。0=无偏移。1=一个全波的偏移。
+                    // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
+                    textVertPosition: .5,//在波浪圈中显示百分比文本的高度。0=底部，1=顶部。
+                    // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
+                    textSize: 1, //文本在波形圈中显示的相对高度。1=50%
+                    // The relative height of the text to display in the wave circle. 1 = 50%
+                    valueCountUp: true, // 如果为True，则显示的值在加载时从0递增到它的最终值。如果为false，则显示最终值。
+                    // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
+                    displayPercent: true,//如果为真，则在值之后显示%符号。
+                    // If true, a % symbol is displayed after the value.
+                    textColor: "#045681", // 当波形不重叠时值文本的颜色。
+                    // The color of the value text when the wave does not overlap it.
+                    waveTextColor: "#A4DBf8" // 波重叠时的值文本的颜色。
+                    // The color of the value text when the wave overlaps it.
                 };
             },
             loadLiquidFillGauge: function (elementId, value, config) {
@@ -2861,7 +2918,7 @@ Echarts2:function (consumptionProValue) {
             //温度计1
             Echart20:function () {
     //debugger;
-    var that=this;
+                var that=this;
                 var myChart = $echarts.init(document.getElementById('TYL_1_b'));
                 var TP_value = that.PIDUseNum;
                 var kd = [];
@@ -3136,7 +3193,7 @@ Echarts2:function (consumptionProValue) {
             },
             //温度计2
             Echart21:function () {
-    var that=this;
+                var that=this;
                 var myChart = $echarts.init(document.getElementById('TYL_2_b'));
                 var TP_value = that.APCUseNum;
                 var kd = [];
@@ -3496,33 +3553,33 @@ Echarts2:function (consumptionProValue) {
 
                     //debugger;
                     if(that.f==0){
-                        that.Echarts3("NH_2_a","S40历史能耗",that.hisConsumptionValue0);
+                        that.Echarts3("NH_2_a","S40历史能耗",that.hisConsumptionValue0,'万元');
 
                         // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
                         // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
 
                     }else if(that.f==1){
-                        that.Echarts3("NH_2_a1","H₂历史能耗",that.hisConsumptionValue1);
+                        that.Echarts3("NH_2_a1","H₂历史能耗",that.hisConsumptionValue1,'万元');
 
                         // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
                         // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
                     }else if(that.f==2){
-                        that.Echarts3("NH_2_a2","S16历史能耗",that.hisConsumptionValue2);
+                        that.Echarts3("NH_2_a2","S16历史能耗",that.hisConsumptionValue2,'万元');
 
                         // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
                         // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
                     }else if(that.f==3){
-                        that.Echarts3("NH_2_a3","COG历史能耗",that.hisConsumptionValue3);
+                        that.Echarts3("NH_2_a3","COG历史能耗",that.hisConsumptionValue3,'万元');
                         //
                         // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
                         // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
                     }else if(that.f==4){
-                        that.Echarts3("NH_2_a4","N₂历史能耗",that.hisConsumptionValue4);
+                        that.Echarts3("NH_2_a4","N₂历史能耗",that.hisConsumptionValue4,'元');
 
                         // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
                         // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
                     }else if(that.f==5){
-                        that.Echarts3("NH_2_a5","S3历史能耗",that.hisConsumptionValue5);
+                        that.Echarts3("NH_2_a5","S3历史能耗",that.hisConsumptionValue5,'万元');
 
                         // document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
                         // document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
@@ -3646,6 +3703,15 @@ Echarts2:function (consumptionProValue) {
                         that.Echarts2(consumptionProValue);
                         //实时单耗六芒星
                         that.consumptionUnitProValue=res1.consumptionUnitProValue;
+                        //实时单耗表格
+                        that.consumptionUnitProValue0=res1.consumptionUnitProValue[0][0].toFixed(2);
+                        that.consumptionUnitProValue1=res1.consumptionUnitProValue[0][1].toFixed(2);
+                        that.consumptionUnitProValue2=res1.consumptionUnitProValue[0][2].toFixed(2);
+                        that.consumptionUnitProValue3=res1.consumptionUnitProValue[0][3].toFixed(2);
+                        that.consumptionUnitProValue4=res1.consumptionUnitProValue[0][4].toFixed(2);
+                        that.consumptionUnitProValue5=res1.consumptionUnitProValue[0][5].toFixed(2);
+
+                        console.log(that.consumptionUnitProValue1);
                         var consumptionUnitProValue=that.consumptionUnitProValue;
                         that.Echarts18(consumptionUnitProValue);
                         //单耗表格
@@ -3781,9 +3847,14 @@ Echarts2:function (consumptionProValue) {
     /*overflow: hidden;*/
     /*margin: 0 auto;*/
 }
+.imgtitle{
+    width: 100%;
+    height: 8%;
+}
+
 .content{
     width:100%;
-    height: 50%;
+    height: 46%;
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
@@ -3885,13 +3956,19 @@ width: 100%;
         /*background-color: blue;*/
     }
 .NH_1_a{
-    width: 50%;
+    width: 33.3%;
     height: 100%;
     /*background-color: yellow;*/
 }
 .NH_1_b{
-    width: 50%;
+    width: 33.3%;
     height: 100%;
+    /*background-color: darkslategray;*/
+}
+.NH_1_c{
+    width: 33.3%;
+    height: 100%;
+    padding-right: 20px;
     /*background-color: darkslategray;*/
 }
 .NH_2_a{
@@ -3905,7 +3982,17 @@ width: 100%;
     height: 100%;
     /*background-color: fuchsia;*/
 }
+.TableStyle1{
+    margin-top: 30px;
+    /*margin-right: 20px;*/
+    color: white;
+    border-collapse:separate;
+    border:2px solid #64B9E9;
+    border-radius: 0.5em;
+    width: 100% ;
+    font-size: 18px;
 
+}
     .zhibiao{
         /*float: left;*/
         background: url("../assets/BK.png") no-repeat;
