@@ -8,7 +8,7 @@
     <div class="SCZM">
 		<!-- 由 Microsoft Visio, SVG Export 生成 u147.svg 页-1 -->
 		<svg id="SvgIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
-		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="1750px" height="428px"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="1750px" height="417px"
 		viewBox="0 0 2381.62 622.946" xml:space="preserve" color-interpolation-filters="sRGB" class="st22">
 	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
 	<defs id="Patterns_And_Gradients">

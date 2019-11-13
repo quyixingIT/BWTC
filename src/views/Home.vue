@@ -687,7 +687,7 @@
             <div id="touyonglv" class="touyonglv">
                 <div class="TYL_1">
                     <div class="TYL_1_a">
-                        <svg id="fillgauge1" width="97%" height="100%" ></svg>
+                        <svg id="fillgauge1" width="97%" height="150" ></svg>
                     </div>
                     <div class="TYL_1_b" id="TYL_1_b"></div>
                     <div class="TYL_1_c" id="TYL_1_c"></div>
@@ -818,11 +818,14 @@
     require('swiper/dist/css/swiper.css');
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     import 'swiper/dist/css/swiper.css'
- // import Utils from '../util'
+
     export default {
         name:'home',
         data(){
             return{
+                timer1:null,
+                timer2:null,
+                timer3:null,
                 screenWidth: document.body.clientWidth,     // 屏幕宽
                 screeHeight: document.body.clientHeight,
                 kind:0,//红绿灯状态
@@ -851,9 +854,9 @@
                 hisConsumptionValue3:[11, 15, 17, 19, 16, 13, 14],
                 hisConsumptionValue4:[11, 15, 17, 19, 16, 13, 14],
                 hisConsumptionValue5:[11, 15, 17, 19, 16, 13, 14],
-                proCTValueList:[{'name':"纯苯",'value':"9587"},{'name':"甲苯",'value':"9587"},{'name':"二甲苯",'value':"9587"},
-                    {'name':"重苯",'value':"9587"},{'name':"C8",'value':"9587"},{'name':"C9",'value':"9587"},{'name':"非芳",'value':"9587"}],//实时
-
+                consumptionFlag:["S40", "H₂","S16","COG", "N₂","S3"],//介质顺序
+                proCTValueList:[9587,9587,9587,9587,9587,9587,9587],//实时
+                proCTValueFlagList:["纯苯","甲苯","二甲苯","重苯","C8","C9","非芳"],
                 analyserCOLOValue0:100,//粗笨组分测量值
                 analyserCOLOValue1:100,
                 analyserCOLOValue2:100,
@@ -899,8 +902,8 @@
 
                 PIDRatio:100,   //自控投用率
                 APCRatio:100, //APC投用率
-                PIDUseNum:20,//PID投用个数
-                PIDLoopNum:20,//PID总数
+                PIDUseNum:96,//PID投用个数
+                PIDLoopNum:96,//PID总数
                 APCUseNum:20,//APC投用个数
                 APCLoopNum:20,//APC投用总数
                 hisPIDRatioValue:[88, 95, 90, 93, 89, 92, 90],//历史7天投用率
@@ -921,13 +924,13 @@
 
 
 
+
+
+
             }
         },
         mounted(){
             var that=this;
-            // Utils.$on('liquidFill',function () {
-            //     that.liquidFill();
-            // })
          document.getElementById("allbox").setAttribute('width',this.screenWidth);
          document.getElementById("imgtitle").setAttribute('width',this.screenWidth-200);
          // document.getElementById("allbox").setAttribute('height',this.screeHeight-100);
@@ -1074,7 +1077,7 @@ Echarts1:function (loadCT,loadMonth,loadYear) {
                         color: '#1e90ff'
                     }
                 },
-                data: [{value: loadCT, name: 't/h'}]
+                data: [{value: loadCT, name: '当前负荷(t/h)'}]
             },
             {
                 name: ' ',
@@ -1145,7 +1148,7 @@ Echarts1:function (loadCT,loadMonth,loadYear) {
                         color: '#1C84EA'
                     }
                 },
-                data: [{value: loadMonth, name: 'kt'}]
+                data: [{value: loadMonth, name: '月负荷(kt)'}]
             },
             {
                 type: 'gauge',
@@ -1216,7 +1219,7 @@ Echarts1:function (loadCT,loadMonth,loadYear) {
                         color: '#ED6905'
                     }
                 },
-                data: [{value: loadYear, name: '10kt'}]
+                data: [{value: loadYear, name: '年负荷(10kt)'}]
             }
         ]
     };
@@ -1239,6 +1242,11 @@ Echarts2:function (consumptionProValue) {
    var option = null;
     var data =consumptionProValue;
     option = {
+        title:{
+            text:'实时能耗',
+            left:'center',
+            y:20,
+            textStyle:{color:'#64b9e9'}},
         backgroundColor: 'rgba(0,0,0,0)',
         textStyle: {
             textColor: '#999999'
@@ -1246,6 +1254,7 @@ Echarts2:function (consumptionProValue) {
 
         xAxis: {
             type: 'category',
+            data:this.consumptionFlag,
             axisLine: {
                 lineStyle: {
                     color: '#3db1a6',
@@ -2161,13 +2170,23 @@ Echarts2:function (consumptionProValue) {
 
             // 产量历史趋势
             Echarts11:function (id,title,hisProValue) {
-    console.log(this.hisProValue);
+    //console.log(this.hisProValue);
                 ///产量历史趋势
                 var dom = document.getElementById(id);
                 var myChart = $echarts.init(dom);
                 var app = {};
                var option = null;
                 option = {
+                    title: {
+                        text:title,
+                        left:'center',
+                        y:'25',
+                        textStyle:{
+                            color:'#64b9e9',
+                            fontSize:16,
+                            fontFamily:'Microsoft YaHei'
+                        }
+                    },
                     // title:{text:title,
                     //     left:'center',
                     //    y:30,
@@ -2207,6 +2226,7 @@ Echarts2:function (consumptionProValue) {
                         }
                     },
                     yAxis: {
+                        name:'T',
                         type: 'value',
                         axisLine: {
                             lineStyle: {
@@ -2348,7 +2368,7 @@ Echarts2:function (consumptionProValue) {
                             name: '',
                             type: 'radar',
                             lineStyle: lineStyle,
-                            data: dataBJ,
+                            data: [{value:dataBJ}],//dataBJ,
                             symbol: 'none',
                             itemStyle: {
                                 normal: {
@@ -2376,6 +2396,11 @@ Echarts2:function (consumptionProValue) {
                 var app = {};
               var option = null;
                 option = {
+                    title:{
+                        text:'APC投用率',
+                        left:'center',
+                        y:20,
+                        textStyle:{color:'#64b9e9'}},
                     backgroundColor: 'rgba(0, 0, 0, 0)',
                     tooltip: {
                         axisPointer: {
@@ -2509,40 +2534,26 @@ Echarts2:function (consumptionProValue) {
             },
             liquidFillGaugeDefaultSettings:function(){
                 return {
-                    minValue: 0, // The gauge minimum value.最小值
-                    maxValue: 100, // The gauge maximum value.最大值
-                    circleThickness: 0.05, // The outer circle thickness as a percentage of it's radius.外圆厚度占其半径的百分比。
-                    circleFillGap: 0.05, //外圈与波圆之间的间隙尺寸为外圈半径的百分比。
-                    // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
+                    minValue: 0, // The gauge minimum value.
+                    maxValue: 100, // The gauge maximum value.
+                    circleThickness: 0.05, // The outer circle thickness as a percentage of it's radius.
+                    circleFillGap: 0.05, // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
                     circleColor: "#178BCA", // The color of the outer circle.
-                    waveHeight: 0.05, // The wave height as a percentage of the radius of the wave circle.波高是波圈半径的百分比。
-                    waveCount: 1, // The number of full waves per width of the wave circle.每波圆宽度的全波数
-                    waveRiseTime: 1000, //波浪从0上升到最后高度的时间，以毫秒为单位
-                    // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
-                    waveAnimateTime: 18000, //用于输入波形圆的全波的时间(毫秒)
-                    // The amount of time in milliseconds for a full wave to enter the wave circle.
-                    waveRise: true, // 控制波浪是从0上升到它的全高，还是从它的全高开始。
-                    // Control if the wave should rise from 0 to it's full height, or start at it's full height.
-                    waveHeightScaling: true, //控制在低和高填充百分比下的波浪尺寸缩放。真时，波浪高度在50%填充时达到最大值，
-                    // 最小值为0%和100%填充。//这有助于防止波浪使波浪圆在接近它的最小或最大填充时完全充满或者是空的
-                    // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
-                    waveAnimate: true, //控制波浪是否滚动或是静态的。
-                    // Controls if the wave scrolls or is static.
+                    waveHeight: 0.05, // The wave height as a percentage of the radius of the wave circle.
+                    waveCount: 1, // The number of full waves per width of the wave circle.
+                    waveRiseTime: 1000, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
+                    waveAnimateTime: 18000, // The amount of time in milliseconds for a full wave to enter the wave circle.
+                    waveRise: true, // Control if the wave should rise from 0 to it's full height, or start at it's full height.
+                    waveHeightScaling: true, // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
+                    waveAnimate: true, // Controls if the wave scrolls or is static.
                     waveColor: "#178BCA", // The color of the fill wave.
-                    waveOffset: 0, //初始偏移波的量。0=无偏移。1=一个全波的偏移。
-                    // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
-                    textVertPosition: .5,//在波浪圈中显示百分比文本的高度。0=底部，1=顶部。
-                    // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
-                    textSize: 1, //文本在波形圈中显示的相对高度。1=50%
-                    // The relative height of the text to display in the wave circle. 1 = 50%
-                    valueCountUp: true, // 如果为True，则显示的值在加载时从0递增到它的最终值。如果为false，则显示最终值。
-                    // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
-                    displayPercent: true,//如果为真，则在值之后显示%符号。
-                    // If true, a % symbol is displayed after the value.
-                    textColor: "#045681", // 当波形不重叠时值文本的颜色。
-                    // The color of the value text when the wave does not overlap it.
-                    waveTextColor: "#A4DBf8" // 波重叠时的值文本的颜色。
-                    // The color of the value text when the wave overlaps it.
+                    waveOffset: 0, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
+                    textVertPosition: .5, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
+                    textSize: 1, // The relative height of the text to display in the wave circle. 1 = 50%
+                    valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
+                    displayPercent: true, // If true, a % symbol is displayed after the value.
+                    textColor: "#045681", // The color of the value text when the wave does not overlap it.
+                    waveTextColor: "#A4DBf8" // The color of the value text when the wave overlaps it.
                 };
             },
             loadLiquidFillGauge: function (elementId, value, config) {
@@ -2550,8 +2561,12 @@ Echarts2:function (consumptionProValue) {
 
         var gauge = d3.select("#" + elementId);
         var radius = Math.min(parseInt(gauge.style("width")), parseInt(gauge.style("height")))/2;
+        debugger;
+        console.log(gauge.style("width"));
+        console.log(gauge.style("height"));
         var locationX = parseInt(gauge.style("width"))/2 - radius;
         var locationY = parseInt(gauge.style("height"))/2 - radius;
+
         var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value))/config.maxValue;
 
         var waveHeightScale;
@@ -2918,7 +2933,7 @@ Echarts2:function (consumptionProValue) {
             //温度计1
             Echart20:function () {
     //debugger;
-                var that=this;
+    var that=this;
                 var myChart = $echarts.init(document.getElementById('TYL_1_b'));
                 var TP_value = that.PIDUseNum;
                 var kd = [];
@@ -3193,7 +3208,7 @@ Echarts2:function (consumptionProValue) {
             },
             //温度计2
             Echart21:function () {
-                var that=this;
+    var that=this;
                 var myChart = $echarts.init(document.getElementById('TYL_2_b'));
                 var TP_value = that.APCUseNum;
                 var kd = [];
@@ -3480,7 +3495,7 @@ Echarts2:function (consumptionProValue) {
                 var that=this;
                 var ts = this.G(fh1_b).getElementsByClassName(child);//获取容器内需要轮流显示的子元素：这里是 div
 
-                var timer1 = setInterval(function(){//定义时间控制器
+                that.timer1 = setInterval(function(){//定义时间控制器
                     if(that.k>0){
                         ts[that.k-1].style.display='none';
 
@@ -3489,40 +3504,41 @@ Echarts2:function (consumptionProValue) {
 
                     //debugger;
                     if(that.k==0){
+
                         that.Echarts11("fh1_b1","纯苯",that.hisProValue0);
 
-                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
-                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                        document.getElementById("titleText1").innerText=that.proCTValueFlagList[that.k];
+                        document.getElementById("titleText2").innerText=(parseFloat(that.proCTValueList[that.k])/1000).toFixed(1)+'t/h';
 
                     }else if(that.k==1){
                         that.Echarts11("fh1_b1_a","甲苯",that.hisProValue1);
 
-                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
-                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                        document.getElementById("titleText1").innerText=that.proCTValueFlagList[that.k];
+                        document.getElementById("titleText2").innerText=(parseFloat(that.proCTValueList[that.k])/1000).toFixed(1)+'t/h';
                     }else if(that.k==2){
                         that.Echarts11("fh1_b1_b","二甲苯",that.hisProValue2);
 
-                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
-                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                        document.getElementById("titleText1").innerText=that.proCTValueFlagList[that.k];
+                        document.getElementById("titleText2").innerText=(parseFloat(that.proCTValueList[that.k])/1000).toFixed(1)+'t/h';
                     }else if(that.k==3){
                         that.Echarts11("fh1_b1_c","重苯",that.hisProValue3);
 
-                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
-                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                        document.getElementById("titleText1").innerText=that.proCTValueFlagList[that.k];
+                        document.getElementById("titleText2").innerText=(parseFloat(that.proCTValueList[that.k])/1000).toFixed(1)+'t/h';
                     }else if(that.k==4){
                         that.Echarts11("fh1_b1_d","C8",that.hisProValue4);
 
-                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
-                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                        document.getElementById("titleText1").innerText=that.proCTValueFlagList[that.k];
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].toFixed(0)+'kg/h';
                     }else if(that.k==5){
                         that.Echarts11("fh1_b1_e","C9",that.hisProValue5);
 
-                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
-                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                        document.getElementById("titleText1").innerText=that.proCTValueFlagList[that.k];
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].toFixed(0)+'kg/h';
                     }else if(that.k==6){
                         that.Echarts11("fh1_b1_f","非芳",that.hisProValue6);
-                        document.getElementById("titleText1").innerText=that.proCTValueList[that.k].name;
-                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].value;
+                        document.getElementById("titleText1").innerText=that.proCTValueFlagList[that.k];
+                        document.getElementById("titleText2").innerText=that.proCTValueList[that.k].toFixed(0)+'kg/h';
                     }
                     for(var m=0;m<ts.length;m++)
                     {
@@ -3543,7 +3559,7 @@ Echarts2:function (consumptionProValue) {
                 var that=this;
                 var ts = this.G(NH_2).getElementsByClassName(child);//获取容器内需要轮流显示的子元素：这里是 div
 
-                var timer2 = setInterval(function(){//定义时间控制器
+                that. timer2 = setInterval(function(){//定义时间控制器
 
                     if(that.f>0){
                         ts[that.f-1].style.display='none';
@@ -3609,7 +3625,7 @@ Echarts2:function (consumptionProValue) {
 
                 var ts = this.G(NH_2).getElementsByClassName(child);//获取容器内需要轮流显示的子元素：这里是 div
                 var ts1=this.G(NH_2).getElementsByClassName("ZB_1_N");
-                var timer3 = setInterval(function(){//定义时间控制器
+                that.timer3 = setInterval(function(){//定义时间控制器
 
                     if(that.g>0){
                         ts[that.g-1].style.display='none';
@@ -3644,10 +3660,9 @@ Echarts2:function (consumptionProValue) {
             //后台返回数据
             FirstData:function(){
     var that=this;
-    //debugger;
                 if ('WebSocket' in window) {
                     that.ws = new WebSocket('ws://192.168.1.113:1001/api/ShowPanel/Get?');
-                    // this.ws = new WebSocket('ws://localhost:59769/api/ZMData/Get');
+                    //this.ws = new WebSocket('ws://localhost:59769/api/ShowPanel/Get');
                     //this.ws = new WebSocket('ws://localhost:59769/api/OPCOper/Get');
                     that.ws.onopen = function () {
                         //debugger;
@@ -3657,146 +3672,155 @@ Echarts2:function (consumptionProValue) {
                         //  var titleGZ1=document.getElementById('titleGZ1').innerHTML;
                         //  document.getElementById('titleGZ1').innerHTML='测试title';
                         var res1=JSON.parse(res.data);
-                        // var res2=res1.dataToWebXNList;
+                        var panelProduct=res1.panelProduct;
+                        that.proCTValueFlagList=res1.FlagProCTID;//产品顺序
                         // var res3=res1.dataToWebCTList;
                         console.log(res1);
                         //仪表盘
-                        var loadCT=res1.loadCT.toFixed(1);
-                        var loadMonth=res1.loadMonth.toFixed(1);
-                        var loadYear=res1.loadYear.toFixed(1);
+                        var loadCT=panelProduct[9].toFixed(1);
+                        var loadMonth=panelProduct[10].toFixed(1);
+                        var loadYear=panelProduct[11].toFixed(1);
                         that. Echarts1(loadCT,loadMonth,loadYear);
 
-                        that.hisProValue0= res1.hisProValue[0];
-                        that.hisProValue1= res1.hisProValue[1];
-                        that.hisProValue2= res1.hisProValue[2];
-                        that.hisProValue3= res1.hisProValue[3];
-                        that.hisProValue4= res1.hisProValue[4];
-                        that.hisProValue5= res1.hisProValue[5];
-                        that.hisProValue6= res1.hisProValue[6];
+                        that.hisProValue0= panelProduct[0];
+                        that.hisProValue1= panelProduct[1];
+                        that.hisProValue2= panelProduct[2];
+                        that.hisProValue3= panelProduct[3];
+                        that.hisProValue4= panelProduct[4];
+                        that.hisProValue5= panelProduct[5];
+                        that.hisProValue6= panelProduct[6];
 
-                        that.proCTValueList=res1.proCTValueList;
-                         that.tableData0=res1.dataToWebProTableList[0].value;
-                        that.tableData1=res1.dataToWebProTableList[1].value;
-                        that.tableData2=res1.dataToWebProTableList[2].value;
-                        that.tableData3=res1.dataToWebProTableList[3].value;
-                        that.tableData4=res1.dataToWebProTableList[4].value;
-                        that.tableData5=res1.dataToWebProTableList[5].value;
-                        that.tableData6=res1.dataToWebProTableList[6].value;
-                        that.tableData7=res1.dataToWebProTableList[7].value;
-                        that.tableData8=res1.dataToWebProTableList[8].value;
-                        that.tableData9=res1.dataToWebProTableList[9].value;
-                        that.tableData10=res1.dataToWebProTableList[10].value;
-                        that.tableData11=res1.dataToWebProTableList[11].value;
-                        that.tableData12=res1.dataToWebProTableList[12].value;
-                        that.tableData13=res1.dataToWebProTableList[13].value;
-                        that.tableData14=res1.dataToWebProTableList[14].value;
-                        that.tableData15=res1.dataToWebProTableList[15].value;
-                        that.tableData16=res1.dataToWebProTableList[16].value;
-                        that.tableData17=res1.dataToWebProTableList[17].value;
-                        that.tableData18=res1.dataToWebProTableList[18].value;
-                        that.tableData19=res1.dataToWebProTableList[19].value;
-                        that.tableData20=res1.dataToWebProTableList[20].value;
+                        that.proCTValueList=panelProduct[8];
+                         that.tableData0=panelProduct[7][0];
+                        that.tableData1=panelProduct[7][1];
+                        that.tableData2=panelProduct[7][2];
+                        that.tableData3=panelProduct[7][3];
+                        that.tableData4=panelProduct[7][4];
+                        that.tableData5=panelProduct[7][5];
+                        that.tableData6=panelProduct[7][6];
+                        that.tableData7=panelProduct[7][7];
+                        that.tableData8=panelProduct[7][8];
+                        that.tableData9=panelProduct[7][9];
+                        that.tableData10=panelProduct[7][10];
+                        that.tableData11=panelProduct[7][11];
+                        that.tableData12=panelProduct[7][12];
+                        that.tableData13=panelProduct[7][13];
+                        that.tableData14=panelProduct[7][14];
+                        that.tableData15=panelProduct[7][15];
+                        that.tableData16=panelProduct[7][16];
+                        that.tableData17=panelProduct[7][17];
+                        that.tableData18=panelProduct[7][18];
+                        that.tableData19=panelProduct[7][19];
+                        that.tableData20=panelProduct[7][20];
                         //that.tableData21=res1.dataToWebProTableList[1].value;
                         //实时能耗散点图
-                        that.consumptionProValue=res1.consumptionProValue;
+                        that.consumptionProValue=res1.panelConsumption[6];
                         var consumptionProValue= that.consumptionProValue;
                         that.Echarts2(consumptionProValue);
                         //实时单耗六芒星
-                        that.consumptionUnitProValue=res1.consumptionUnitProValue;
+                        var consumptionUnitValueTable=res1.panelConsumption[8];
+                        that.consumptionUnitProValue=consumptionUnitValueTable;
                         //实时单耗表格
-                        that.consumptionUnitProValue0=res1.consumptionUnitProValue[0][0].toFixed(2);
-                        that.consumptionUnitProValue1=res1.consumptionUnitProValue[0][1].toFixed(2);
-                        that.consumptionUnitProValue2=res1.consumptionUnitProValue[0][2].toFixed(2);
-                        that.consumptionUnitProValue3=res1.consumptionUnitProValue[0][3].toFixed(2);
-                        that.consumptionUnitProValue4=res1.consumptionUnitProValue[0][4].toFixed(2);
-                        that.consumptionUnitProValue5=res1.consumptionUnitProValue[0][5].toFixed(2);
+                        that.consumptionUnitProValue0=consumptionUnitValueTable[0].toFixed(2);
+                        that.consumptionUnitProValue1=consumptionUnitValueTable[1].toFixed(2);
+                        that.consumptionUnitProValue2=consumptionUnitValueTable[2].toFixed(2);
+                        that.consumptionUnitProValue3=consumptionUnitValueTable[3].toFixed(2);
+                        that.consumptionUnitProValue4=consumptionUnitValueTable[4].toFixed(2);
+                        that.consumptionUnitProValue5=consumptionUnitValueTable[5].toFixed(2);
 
-                        console.log(that.consumptionUnitProValue1);
                         var consumptionUnitProValue=that.consumptionUnitProValue;
                         that.Echarts18(consumptionUnitProValue);
                         //单耗表格
-                        that.dataToWebConsumptionTableList0=res1.dataToWebConsumptionTableList[0].value;
-                        that.dataToWebConsumptionTableList1=res1.dataToWebConsumptionTableList[1].value;
-                        that.dataToWebConsumptionTableList2=res1.dataToWebConsumptionTableList[2].value;
-                        that.dataToWebConsumptionTableList3=res1.dataToWebConsumptionTableList[3].value;
-                        that.dataToWebConsumptionTableList4=res1.dataToWebConsumptionTableList[4].value;
-                        that.dataToWebConsumptionTableList5=res1.dataToWebConsumptionTableList[5].value;
-                        that.dataToWebConsumptionTableList6=res1.dataToWebConsumptionTableList[6].value;
-                        that.dataToWebConsumptionTableList7=res1.dataToWebConsumptionTableList[7].value;
-                        that.dataToWebConsumptionTableList8=res1.dataToWebConsumptionTableList[8].value;
+                        var panelConsumptionTable=res1.panelConsumption[7];
+                        that.dataToWebConsumptionTableList0=panelConsumptionTable[0];
+                        that.dataToWebConsumptionTableList1=panelConsumptionTable[1];
+                        that.dataToWebConsumptionTableList2=panelConsumptionTable[2];
+                        that.dataToWebConsumptionTableList3=panelConsumptionTable[3];
+                        that.dataToWebConsumptionTableList4=panelConsumptionTable[4];
+                        that.dataToWebConsumptionTableList5=panelConsumptionTable[5];
+                        that.dataToWebConsumptionTableList6=panelConsumptionTable[6];
+                        that.dataToWebConsumptionTableList7=panelConsumptionTable[7];
+                        that.dataToWebConsumptionTableList8=panelConsumptionTable[8];
                         //历史能耗折线图
-                        that.hisConsumptionValue0=res1.hisConsumptionValue[0];
-                        that.hisConsumptionValue1=res1.hisConsumptionValue[1];
-                        that.hisConsumptionValue2=res1.hisConsumptionValue[2];
-                        that.hisConsumptionValue3=res1.hisConsumptionValue[3];
-                        that.hisConsumptionValue4=res1.hisConsumptionValue[4];
-                        that.hisConsumptionValue5=res1.hisConsumptionValue[5];
+                        that.hisConsumptionValue0=res1.panelConsumption[0];
+                        that.hisConsumptionValue1=res1.panelConsumption[1];
+                        that.hisConsumptionValue2=res1.panelConsumption[2];
+                        that.hisConsumptionValue3=res1.panelConsumption[3];
+                        that.hisConsumptionValue4=res1.panelConsumption[4];
+                        that.hisConsumptionValue5=res1.panelConsumption[5];
+
                         //粗苯组分测量值
-                        that.analyserCOLOValue0=res1.analyserCOLOValue[0][0];
-                        that.analyserCOLOValue1=res1.analyserCOLOValue[0][1];
-                        that.analyserCOLOValue2=res1.analyserCOLOValue[0][2];
-                        that.analyserCOLOValue3=res1.analyserCOLOValue[0][3];
-                        that.analyserCOLOValue4=res1.analyserCOLOValue[0][4];
-                        that.analyserCOLOValue5=res1.analyserCOLOValue[0][5];
-                        that.analyserCOLOValue6=res1.analyserCOLOValue[0][6];
-                        that.analyserCOLOValue7=res1.analyserCOLOValue[0][7];
-                        that.analyserCOLOValue8=res1.analyserCOLOValue[0][8];
-                        that.analyserCOLOValue9=res1.analyserCOLOValue[0][9];
-                        that.analyserCOLOValue10=res1.analyserCOLOValue[0][10];
-                        that.analyserCOLOValue11=res1.analyserCOLOValue[0][11];
-                        that.analyserCOLOValue12=res1.analyserCOLOValue[0][12];
+                        var analyserCOLOValueFromS=res1.panelAnalyser[0];
+                        that.analyserCOLOValue0=analyserCOLOValueFromS[0];
+                        that.analyserCOLOValue1=analyserCOLOValueFromS[1];
+                        that.analyserCOLOValue2=analyserCOLOValueFromS[2];
+                        that.analyserCOLOValue3=analyserCOLOValueFromS[3];
+                        that.analyserCOLOValue4=analyserCOLOValueFromS[4];
+                        that.analyserCOLOValue5=analyserCOLOValueFromS[5];
+                        that.analyserCOLOValue6=analyserCOLOValueFromS[6];
+                        that.analyserCOLOValue7=analyserCOLOValueFromS[7];
+                        that.analyserCOLOValue8=analyserCOLOValueFromS[8];
+                        that.analyserCOLOValue9=analyserCOLOValueFromS[9];
+                        that.analyserCOLOValue10=analyserCOLOValueFromS[10];
+                        that.analyserCOLOValue11=analyserCOLOValueFromS[11];
+                        that.analyserCOLOValue12=analyserCOLOValueFromS[12];
                         //芳香烃测量值
-                        that.analyserBTAROValue=res1.analyserBTAROValue[0];
-                        that.analyserBTAROValue0=res1.analyserBTAROValue[0][0];
-                        that.analyserBTAROValue1=res1.analyserBTAROValue[0][1];
-                        that.analyserBTAROValue2=res1.analyserBTAROValue[0][2];
-                        that.analyserBTAROValue3=res1.analyserBTAROValue[0][3];
-                        that.analyserBTAROValue4=res1.analyserBTAROValue[0][4];
+                        var analyserBTAROValueFromS=res1.panelAnalyser[3];
+                        that.analyserBTAROValue=analyserBTAROValueFromS;
+                        that.analyserBTAROValue0=analyserBTAROValueFromS[0];
+                        that.analyserBTAROValue1=analyserBTAROValueFromS[1];
+                        that.analyserBTAROValue2=analyserBTAROValueFromS[2];
+                        that.analyserBTAROValue3=analyserBTAROValueFromS[3];
+                        that.analyserBTAROValue4=analyserBTAROValueFromS[4];
                         that.Echarts4();
 
                         //非芳烃测量值
-                        that.analyserNONAROValue0=res1.analyserNONAROValue[0][0];
-                        that.analyserNONAROValue1=res1.analyserNONAROValue[0][1];
-                        that.analyserNONAROValue2=res1.analyserNONAROValue[0][2];
-                        that.analyserNONAROValue3=res1.analyserNONAROValue[0][3];
+                        var analyserNONAROValueFromS=res1.panelAnalyser[1];
+                        that.analyserNONAROValue0=analyserNONAROValueFromS[0];
+                        that.analyserNONAROValue1=analyserNONAROValueFromS[1];
+                        that.analyserNONAROValue2=analyserNONAROValueFromS[2];
+                        that.analyserNONAROValue3=analyserNONAROValueFromS[3];
                         that.Echarts5();
                         //循环气测量值
-                        that.analyserRECGASValue0=res1.analyserRECGASValue[0][0];
-                        that.analyserRECGASValue1=res1.analyserRECGASValue[0][1];
-                        that.analyserRECGASValue2=res1.analyserRECGASValue[0][2];
-                        that.analyserRECGASValue3=res1.analyserRECGASValue[0][3];
-                        that.analyserRECGASValue4=res1.analyserRECGASValue[0][4];
-                        that.analyserRECGASValue5=res1.analyserRECGASValue[0][5];
+                        var analyserRECGASValueFromS=res1.panelAnalyser[5];
+                        that.analyserRECGASValue0=analyserRECGASValueFromS[0];
+                        that.analyserRECGASValue1=analyserRECGASValueFromS[1];
+                        that.analyserRECGASValue2=analyserRECGASValueFromS[2];
+                        that.analyserRECGASValue3=analyserRECGASValueFromS[3];
+                        that.analyserRECGASValue4=analyserRECGASValueFromS[4];
+                        that.analyserRECGASValue5=analyserRECGASValueFromS[5];
                         that.Echarts6();
                         //甲苯测量值
-                        that.analyserTOLValue0=res1.analyserTOLValue[0][0];
-                        that.analyserTOLValue1=res1.analyserTOLValue[0][1];
-                        that.analyserTOLValue2=res1.analyserTOLValue[0][2];
-                        that.analyserTOLValue3=res1.analyserTOLValue[0][3];
+                        var analyserTOLValueFromS=res1.panelAnalyser[4];
+                        that.analyserTOLValue0=analyserTOLValueFromS[0];
+                        that.analyserTOLValue1=analyserTOLValueFromS[1];
+                        that.analyserTOLValue2=analyserTOLValueFromS[2];
+                        that.analyserTOLValue3=analyserTOLValueFromS[3];
                         that.Echarts8();
-//纯苯测量值
-                        that.analyserBENValue0=res1.analyserBENValue[0][0];
-                        that.analyserBENValue1=res1.analyserBENValue[0][1];
-                        that.analyserBENValue2=res1.analyserBENValue[0][2];
-                        that.analyserBENValue3=res1.analyserBENValue[0][3];
+                        //纯苯测量值
+                        var analyserBENValueFromS=res1.panelAnalyser[2];
+                        that.analyserBENValue0=analyserBENValueFromS[0];
+                        that.analyserBENValue1=analyserBENValueFromS[1];
+                        that.analyserBENValue2=analyserBENValueFromS[2];
+                        that.analyserBENValue3=analyserBENValueFromS[3];
                         that.Echarts7();
 
 
 
                         //自控投用率
-                        that.PIDRatio=res1.PIDRatio;
+                        that.PIDRatio=res1.panelRatio[1];
                         //APC投用率
-                        that.APCRatio=res1.APCRatio;
+                        that.APCRatio=res1.panelRatio[4];
                         //PID投用个数
-                        that.PIDUseNum=res1.PIDUseNum;
+                        that.PIDUseNum=res1.panelRatio[2];
                         //PID总数
-                        that.PIDLoopNum=res1.PIDLoopNum;
+                        that.PIDLoopNum=res1.panelRatio[3];
                         //apc投用个数
-                        that.APCUseNum=res1.APCUseNum;
+                        that.APCUseNum=res1.panelRatio[5];
                         //apc总数
-                        that.APCLoopNum=res1.APCLoopNum;
+                        that.APCLoopNum=res1.panelRatio[6];
                         //7天自控投用率历史记录
-                        that.hisPIDRatioValue=res1.hisPIDRatioValue[0];
+                        that.hisPIDRatioValue=res1.panelRatio[0];
                          that.Echarts12();
 
                          //温度计
@@ -3832,106 +3856,115 @@ Echarts2:function (consumptionProValue) {
 
             },
 
+//最后在beforeDestroy()生命周期内清除定时器：
+        beforeDestroy(){
+    clearInterval(this.timer1);
+    this.timer1 = null;
+            clearInterval(this.timer2);
+            this.timer2 = null;
+            clearInterval(this.timer3);
+            this.timer3 = null;
+}
 
     }
 </script>
 
 
 <style scoped>
-.allbox{
-    /*position: relative;*/
-    width:100%;
-    height: 100%;
-    /*background: url(../assets/BJ.png) no-repeat;*/
-    /*background-size:100% 100%;;*/
-    /*overflow: hidden;*/
-    /*margin: 0 auto;*/
-}
-.imgtitle{
-    width: 100%;
-    height: 8%;
-}
+    .allbox{
+        /*position: relative;*/
+        width:100%;
+        height: 100%;
+        /*background: url(../assets/BJ.png) no-repeat;*/
+        /*background-size:100% 100%;;*/
+        /*overflow: hidden;*/
+        /*margin: 0 auto;*/
+    }
+    .imgtitle{
+        width: 100%;
+        height: 8%;
+    }
 
-.content{
-    width:100%;
-    height: 46%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-}
-.a {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.fuhe{
-    /*float: left;*/
-    background: url("../assets/BK.png") no-repeat;
-    background-size:100% 100%;
-    width: 50%;
-    height: 100%;
-    flex: auto;
-    display: flex;
-    /*padding: 10px;*/
-    /*flex-direction: column;*/
-}
-.fh1{
-    width: 65%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    .content{
+        width:100%;
+        height: 46%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
+    .a {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .fuhe{
+        /*float: left;*/
+        background: url("../assets/BK.png") no-repeat;
+        background-size:100% 100%;
+        width: 50%;
+        height: 100%;
+        flex: auto;
+        display: flex;
+        /*padding: 10px;*/
+        /*flex-direction: column;*/
+    }
+    .fh1{
+        width: 65%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
 
-}
-.fh1_a{
-    width: 100%;
-    height: 50%;
-}
-.fh1_b{
-width: 100%;
-    height: 50%;
-    display: flex;
-    align-content:center;
-}
-.fh1_b1{
-    /*display: none;*/
-    margin-left: 20px;
-    margin-top: -20px;
-    width: 70%;
-    height: 100%;
-}
-.fh1_b2{
-    width:30%;
-    padding-top: 25px;
-    height: 100%;
-    /*display: flex;!*设置为弹性容器*!*/
-    /*align-items: center; !*定义div1的元素垂直居中*!*/
-    /*justify-content: center; !*定义div1的里的元素水平居中*!*/
-    /*text-align: center;*/
-    /*line-height: 100%;*/
-    /*padding-bottom: 20px;*/
+    }
+    .fh1_a{
+        width: 100%;
+        height: 50%;
+    }
+    .fh1_b{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-content:center;
+    }
+    .fh1_b1{
+        /*display: none;*/
+        margin-left: 20px;
+        margin-top: -20px;
+        width: 70%;
+        height: 100%;
+    }
+    .fh1_b2{
+        width:30%;
+        padding-top: 25px;
+        height: 100%;
+        /*display: flex;!*设置为弹性容器*!*/
+        /*align-items: center; !*定义div1的元素垂直居中*!*/
+        /*justify-content: center; !*定义div1的里的元素水平居中*!*/
+        /*text-align: center;*/
+        /*line-height: 100%;*/
+        /*padding-bottom: 20px;*/
 
-}
-/* 负荷表格样式 */
-.fh2{
-    width: 35%;
-    height: 100%;
+    }
+    /* 负荷表格样式 */
+    .fh2{
+        width: 35%;
+        height: 100%;
 
 
-}
-/*圆 样式*/
-.fh1_b2_a{
-    width:100%;
-    height:100%;
-     border:5px solid #64B9e9;
-    border-radius:50% ;
-    margin: 0 auto;
-    display: flex;/*设置为弹性容器*/
-    align-items: center; /*定义div1的元素垂直居中*/
-    justify-content: center; /*定义div1的里的元素水平居中*/
-}
-.fh1_b2_a_1{
+    }
+    /*圆 样式*/
+    .fh1_b2_a{
+        width:100%;
+        height:100%;
+        border:5px solid #64B9e9;
+        border-radius:50% ;
+        margin: 0 auto;
+        display: flex;/*设置为弹性容器*/
+        align-items: center; /*定义div1的元素垂直居中*/
+        justify-content: center; /*定义div1的里的元素水平居中*/
+    }
+    .fh1_b2_a_1{
 
-}
+    }
     .nenghao{
         /*float: right;*/
         background: url("../assets/BK.png") no-repeat;
@@ -3955,44 +3988,44 @@ width: 100%;
         /*margin-bottom: 20px;*/
         /*background-color: blue;*/
     }
-.NH_1_a{
-    width: 33.3%;
-    height: 100%;
-    /*background-color: yellow;*/
-}
-.NH_1_b{
-    width: 33.3%;
-    height: 100%;
-    /*background-color: darkslategray;*/
-}
-.NH_1_c{
-    width: 33.3%;
-    height: 100%;
-    padding-right: 20px;
-    /*background-color: darkslategray;*/
-}
-.NH_2_a{
-    width: 50%;
-    height: 100%;
+    .NH_1_a{
+        width: 50%;
+        height: 100%;
+        /*background-color: yellow;*/
+    }
+    .NH_1_b{
+        width: 25%;
+        height: 100%;
+        /*background-color: darkslategray;*/
+    }
+    .NH_1_c{
+        width: 25%;
+        height: 100%;
+        padding-right: 20px;
+        /*background-color: darkslategray;*/
+    }
+    .NH_2_a{
+        width: 50%;
+        height: 100%;
 
-    /*background-color: aliceblue;*/
-}
-.NH_2_b{
-    width: 50%;
-    height: 100%;
-    /*background-color: fuchsia;*/
-}
-.TableStyle1{
-    margin-top: 30px;
-    /*margin-right: 20px;*/
-    color: white;
-    border-collapse:separate;
-    border:2px solid #64B9E9;
-    border-radius: 0.5em;
-    width: 100% ;
-    font-size: 18px;
+        /*background-color: aliceblue;*/
+    }
+    .NH_2_b{
+        width: 50%;
+        height: 100%;
+        /*background-color: fuchsia;*/
+    }
+    .TableStyle1{
+        margin-top: 30px;
+        /*margin-right: 20px;*/
+        color: white;
+        border-collapse:separate;
+        border:2px solid #64B9E9;
+        border-radius: 0.5em;
+        width: 100% ;
+        font-size: 18px;
 
-}
+    }
     .zhibiao{
         /*float: left;*/
         background: url("../assets/BK.png") no-repeat;
@@ -4026,45 +4059,45 @@ width: 100%;
         /*margin-right:10px;*/
         /*background-color: aliceblue;*/
     }
-.ZB_1_b{
-    width: 30%;
-    height: 100%;
-    /*background-color:sienna;*/
-}
-.ZB_1_c{
-    width: 30%;
-    height: 100%;
-    /*background-color:green;*/
-}
-.ZB_2{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    /*background-color: blueviolet;*/
+    .ZB_1_b{
+        width: 30%;
+        height: 100%;
+        /*background-color:sienna;*/
+    }
+    .ZB_1_c{
+        width: 30%;
+        height: 100%;
+        /*background-color:green;*/
+    }
+    .ZB_2{
+        display: flex;
+        width: 100%;
+        height: 50%;
+        /*background-color: blueviolet;*/
 
-}
-.ZB_2_N{
-    width: 6%;
-    height: 100%;
-    padding-left:10px;
-    padding-top: 50px;
-    text-align: center;
-    line-height: 32px;
-    font-size:1em;
-    color: #64B9E9;
-}
-.ZB_2_a{
+    }
+    .ZB_2_N{
+        width: 6%;
+        height: 100%;
+        padding-left:10px;
+        padding-top: 50px;
+        text-align: center;
+        line-height: 32px;
+        font-size:1em;
+        color: #64B9E9;
+    }
+    .ZB_2_a{
 
-    width: 34%;
-    height: 100%;
+        width: 34%;
+        height: 100%;
 
-    /*background-color:darkslategray;*/
-}
-.ZB_2_b{
-    width: 30%;
-    height: 100%;
-    /*background-color:rosybrown;*/
-}
+        /*background-color:darkslategray;*/
+    }
+    .ZB_2_b{
+        width: 30%;
+        height: 100%;
+        /*background-color:rosybrown;*/
+    }
     .ZB_2_c{
         width: 30%;
         height: 100%;
@@ -4081,79 +4114,79 @@ width: 100%;
         flex: auto;
 
     }
-.TYL_1{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    /*background-color: red;*/
-}
-.TYL_1_a{
-    width: 25%;
-    height: 100%;
-    padding-top: 50px;
-    /*background-color: aliceblue;*/
-}
-.TYL_1_b{
-    width: 20%;
-    height: 100%;
-    padding-top: 30px;
-    /*background-color:sienna;*/
-}
-.TYL_1_c{
-    width: 55%;
-    height: 100%;
-    /*background-color:green;*/
-}
-/*.TYL_1_d{*/
+    .TYL_1{
+        display: flex;
+        width: 100%;
+        height: 50%;
+        /*background-color: red;*/
+    }
+    .TYL_1_a{
+        width: 25%;
+        height: 100%;
+        padding-top: 50px;
+        /*background-color: aliceblue;*/
+    }
+    .TYL_1_b{
+        width: 20%;
+        height: 100%;
+        padding-top: 30px;
+        /*background-color:sienna;*/
+    }
+    .TYL_1_c{
+        width: 55%;
+        height: 100%;
+        /*background-color:green;*/
+    }
+    /*.TYL_1_d{*/
     /*display: flex;*/
     /*align-items: center;*/
     /*width: 15%;*/
     /*height: 100%;*/
     /*!*background-color:green;*!*/
-/*}*/
-.TYL_2{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    padding-bottom:20px;
-    /*background-color: blueviolet;*/
-}
-.TYL_2_a{
-    width: 25%;
-    height: 100%;
-    padding-top: 20px;
-    /*background-color:darkslategray;*/
-}
-.TYL_2_b{
-    width:20%;
-    height:100%;
-    /*margin-bottom: 50px;*/
-    /*//margin:0 auto;*/
-    /*background-color:rosybrown;*/
-}
-.TYL_2_c{
-    width:55%;
-    height:100%;
+    /*}*/
+    .TYL_2{
+        display: flex;
+        width: 100%;
+        height: 50%;
+        padding-bottom:20px;
+        /*background-color: blueviolet;*/
+    }
+    .TYL_2_a{
+        width: 25%;
+        height: 100%;
+        padding-top: 20px;
+        /*background-color:darkslategray;*/
+    }
+    .TYL_2_b{
+        width:20%;
+        height:100%;
+        /*margin-bottom: 50px;*/
+        /*//margin:0 auto;*/
+        /*background-color:rosybrown;*/
+    }
+    .TYL_2_c{
+        width:55%;
+        height:100%;
 
-    /*background-color:tomato;*/
-}
-table,tr,td{
-    /*border:1px solid red;*/
-    /*border-collapse: collapse;*/
-    border: 0px solid #888;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    border-collapse: collapse;
-    font-size: 16px;
-    text-align: center;
-}
-.jishu {
-    background-color: rgba(0%, 0%, 0%, 0);
-}
+        /*background-color:tomato;*/
+    }
+    table,tr,td{
+        /*border:1px solid red;*/
+        /*border-collapse: collapse;*/
+        border: 0px solid #888;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border-collapse: collapse;
+        font-size: 16px;
+        text-align: center;
+    }
+    .jishu {
+        background-color: rgba(0%, 0%, 0%, 0);
+    }
 
-.oushu {
-    background-color: rgba(21, 214, 198, 0.12);
-}
+    .oushu {
+        background-color: rgba(21, 214, 198, 0.12);
+    }
 </style>

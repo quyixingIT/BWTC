@@ -48,7 +48,7 @@
         methods:{
 
             clickFunctions:function () {
-                debugger;
+
                 document.getElementById('elmenu').style.display="none";
                 //将头部隐藏
                 document.getElementById('head-nav').style.display="none";

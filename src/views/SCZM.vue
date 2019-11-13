@@ -2,7 +2,7 @@
     <div class="SCZM">
         <!--<img src="../assets/svg/SCZM1.svg" alt="图片1">-->
         <!--<img src="../assets/svg/SCZM.svg" alt="图片">-->
-        <img src="../assets/XNGC.png"/>
+        <img src="../assets/XNGC.png" style="height: 8%;width:100%;"/>
         <div class="xuni">
             <SvgIcon></SvgIcon>
         </div>
@@ -127,14 +127,19 @@
 <style scoped>
 
     .SS {
+        height: 46%;
         padding-bottom: 20px;
     }
 
     .xuni {
+        height: 46%;
         padding-top: 20px;
     }
 
     .SCZM {
+        width:100%;
+        height: 100%;
+        text-align: center;
         /*background-color: #080D1C;*/
         /*padding-top: 50px;*/
     }
